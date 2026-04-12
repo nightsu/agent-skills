@@ -18,7 +18,8 @@
         "./figma-api-mapper",
         "./project-interview-analyzer",
         "./git-commit",
-        "./markitdown-export"
+        "./markitdown-export",
+        "./markdown-lint"
       ]
     }
   ]

@@ -14,6 +14,7 @@
 - `project-interview-analyzer`：把项目整理成面试材料。
 - `git-commit`：安全审查改动并生成提交。
 - `figma-api-mapper`：清理 Figma 节点并映射 UI 与接口字段。
+- `markdown-lint`：清理并规范 Markdown 文件格式。
 
 ## 统一结构
 
