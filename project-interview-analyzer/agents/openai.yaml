@@ -1,4 +1,4 @@
 interface:
   display_name: "Project Interview Analyzer"
-  short_description: "把项目整理成面试材料，并给出理想设计和渐进优化两条路线"
+  short_description: "把项目整理成面试材料，并补充演进路线"
   default_prompt: "Use $project-interview-analyzer to analyze my project directories and produce Chinese technical/business overviews plus interview story documents, including ideal redesign and incremental optimization directions when the project is complex."

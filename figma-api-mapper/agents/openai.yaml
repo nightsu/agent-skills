@@ -1,4 +1,4 @@
 interface:
   display_name: "Figma API 映射器"
-  short_description: "清理 Figma 噪音并映射 UI 与接口"
-  default_prompt: "使用 $figma-api-mapper 清理 Figma 节点，区分 UI 与接口字段，并输出一份可审阅的 UI 到接口映射草案。"
+  short_description: "清理 Figma 噪音，区分 UI 与接口字段"
+  default_prompt: "使用 $figma-api-mapper 清理 Figma 节点，区分 api_bound、ui_static、ui_copy 和 unknown，并输出一份可审阅的 UI 到接口映射草案。"

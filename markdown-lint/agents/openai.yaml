@@ -1,4 +1,4 @@
 interface:
   display_name: "Markdown Lint"
-  short_description: "清理并规范 Markdown 文件格式，支持常见导出残留修复"
-  default_prompt: "Use $markdown-lint to clean and normalize a Markdown file, fixing spacing, links, separators, and common HTML export artifacts."
+  short_description: "清理并规范 Markdown 文件格式"
+  default_prompt: "Use $markdown-lint to clean and normalize a Markdown file, fixing spacing, links, separators, table formatting, and common HTML export artifacts."
