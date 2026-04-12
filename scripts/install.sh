@@ -6,11 +6,11 @@ usage() {
 Usage: scripts/install.sh [skills|plugin|both|update]
 
 Installs the shared skills as standalone skill symlinks and/or as plugin installs for Codex and Claude Code.
-Defaults to "both".
+Defaults to "skills".
 EOF
 }
 
-target="${1:-both}"
+target="${1:-skills}"
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 plugin_name="agent-skills"
 plugin_src="${repo_root}/plugins/${plugin_name}"
@@ -69,8 +69,6 @@ case "${target}" in
   update)
     link_skills "${CODEX_HOME:-$HOME/.codex}/skills"
     link_skills "${HOME}/.claude/skills"
-    link_plugin "${CODEX_HOME:-$HOME/.codex}/plugins"
-    link_plugin "${HOME}/.claude/plugins"
     ;;
   -h|--help)
     usage
