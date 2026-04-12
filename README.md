@@ -18,10 +18,12 @@
 Claude Code:
 
 ```bash
-/plugin marketplace add <your-github-user>/agent-skills
+/plugin marketplace add nightsu/agent-skills
 ```
 
 然后在插件市场里安装 `agent-skills`。
+
+仓库地址：`https://github.com/nightsu/agent-skills`
 
 Codex:
 
