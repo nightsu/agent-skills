@@ -27,8 +27,9 @@ Claude Code:
 
 Codex:
 
-- 继续使用仓库内的 `.agents/plugins/marketplace.json` 作为同源 marketplace 定义。
-- 如果你的 Codex 环境支持从远程 marketplace 注册同一仓库，可直接使用仓库地址作为来源；如果不支持，则使用下面的本地同步方式。
+- 使用仓库内的 `.agents/plugins/marketplace.json` 作为同源 marketplace 定义。
+- 远程安装时，直接使用仓库地址 `https://github.com/nightsu/agent-skills` 作为来源。
+- 如果当前 Codex 环境暂不支持远程 marketplace，再使用下面的本地同步方式。
 
 ```bash
 ./project-interview-analyzer/scripts/install.sh plugin
