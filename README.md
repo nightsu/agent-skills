@@ -9,17 +9,32 @@
 
 ## 安装
 
-使用脚本将仓库中的所有技能链接到本地技能目录：
+推荐使用 plugin 方式安装，这样 Codex 和 Claude Code 都能直接加载同一套技能，并且重新运行脚本即可同步更新。
+
+```bash
+./project-interview-analyzer/scripts/install.sh plugin
+```
+
+如果你还想保留旧的 standalone skills 链接，可以用：
 
 ```bash
 ./project-interview-analyzer/scripts/install.sh both
 ```
 
-Targets:
+## 更新
 
-- `codex`：链接到 `~/.codex/skills`
-- `claude`：链接到 `~/.claude/skills`
-- `both`：同时链接到两个位置
+仓库更新后，重新运行同一个脚本即可刷新本地 plugin/skills 链接：
+
+```bash
+./project-interview-analyzer/scripts/install.sh update
+```
+
+## 目标路径
+
+- Codex plugin：`~/.codex/plugins/agent-skills`
+- Claude Code plugin：`~/.claude/plugins/agent-skills`
+- Codex skills：`~/.codex/skills`
+- Claude Code skills：`~/.claude/skills`
 
 ## 技能结构
 
@@ -30,4 +45,4 @@ Targets:
 - `references/`
 - `scripts/`
 
-这样便于版本管理、审阅，并且可以同时安装到多个助手环境中。
+插件包装层位于 `plugins/agent-skills/`，会把仓库中的技能暴露成一个可安装的 plugin。

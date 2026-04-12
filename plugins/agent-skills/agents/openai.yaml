@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Skills"
+  short_description: "Shared skills for Codex and Claude Code"
+  default_prompt: "Use $agent-skills to install or update the shared skills in this repository."
