@@ -11,6 +11,23 @@
 
 推荐使用 plugin 方式安装，这样 Codex 和 Claude Code 都能直接加载同一套技能，并且重新运行脚本即可同步更新。
 
+### 远程安装
+
+把这个 GitHub 仓库注册为 marketplace 后，可以直接安装，不需要先 clone 到本地。
+
+Claude Code:
+
+```bash
+/plugin marketplace add <your-github-user>/agent-skills
+```
+
+然后在插件市场里安装 `agent-skills`。
+
+Codex:
+
+- 继续使用仓库内的 `.agents/plugins/marketplace.json` 作为同源 marketplace 定义。
+- 如果你的 Codex 环境支持从远程 marketplace 注册同一仓库，可直接使用仓库地址作为来源；如果不支持，则使用下面的本地同步方式。
+
 ```bash
 ./project-interview-analyzer/scripts/install.sh plugin
 ```
@@ -23,7 +40,7 @@
 
 ## 更新
 
-仓库更新后，重新运行同一个脚本即可刷新本地 plugin/skills 链接：
+仓库更新后，远程 marketplace 只需要点更新即可；本地环境则重新运行同一个脚本即可刷新 plugin/skills 链接：
 
 ```bash
 ./project-interview-analyzer/scripts/install.sh update
@@ -35,6 +52,7 @@
 - Claude Code plugin：`~/.claude/plugins/agent-skills`
 - Codex skills：`~/.codex/skills`
 - Claude Code skills：`~/.claude/skills`
+- Claude Code marketplace manifest：`.claude-plugin/marketplace.json`
 
 ## 技能结构
 

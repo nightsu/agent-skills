@@ -1,0 +1,22 @@
+{
+  "name": "agent-skills",
+  "owner": {
+    "name": "Ethan"
+  },
+  "metadata": {
+    "description": "Shared skills for Codex and Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "agent-skills",
+      "description": "Shared skills for Codex and Claude Code",
+      "source": "./",
+      "strict": true,
+      "skills": [
+        "./project-interview-analyzer",
+        "./git-commit"
+      ]
+    }
+  ]
+}
