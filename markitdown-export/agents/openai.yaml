@@ -1,0 +1,4 @@
+interface:
+  display_name: "MarkItDown Export"
+  short_description: "将 PDF、Word、Excel 等文件转换为同目录 Markdown，并在重名时先询问覆盖"
+  default_prompt: "Use $markitdown-export to convert a supported file with MarkItDown and save the Markdown next to the source file."
