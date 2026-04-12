@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Interview Analyzer"
+  short_description: "把项目整理成面试材料"
+  default_prompt: "Use $project-interview-analyzer to analyze my project directories and produce Chinese technical/business overviews plus interview story documents."

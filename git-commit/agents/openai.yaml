@@ -1,0 +1,7 @@
+interface:
+  display_name: "Git Commit Assistant"
+  short_description: "安全审查改动并提交代码"
+  default_prompt: "Use $git-commit to review my git diff, stage only the relevant files, and create a concise commit message."
+
+policy:
+  allow_implicit_invocation: true
