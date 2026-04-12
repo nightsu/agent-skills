@@ -11,7 +11,7 @@ EOF
 }
 
 target="${1:-both}"
-repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 plugin_name="agent-skills"
 plugin_src="${repo_root}/plugins/${plugin_name}"
 

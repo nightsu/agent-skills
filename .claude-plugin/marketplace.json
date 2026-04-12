@@ -15,6 +15,7 @@
       "strict": true,
       "skills": [
         "./document-analysis",
+        "./figma-api-mapper",
         "./project-interview-analyzer",
         "./git-commit"
       ]

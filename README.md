@@ -7,6 +7,7 @@
 - `document-analysis`：理解、摘要并审阅文档
 - `project-interview-analyzer`：把项目整理成面试材料
 - `git-commit`：安全审查改动并提交代码
+- `figma-api-mapper`：清理 Figma 节点并映射 UI 与接口字段
 
 ## 安装
 
@@ -33,13 +34,13 @@ Codex:
 - 如果当前 Codex 环境暂不支持远程 marketplace，再使用下面的本地同步方式。
 
 ```bash
-./project-interview-analyzer/scripts/install.sh plugin
+./scripts/install.sh plugin
 ```
 
 如果你还想保留旧的 standalone skills 链接，可以用：
 
 ```bash
-./project-interview-analyzer/scripts/install.sh both
+./scripts/install.sh both
 ```
 
 ## 更新
@@ -47,7 +48,7 @@ Codex:
 仓库更新后，远程 marketplace 只需要点更新即可；本地环境则重新运行同一个脚本即可刷新 plugin/skills 链接：
 
 ```bash
-./project-interview-analyzer/scripts/install.sh update
+./scripts/install.sh update
 ```
 
 ## 目标路径
