@@ -1,0 +1,3 @@
+display_name: Document Analysis
+short_description: Summarize and review technical or business documents
+default_prompt: Use $document-analysis to classify the document type, summarize it, and review it for missing assumptions, logical gaps, risks, and priorities.

@@ -4,6 +4,7 @@
 
 ## 已包含的技能
 
+- `document-analysis`：理解、摘要并审阅文档
 - `project-interview-analyzer`：把项目整理成面试材料
 - `git-commit`：安全审查改动并提交代码
 

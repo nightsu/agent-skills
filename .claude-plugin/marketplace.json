@@ -14,6 +14,7 @@
       "source": "./",
       "strict": true,
       "skills": [
+        "./document-analysis",
         "./project-interview-analyzer",
         "./git-commit"
       ]
