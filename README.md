@@ -12,16 +12,25 @@
 
 ## 安装
 
-推荐使用 plugin 方式安装，这样 Codex 和 Claude Code 都会以 `ethan-skills` 命名空间暴露这套技能，界面里的来源更清晰。
+推荐使用混合安装：
+
+- Codex 使用 standalone skills
+- Claude Code 使用 `ethan-skills` plugin
+
+这样做的好处是：
+
+- Codex 侧触发更直接，兼容性更稳
+- Claude Code 侧保留 `skill · ethan-skills` 这种带命名空间的展示
 
 ```bash
-./scripts/install.sh plugin
+./scripts/install.sh
 ```
 
 执行后：
 
-- Codex 会把插件包装层同步到本地 `plugins` 目录
+- Codex 会把技能同步到本地 `~/.codex/skills`
 - Claude Code 会自动注册本仓库为 marketplace，并安装或更新 `ethan-skills@ethan-skills`
+- 脚本会顺手清理这套仓库在相反安装形态下留下的重复项
 
 如果你明确想以 standalone skills 方式安装，再执行：
 
@@ -31,12 +40,18 @@
 
 不建议同时保留同一套技能的 plugin 和 standalone skills，否则在 Codex / Claude Code 里通常会重复展示。
 
-## 更新
-
-仓库更新后，重新运行同一个脚本即可刷新已安装内容。推荐继续使用 plugin 模式：
+如果你明确需要两边都走 plugin，再执行：
 
 ```bash
 ./scripts/install.sh plugin
+```
+
+## 更新
+
+仓库更新后，重新运行同一个脚本即可刷新已安装内容。推荐继续使用默认混合模式：
+
+```bash
+./scripts/install.sh
 ```
 
 如果你使用的是 standalone skills 模式，再执行：
@@ -47,10 +62,10 @@
 
 ## 目标路径
 
-- Codex plugin：`~/.codex/plugins/ethan-skills`
-- Claude Code plugin：`~/.claude/plugins/ethan-skills`
 - Codex skills：`~/.codex/skills`
+- Codex plugin：`~/.codex/plugins/ethan-skills`
 - Claude Code skills：`~/.claude/skills`
+- Claude Code plugin：`~/.claude/plugins/ethan-skills`
 
 ## 技能结构
 
