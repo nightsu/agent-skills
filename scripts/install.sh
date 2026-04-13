@@ -14,6 +14,16 @@ target="${1:-skills}"
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 plugin_name="ethan-skills"
 plugin_src="${repo_root}/plugins/${plugin_name}"
+claude_plugins_dir="${HOME}/.claude/plugins"
+claude_known_marketplaces="${claude_plugins_dir}/known_marketplaces.json"
+claude_installed_plugins="${claude_plugins_dir}/installed_plugins.json"
+
+require_claude_cli() {
+  if ! command -v claude >/dev/null 2>&1; then
+    echo "error: claude CLI is required for plugin installation" >&2
+    exit 1
+  fi
+}
 
 link_skills() {
   local base_dir="$1"
@@ -51,6 +61,24 @@ link_plugin() {
   done
 }
 
+install_claude_plugin() {
+  local plugin_ref="${plugin_name}@${plugin_name}"
+
+  require_claude_cli
+
+  if [[ -f "${claude_known_marketplaces}" ]] && grep -Fq "\"${plugin_name}\":" "${claude_known_marketplaces}"; then
+    claude plugin marketplace update "${plugin_name}"
+  else
+    claude plugin marketplace add "${repo_root}"
+  fi
+
+  if [[ -f "${claude_installed_plugins}" ]] && grep -Fq "\"${plugin_ref}\":" "${claude_installed_plugins}"; then
+    claude plugin update "${plugin_ref}"
+  else
+    claude plugin install "${plugin_ref}"
+  fi
+}
+
 case "${target}" in
   skills)
     link_skills "${CODEX_HOME:-$HOME/.codex}/skills"
@@ -58,13 +86,13 @@ case "${target}" in
     ;;
   plugin)
     link_plugin "${CODEX_HOME:-$HOME/.codex}/plugins"
-    link_plugin "${HOME}/.claude/plugins"
+    install_claude_plugin
     ;;
   both)
     link_skills "${CODEX_HOME:-$HOME/.codex}/skills"
     link_skills "${HOME}/.claude/skills"
     link_plugin "${CODEX_HOME:-$HOME/.codex}/plugins"
-    link_plugin "${HOME}/.claude/plugins"
+    install_claude_plugin
     ;;
   update)
     link_skills "${CODEX_HOME:-$HOME/.codex}/skills"
