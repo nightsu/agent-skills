@@ -42,8 +42,8 @@
 
 - Codex skills：`~/.codex/skills`
 - Claude Code skills：`~/.claude/skills`
-- Codex plugin：`~/.codex/plugins/agent-skills`
-- Claude Code plugin：`~/.claude/plugins/agent-skills`
+- Codex plugin：`~/.codex/plugins/ethan-skills`
+- Claude Code plugin：`~/.claude/plugins/ethan-skills`
 
 ## 技能结构
 
@@ -54,4 +54,4 @@
 - `references/`
 - `scripts/`
 
-插件包装层位于 `plugins/agent-skills/`，会把仓库中的技能暴露成一个可安装的 plugin。
+插件包装层位于 `plugins/ethan-skills/`，会把仓库中的技能暴露成一个可安装的 plugin。

@@ -1,14 +1,14 @@
 {
-  "name": "agent-skills-marketplace",
+  "name": "ethan-skills-marketplace",
   "interface": {
     "displayName": "Agent Skills"
   },
   "plugins": [
     {
-      "name": "agent-skills",
+      "name": "ethan-skills",
       "source": {
         "source": "local",
-        "path": "./plugins/agent-skills"
+        "path": "./plugins/ethan-skills"
       },
       "policy": {
         "installation": "AVAILABLE",

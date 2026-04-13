@@ -1,5 +1,5 @@
 {
-  "name": "agent-skills",
+  "name": "ethan-skills",
   "owner": {
     "name": "Ethan"
   },
@@ -9,7 +9,7 @@
   },
   "plugins": [
     {
-      "name": "agent-skills",
+      "name": "ethan-skills",
       "description": "Shared skills for Codex and Claude Code",
       "source": "./",
       "strict": true,
