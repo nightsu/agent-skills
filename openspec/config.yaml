@@ -1,0 +1,36 @@
+schema: spec-driven
+context: |
+  Repository: agent-skills, a shared skill repository for Codex and Claude Code.
+  Purpose: maintain reusable skills, helper scripts, and plugin packaging for AI workflows.
+  OpenSpec scope: this file defines the defaults used when creating or implementing change artifacts in this repository.
+  Primary languages: Markdown, Bash, YAML, and occasional Python for utility scripts.
+  Structure:
+  - Each skill lives in its own directory.
+  - Typical skill layout: SKILL.md, agents/openai.yaml, references/, scripts/.
+  - Plugin packaging lives under plugins/ and mirrors the skill directories.
+  Maintenance goals:
+  - Keep skills small, focused, and easy to trigger.
+  - Prefer clear operational instructions over theory.
+  - Preserve compatibility with both standalone skills and plugin distribution.
+  - Keep repository documentation in Chinese unless a file format or upstream convention requires English.
+  Language policy:
+  - Write OpenSpec artifacts in Chinese by default.
+  - Keep code identifiers, command names, file paths, and upstream-required strings in their original language.
+  - Use English only when required by external formats, APIs, or existing project conventions.
+
+rules:
+  proposal:
+    - State the user-facing problem, the target skill or workflow, and the reason the change is needed.
+    - Call out whether the change affects standalone skills, plugin packaging, or both.
+    - Keep proposals scoped and avoid mixing unrelated skill families in one change.
+    - Mention any installation, update, or sync impact on Codex and Claude Code.
+  design:
+    - Reuse the existing skill directory structure instead of inventing new conventions.
+    - Prefer simple file-based workflows and shell scripts over heavier tooling.
+    - Document any cross-skill or plugin sync implications explicitly.
+    - Keep design decisions compatible with both Codex and Claude Code distribution paths.
+  tasks:
+    - Break work into small, verifiable steps.
+    - Include repository updates, documentation updates, and sync/packaging checks when relevant.
+    - Keep tasks ordered so dependency artifacts are written before implementation tasks.
+    - Avoid large multi-purpose tasks; one task should map to one concrete outcome.
