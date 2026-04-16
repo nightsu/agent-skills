@@ -38,13 +38,26 @@
 ./scripts/install.sh skills
 ```
 
-不建议同时保留同一套技能的 plugin 和 standalone skills，否则在 Codex / Claude Code 里通常会重复展示。
+这会只安装到 Codex 的 `~/.codex/skills`，不会再改动 Claude Code。
 
 如果你明确需要两边都走 plugin，再执行：
 
 ```bash
 ./scripts/install.sh plugin
 ```
+
+这会安装：
+
+- Codex plugin：`~/.codex/plugins/ethan-skills`
+- Claude Code plugin：`ethan-skills@ethan-skills`
+
+如果你确实需要同时保留 Codex standalone skills 和两边的 plugin，再执行：
+
+```bash
+./scripts/install.sh both
+```
+
+不建议同时保留同一套技能的 plugin 和 standalone skills，否则在 Codex / Claude Code 里通常会重复展示。
 
 ## 更新
 
@@ -59,6 +72,12 @@
 ```bash
 ./scripts/install.sh update
 ```
+
+`update` 会刷新默认混合模式，也就是：
+
+- Codex 更新 standalone skills
+- Claude Code 更新 `ethan-skills` plugin
+- 清理这套仓库在另一种安装形态下留下的重复项
 
 ## 目标路径
 

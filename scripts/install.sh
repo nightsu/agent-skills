@@ -7,6 +7,13 @@ Usage: scripts/install.sh [install|skills|plugin|both|update]
 
 Installs the shared skills for Codex and Claude Code.
 Defaults to "install" (Codex standalone skills + Claude plugin).
+
+Targets:
+  install  Codex standalone skills + Claude plugin, and cleans duplicate installs
+  skills   Codex standalone skills only
+  plugin   Codex plugin + Claude plugin
+  both     Codex standalone skills + Codex plugin + Claude plugin
+  update   Refreshes the default mixed install
 EOF
 }
 
@@ -121,20 +128,24 @@ case "${target}" in
     ;;
   skills)
     link_skills "${codex_skills_dir}"
-    link_skills "${claude_skills_dir}"
+    remove_plugin_dir "${codex_plugins_dir}"
     ;;
   plugin)
+    unlink_skills "${claude_skills_dir}"
     link_plugin "${codex_plugins_dir}"
     install_claude_plugin
     ;;
   both)
     link_skills "${codex_skills_dir}"
-    link_skills "${claude_skills_dir}"
+    remove_plugin_dir "${codex_plugins_dir}"
     link_plugin "${codex_plugins_dir}"
+    unlink_skills "${claude_skills_dir}"
     install_claude_plugin
     ;;
   update)
     link_skills "${codex_skills_dir}"
+    remove_plugin_dir "${codex_plugins_dir}"
+    unlink_skills "${claude_skills_dir}"
     install_claude_plugin
     ;;
   -h|--help)

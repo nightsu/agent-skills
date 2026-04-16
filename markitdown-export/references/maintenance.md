@@ -13,8 +13,10 @@
    - 先查看上游 README 的安装、可选依赖和用法部分
    - 重点关注 `docx`、`pdf`、`xlsx`、`pptx`、`outlook`、`audio-transcription`、`youtube-transcription`
 2. 更新本地安装
-   - 重新安装最新版：
-     - `python3.11 -m pip install --user -U 'markitdown[all] @ git+https://github.com/microsoft/markitdown.git#subdirectory=packages/markitdown'`
+   - 优先用 `pipx` 隔离安装：
+     - `pipx install "markitdown[all]"`
+   - 如果没有 `pipx`，再用 `pip`：
+     - `python3.11 -m pip install --user -U "markitdown[all]"`
    - 如果只想补某类格式，也可以改成对应 extra
 3. 回归测试
    - 在技能目录下跑 `python3 scripts/convert.py <sample-file>`
