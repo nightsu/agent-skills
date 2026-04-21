@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kabu Story"
+  short_description: "为 3 到 4 岁儿童生成温柔、安全、低负担的睡前与互动故事"
+  default_prompt: "Use $kabu-story to write a gentle bedtime story for a young child, keep the emotional arc simple and seen, use one soft metaphor plus a repeated phrase, and end with warmth and safety."

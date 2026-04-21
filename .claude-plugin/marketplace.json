@@ -19,7 +19,8 @@
         "./project-interview-analyzer",
         "./git-commit",
         "./markitdown-export",
-        "./markdown-lint"
+        "./markdown-lint",
+        "./kabu-story"
       ]
     }
   ]
