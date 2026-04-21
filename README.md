@@ -6,9 +6,11 @@
 
 - `document-analysis`：理解、摘要并审阅文档
 - `project-interview-analyzer`：把项目整理成面试材料
-- `git-commit`：安全审查改动并提交代码
+- `git-commit`：安全审查改动并生成提交
 - `figma-api-mapper`：清理 Figma 节点并映射 UI 与接口字段
+- `markitdown-export`：将 PDF、Word、Excel 等文件转换为同目录 Markdown
 - `markdown-lint`：清理并规范 Markdown 文件格式
+- `kabu-story`：为 3 到 4 岁儿童生成低认知负担、高情绪共鸣的故事
 
 ## 安装
 
