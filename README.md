@@ -42,25 +42,6 @@
 
 这会只安装到 Codex 的 `~/.codex/skills`，不会再改动 Claude Code。
 
-如果你明确需要两边都走 plugin，再执行：
-
-```bash
-./scripts/install.sh plugin
-```
-
-这会安装：
-
-- Codex plugin：`~/.codex/plugins/ethan-skills`
-- Claude Code plugin：`ethan-skills@ethan-skills`
-
-如果你确实需要同时保留 Codex standalone skills 和两边的 plugin，再执行：
-
-```bash
-./scripts/install.sh both
-```
-
-不建议同时保留同一套技能的 plugin 和 standalone skills，否则在 Codex / Claude Code 里通常会重复展示。
-
 ## 更新
 
 仓库更新后，重新运行同一个脚本即可刷新已安装内容。推荐继续使用默认混合模式：
@@ -84,7 +65,6 @@
 ## 目标路径
 
 - Codex skills：`~/.codex/skills`
-- Codex plugin：`~/.codex/plugins/ethan-skills`
 - Claude Code skills：`~/.claude/skills`
 - Claude Code plugin：`~/.claude/plugins/ethan-skills`
 
@@ -96,5 +76,3 @@
 - `agents/openai.yaml`
 - `references/`
 - `scripts/`
-
-插件包装层位于 `plugins/ethan-skills/`，会把仓库中的技能暴露成一个可安装的 plugin。

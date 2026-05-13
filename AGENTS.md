@@ -6,7 +6,7 @@
 
 - 这是面向 Codex 和 Claude Code 的共享技能仓库。
 - 每个技能以独立目录维护，目录内保持统一结构。
-- 仓库同时服务于 standalone skills 和 plugin 两种分发方式。
+- 仓库面向 Codex 提供 standalone skills，面向 Claude Code 提供 plugin 分发。
 
 ## 当前技能
 
@@ -37,15 +37,14 @@
 
 ## 插件同步
 
-- `.agents/plugins/marketplace.json` 负责 Codex 侧的插件市场定义。
 - `.claude-plugin/marketplace.json` 负责 Claude Code 侧的本地插件清单。
-- 新增或删除技能时，要同步检查这两处是否需要更新。
+- 新增或删除技能时，要同步检查 Claude Code 插件清单是否需要更新。
 
 ## 安装和更新
 
 - 本地同步脚本位于 `scripts/install.sh`。
-- 更新仓库后，优先通过同一脚本刷新 skills / plugin 链接。
-- 新技能加入仓库后，要确认它能被 plugin 清单暴露出来。
+- 更新仓库后，优先通过同一脚本刷新 Codex skills / Claude Code plugin 链接。
+- 新技能加入仓库后，要确认它能被 Claude Code plugin 清单暴露出来。
 
 ## 维护偏好
 

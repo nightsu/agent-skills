@@ -3,7 +3,7 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: scripts/install.sh [install|skills|plugin|both|update]
+Usage: scripts/install.sh [install|skills|update]
 
 Installs the shared skills for Codex and Claude Code.
 Defaults to "install" (Codex standalone skills + Claude plugin).
@@ -11,8 +11,6 @@ Defaults to "install" (Codex standalone skills + Claude plugin).
 Targets:
   install  Codex standalone skills + Claude plugin, and cleans duplicate installs
   skills   Codex standalone skills only
-  plugin   Codex plugin + Claude plugin
-  both     Codex standalone skills + Codex plugin + Claude plugin
   update   Refreshes the default mixed install
 EOF
 }
@@ -20,7 +18,6 @@ EOF
 target="${1:-install}"
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 plugin_name="ethan-skills"
-plugin_src="${repo_root}/plugins/${plugin_name}"
 codex_home="${CODEX_HOME:-$HOME/.codex}"
 codex_skills_dir="${codex_home}/skills"
 codex_plugins_dir="${codex_home}/plugins"
@@ -70,27 +67,6 @@ unlink_skills() {
   done
 }
 
-link_plugin() {
-  local base_dir="$1"
-  local plugin_dir="${base_dir}/${plugin_name}"
-  mkdir -p "${plugin_dir}/.codex-plugin" "${plugin_dir}/agents" "${plugin_dir}/skills"
-
-  cp "${plugin_src}/.codex-plugin/plugin.json" "${plugin_dir}/.codex-plugin/plugin.json"
-  cp "${plugin_src}/agents/openai.yaml" "${plugin_dir}/agents/openai.yaml"
-
-  find "${plugin_dir}/skills" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
-
-  for skill_md in "${repo_root}"/*/SKILL.md; do
-    [[ -f "${skill_md}" ]] || continue
-    local skill_dir
-    skill_dir="$(dirname "${skill_md}")"
-    local skill_name
-    skill_name="$(basename "${skill_dir}")"
-    ln -sfn "${skill_dir}" "${plugin_dir}/skills/${skill_name}"
-    echo "linked ${skill_dir} -> ${plugin_dir}/skills/${skill_name}"
-  done
-}
-
 install_claude_plugin() {
   local plugin_ref="${plugin_name}@${plugin_name}"
 
@@ -129,18 +105,6 @@ case "${target}" in
   skills)
     link_skills "${codex_skills_dir}"
     remove_plugin_dir "${codex_plugins_dir}"
-    ;;
-  plugin)
-    unlink_skills "${claude_skills_dir}"
-    link_plugin "${codex_plugins_dir}"
-    install_claude_plugin
-    ;;
-  both)
-    link_skills "${codex_skills_dir}"
-    remove_plugin_dir "${codex_plugins_dir}"
-    link_plugin "${codex_plugins_dir}"
-    unlink_skills "${claude_skills_dir}"
-    install_claude_plugin
     ;;
   update)
     link_skills "${codex_skills_dir}"
