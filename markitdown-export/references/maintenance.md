@@ -12,20 +12,28 @@
 1. 重新对齐上游说明
    - 先查看上游 README 的安装、可选依赖和用法部分
    - 重点关注 `docx`、`pdf`、`xlsx`、`pptx`、`outlook`、`audio-transcription`、`youtube-transcription`
-2. 更新本地安装
+2. 检查本地版本
+   - 运行：
+     - `python3 scripts/check_markitdown.py`
+   - 如果网络不可用，也可以用已知上游版本做离线判断：
+     - `python3 scripts/check_markitdown.py --latest-version <version>`
+   - 检查脚本只提示状态和升级命令，不会自动安装或升级
+3. 更新本地安装
    - 优先用 `pipx` 隔离安装：
      - `pipx install "markitdown[all]"`
-   - 如果没有 `pipx`，再用 `pip`：
-     - `python3.11 -m pip install --user -U "markitdown[all]"`
+   - 已安装后显式升级：
+     - `pipx upgrade markitdown --include-injected`
+   - 如果没有 `pipx`，再用 Python 3.10+ 调用 `pip`：
+     - `python3 -m pip install --user -U "markitdown[all]"`
    - 如果只想补某类格式，也可以改成对应 extra
-3. 回归测试
+4. 回归测试
    - 在技能目录下跑 `python3 scripts/convert.py <sample-file>`
    - 至少覆盖：
      - 一个 `.docx`
      - 一个 `.pdf`
      - 一个 `.xlsx`
    - 检查输出是否仍然在源文件同目录
-4. 技能同步
+5. 技能同步
    - 如果上游新增/删除支持格式，更新 `SKILL.md`
    - 如果默认行为变了，更新 `scripts/convert.py`
    - 如 UI 描述失效，重新生成 `agents/openai.yaml`

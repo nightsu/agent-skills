@@ -35,7 +35,13 @@ def run_markitdown(source: Path, output: Path) -> int:
     if sys.version_info >= (3, 10):
         candidates.append(sys.executable)
 
-    for candidate in (which("python3.11"), which("python3")):
+    for candidate in (
+        which("python3.13"),
+        which("python3.12"),
+        which("python3.11"),
+        which("python3.10"),
+        which("python3"),
+    ):
         if candidate and candidate not in candidates:
             candidates.append(candidate)
 
