@@ -9,17 +9,18 @@
 
 ## TL;DR
 
-把 Figma 设计稿 + 业务需求落成代码的整套工作流,拆成一个 **6 个 skill 的套件**,
+把 Figma 设计稿 + 业务需求落成代码的整套工作流,拆成一个 **7 个 skill 的套件**,
 由 orchestrator (`figma-workflow`) 按"产物驱动 + 每阶段 review gate"的方式串联。
 
 第一版 (MVP) 只交付 **4 个 active skill**(orchestrator + 阶段 C/D/E 的 3 个 skill),
 阶段 A/B 由用户手填(套件给模板),阶段 F 在 emit-spec 出口处提供 handoff 选项。
 
-完整套件最终覆盖 6 个 skill,但分 3 轮 spec 落地:
+完整套件最终覆盖 7 个 skill,但分 4 轮 spec 落地:
 
 - **第 1 版 (本 spec, MVP)**:orchestrator + C/D/E 三个 skill
 - **第 2 版**:补 A/B 两个 skill + 外部 handoff(`superpowers:brainstorming` / OpenSpec)
-- **第 3 版**:缓存层 / diff / UI handoff 规范
+- **第 3 版**:补 `figma-api-first`,替代 C-up 手填 `api-mapping.md`
+- **第 4 版**:缓存层 / diff / UI handoff 规范
 
 ---
 
@@ -32,7 +33,7 @@
 | 3a | `<feature>` 命名 | A 用户显式传入 |
 | 3b | 产物根目录 | C `docs/design/` 默认 + 可配置(MVP 阶段不实现可配置) |
 | 4 | 现有 mapper 处理 | A 改名 + 重定位 → `figma-ui-api-mapper`(职责保持) |
-| 5 | 套件 skill 清单 | 6 个 skill,见 [01-overview.md](./01-overview.md) |
+| 5 | 套件 skill 清单 | 7 个 skill,见 [01-overview.md](./01-overview.md) |
 | 6 | 与 superpowers/OpenSpec 关系 | 姿势 3:零依赖 + 出口可配置 |
 | 7 | 触发与确认机制 | A3 每阶段产物落盘后停顿,等用户 review |
 | 7-form | Review gate 形态 | B 产物自查 + 提示 + 菜单 |
@@ -85,8 +86,9 @@ Suite E2E fixture:[referral-home](../../fixtures/figma-workflow-suite/referral-h
 - 每阶段产物 review gate
 - 输入收集 + `inputs.md` 副产物
 
-**本 spec 不包含(留给第 2/3 版):**
+**本 spec 不包含(留给第 2/3/4 版):**
 - 阶段 A/B 的两个 skill(`figma-clarify-requirement`、`figma-ui-understand`)
+- 阶段 C-up 的 `figma-api-first`
 - 外部 skill handoff 的接入(`superpowers:writing-plans`)
 - 缓存层、diff、UI handoff 规范
 
