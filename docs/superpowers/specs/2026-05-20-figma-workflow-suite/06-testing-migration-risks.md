@@ -17,6 +17,8 @@
 
 - 准备 **1~2 个真实业务场景** 的 end-to-end fixture(例:讨论文档里的 referral-home 案例)
 - 跑完整 C→D→E 链路,产物落盘,人工 review 产物质量
+- Suite-level fixture:
+  `docs/superpowers/fixtures/figma-workflow-suite/referral-home/`
 
 ### 回归层面
 
