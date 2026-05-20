@@ -16,13 +16,13 @@
 ### CourseCard
 | node_id | binding_type | ui_role | api_field | confidence | needs_confirmation | reason | repeat_group |
 |---|---|---|---|---|---|---|---|
-| course_card_template | ui_static | list_item_container | — | 0.95 | false | — | course_list_item |
+| course_card_template | ui_static | list_item_container | — | 0.95 | false | — | — |
 | course_cover | api_bound | list_item_image | course.coverUrl | 0.96 | false | — | course_list_item |
 | course_title | api_bound | list_item_title | course.title | 0.98 | false | — | course_list_item |
 | teacher_name | api_bound | list_item_subtitle | course.teacherName | 0.93 | false | — | course_list_item |
 | course_price | api_bound | list_item_price | course.price | 0.97 | false | — | course_list_item |
-| promo_tag | ui_copy | badge_copy | — | 0.74 | false | 无证据表明来自接口 | course_list_item |
-| favorite_icon | ui_static | action_icon | — | 0.92 | false | — | course_list_item |
+| promo_tag | ui_copy | badge_copy | — | 0.74 | false | 无证据表明来自接口 | — |
+| favorite_icon | ui_static | action_icon | — | 0.92 | false | — | — |
 
 ## Open Questions
 (无)
