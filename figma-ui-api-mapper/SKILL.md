@@ -84,6 +84,11 @@ phase A → phase B → phase C-up → [phase C-low: figma-ui-api-mapper] → ph
 
 2. **获取 Figma 数据**
    - 先确认用户给的是 page、frame、局部区域,还是截图
+   - **必须同时调用**两个 Figma MCP 函数:
+     - `get_metadata` — 拿节点结构(id / type / 尺寸位置 / 层级 / name)
+     - `get_design_context` — 拿真实文案(text 节点的 `characters` 字段)+ 视觉细节
+   - ⚠ **不要只用 `get_metadata`** —— Figma 中 `node.name` 在真实业务里**经常是设计师 placeholder**
+     (例:整个设计稿所有文本节点 name 都是 `"首联率"`)。**真实业务文案必须从 `characters` 字段提取**
    - 严格只读传入的 node,不读取兄弟 frame、不扩散到整个文件
 
 3. **确定范围**
@@ -245,6 +250,7 @@ phase A → phase B → phase C-up → [phase C-low: figma-ui-api-mapper] → ph
 - 如果节点可能是两者之一,判为 `unknown` 并要求确认
 - 图片优先使用 URL 或资源引用,**不要展开或嵌入图片内容**
 - 重复组件优先抽象为模板,再映射模板中的可变字段
+- **以 `characters` 字段(不是 `node.name`)作为真实业务文案的事实来源** —— 这两个字段在真实业务里常常不一致(设计师 placeholder 问题)
 
 ## 自查规则
 
@@ -278,6 +284,7 @@ skill 在产物落盘后,应输出以下自查信息供 orchestrator 的 review 
 - 不要下载资源(只在表格中标注 ui_role)
 - 不要读取整个 Figma 文件
 - 不要读取兄弟 frame
+- **不要把 Figma `node.name` 当作真实业务 label**(大概率是设计师 placeholder,如 `"首联率"`)。label 必须从 `characters` 字段提取
 
 ## 参考
 
