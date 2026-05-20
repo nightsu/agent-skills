@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma Emit Spec"
+  short_description: "合并 5 份上游产物 → implementation-spec.md + handoff"
+  default_prompt: "使用 $figma-emit-spec 读取 docs/design/<feature>/ 下的 5 份上游产物(clarified-requirement / ui-understanding / api-mapping / component-mapping / design-token-patch),检测 4 种跨产物冲突(field_unbound / module_missing_token / module_drift / label_drift),识别 [deferred] open questions,合成 implementation-spec.md + open-questions.md 并在 inputs.md 追加记录;最后弹 handoff 菜单让用户选 builtin / superpowers / manual / pause。"
