@@ -60,6 +60,7 @@
    - [4c. figma-emit-spec](./04c-emit-spec.md)
 5. [Review Gate & Handoff](./05-review-gate-and-handoff.md)
 6. [Testing, Migration, Risks](./06-testing-migration-risks.md)
+7. [Validation Findings — MVP 真实业务跑通的反馈](./validation-findings.md)(2026-05-20 新增)
 
 ---
 

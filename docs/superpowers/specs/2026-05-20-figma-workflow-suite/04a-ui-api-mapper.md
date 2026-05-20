@@ -50,7 +50,11 @@
 
 ## 调用外部能力
 
-- **Figma MCP** — `get_metadata` 获取节点结构,`get_design_context` 获取节点细节
+- **Figma MCP** — **必须同时调用** `get_metadata` 和 `get_design_context`:
+  - `get_metadata` 拿节点结构(id / type / 尺寸位置 / 层级)
+  - `get_design_context` 拿真实文案(text 节点的 `characters` 字段)+ 视觉细节
+- ⚠ **不要只用 `get_metadata`** —— Figma 中 `node.name` 在真实业务里**经常是设计师 placeholder**
+  (例:整个设计稿所有文本节点 name 都是 `"首联率"`)。**真实业务文案必须取自 `characters` 字段**
 - **严格只读传入的 node**,不读取兄弟 frame,不扩散到整个文件
 
 ---
@@ -122,6 +126,7 @@
 4. 与现有 mapper 的判定规则、置信度阈值、ignored patterns **完全保持**
 5. 不强行猜测图片内容
 6. 不展开重复列表
+7. **以 `characters` 字段(不是 `node.name`)作为真实业务文案的事实来源** —— 这两个字段在真实业务里常常不一致
 
 ---
 
@@ -132,6 +137,8 @@
 - ❌ 不强行猜测图片内容
 - ❌ 不展开重复列表
 - ❌ 不下载资源(只在表格中标注 ui_role,资源引用由 §4b 处理)
+- ❌ **不要把 Figma `node.name` 当作真实业务 label**(大概率是设计师 placeholder,如 `"首联率"`)。
+  label 必须从 `characters` 字段提取
 
 ---
 

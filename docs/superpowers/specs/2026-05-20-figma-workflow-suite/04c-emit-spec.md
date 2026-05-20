@@ -181,18 +181,53 @@ A + B + C(上 + 下) + D 全部 5 份产物存在且非占位:
 
 ## Cross-product conflicts 检测(MVP 最小集)
 
-| 冲突 | 检测方式 |
-|---|---|
-| `api-mapping.md` 中的字段未在 `component-mapping.md` 中被绑定 | 字段名字符串匹配 |
-| `component-mapping.md` 中的 module 未在 `design-token-patch.md` 中抽 token | module 名字符串匹配 |
-| `ui-understanding.md` 中的 module 未在 `component-mapping.md` 中出现 | module 名字符串匹配 |
+| 冲突类型 | 检测方式 | 处理方式 |
+|---|---|---|
+| `field_unbound`: `api-mapping.md` 中的字段未在 `component-mapping.md` 中被绑定 | 字段名字符串匹配 | 写入 open-questions |
+| `module_missing_token`: `component-mapping.md` 中的 module 未在 `design-token-patch.md` 中抽 token | module 名字符串匹配 | 写入 open-questions |
+| `module_drift`: `ui-understanding.md` 中的 module 未在 `component-mapping.md` 中出现 | module 名字符串匹配 | 写入 open-questions |
+| **`label_drift`: `component-mapping.md` 中槽位 label 与 `design-token-patch.md` 真实 label 不一致** | label 字符串匹配 | **自动以 `design-token-patch.md` 为准,在 implementation-spec metadata 段说明"N 个 label 已自动校正"**,**不写入 open-questions**(答案已知,不需要人介入) |
 
 冲突一律写入 `open-questions.md` 的 `## Cross-Product Conflicts (auto-detected)` 段,
-在 review gate 标红提示。
+在 review gate 标红提示。**例外:** `label_drift` 不写入 open-questions,而是在 implementation-spec metadata 段说明自动校正情况。
 
 > ⚠ MVP 检测是粗粒度字符串匹配,可能 false positive。
 > 用户可以直接在 `open-questions.md` 中标 `[x]` 表示已确认非冲突,
 > orchestrator 不重写该段。
+
+### 为什么 `label_drift` 自动校正而非写入 open-questions
+
+`figma-ui-api-mapper`(phase C-low)可能未拿到真实 `characters`(若 Figma 文本节点 name 是 placeholder,
+当 spec §4a 工作流要求同时调 `get_design_context` 后此情况大幅减少,但仍存在 edge case)。
+
+`figma-design-token`(phase D)通过 `get_design_context` 拿到的 `characters` 是真实业务文案的事实来源。
+冲突时以 D 为准,不需要人介入。这是 **MVP validation 发现的真实场景**(见 [validation-findings.md §F2](./validation-findings.md))。
+
+---
+
+## Deferred open questions(无解决路径的 open question 处理)
+
+某些 open questions 在本期无法解决(例:接口缺字段、设计 vs 后端不对齐),
+不应反复阻塞 emit-spec。引入 `[deferred]` 前缀机制:
+
+**机制:**
+- 用户在 `open-questions.md` 中,对无法解决的项加 `[deferred]` 前缀,
+  例如: `- [ ] [deferred] 趋势数据来源:接口完全无字段,本期不实现 trend badge`
+- `figma-emit-spec` 在合成 `implementation-spec.md` 时识别 `[deferred]`:
+  - 对应 UI 元素在 Modules 段**显式标记**:`> ⚠ Deferred: <原 open question 内容>。本期不实现,占位渲染或隐藏。`
+  - 不再视为 blocker
+- Verification Checklist 增加一项:`[ ] 所有 deferred items 已确认本期不实现`
+
+**例子:**
+
+```markdown
+### N. PrimaryMetricCard - 趋势 Badge
+
+> ⚠ Deferred: 接口完全无趋势字段。本期 trend badge 占位渲染或隐藏。
+> 来源:phase A open-questions.md #4
+
+(本元素不参与本期实施)
+```
 
 ---
 
