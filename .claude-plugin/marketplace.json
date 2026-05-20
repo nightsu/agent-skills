@@ -16,6 +16,7 @@
       "skills": [
         "./document-analysis",
         "./figma-ui-api-mapper",
+        "./figma-design-token",
         "./project-interview-analyzer",
         "./git-commit",
         "./markitdown-export",
