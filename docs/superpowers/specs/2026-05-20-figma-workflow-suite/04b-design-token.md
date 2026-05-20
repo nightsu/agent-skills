@@ -77,12 +77,12 @@
 | Token | Value | Source |
 |---|---|---|
 | borderRadius | 12px | direct |
-| padding | 12px 16px | direct |
+| padding | 12px 16px | variable: spacing/card/padding |
 | background | #FFFFFF | direct |
 | titleFontSize | 14px | direct |
 | valueFontSize | 24px | direct |
 | valueFontWeight | Semi Bold | direct |
-| valueColor | #1A1A1A | variable: color/brand/primary |
+| valueColor | #FF6A3D | variable: color/brand/primary |
 
 ### OperationEntryGrid
 | Token | Value | Source |
