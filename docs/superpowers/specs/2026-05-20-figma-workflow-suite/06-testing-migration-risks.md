@@ -93,7 +93,7 @@ interface:
 | R3 | Re-run 覆盖产物,用户没 commit,丢工作 | 中 | 用户跳过 review gate 的 commit 提示 | gate 文案明确提示;不引入备份机制(决策 7a-③) |
 | R4 | `superpowers:writing-plans` 升级/改名,handoff 选项 2 失效 | 中 | superpowers 自身迭代 | orchestrator 在 handoff 阶段做存在性检测;失败时降级到选项 1 (builtin) 并提示 |
 | R5 | `component-mapping.md` 和 `design-token-patch.md` 节点引用不一致(改了 Figma 但只重跑 D 没重跑 C) | 中 | 用户跳着重跑 | `figma-emit-spec` 自查会爆"跨产物冲突";gate 标红提示 |
-| R6 | `inputs.md` 一直追加,长期变成几百行 | 低 | feature 长期迭代 | MVP 接受;第 3 版加截断/归档机制 |
+| R6 | `inputs.md` 一直追加,长期变成几百行 | 低 | feature 长期迭代 | MVP 接受;第 4 版加截断/归档机制 |
 | R7 | MVP 不测试,LLM 输出漂移导致产物质量退化 | 中 | 时间推移,模型版本变化 | 保留 fixture 做 spot-check;真正出问题后回头补自动化测试 |
 | R8 | 用户在非 git 仓库使用,Re-run 没有"git 真相"兜底 | 低 | 用户在临时目录跑 | 文档警告:"建议在 git 仓库内使用";不做检测 |
 | R9 | `<feature>` 名拼错,产物落到错目录 | 低 | 用户手误 | orchestrator 启动时 echo 路径让用户确认 |
@@ -116,17 +116,22 @@ interface:
 
 ---
 
-## §6.5 不在 MVP 内的功能(汇总,作为第 2/3 版输入)
+## §6.5 不在 MVP 内的功能(汇总,作为第 2/3/4 版输入)
 
 ### 第 2 版
 
 - `figma-clarify-requirement`(替代手填阶段 A)
 - `figma-ui-understand`(替代手填阶段 B)
-- `figma-api-first` 接入 YApi/Swagger 实际抓取(MVP 假设接口字段用户已经放进 `api-mapping.md`)
 - handoff 接入 `superpowers:brainstorming`(阶段 A 的可选项)
 - `inputs.md` 截断/归档
 
 ### 第 3 版
+
+- `figma-api-first` 替代手填阶段 C-up,产出 `api-mapping.md`
+- `figma-api-first` 先支持用户粘贴接口结构 / 字段清单,再评估 YApi/Swagger 实际抓取
+- 字段数 vs UI 槽位数核对必须读 Figma metadata,不能只看截图
+
+### 第 4 版
 
 - `.figma-cache/` 三层缓存
 - `design-diff.md` Figma 改稿差量

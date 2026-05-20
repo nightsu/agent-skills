@@ -15,7 +15,7 @@
     ├── clarified-requirement.md             # 阶段 A 产物 (MVP 用户手填,套件给模板)
     ├── ui-understanding.md                  # 阶段 B 产物 (MVP 用户手填,套件给模板)
     │
-    ├── api-mapping.md                       # 阶段 C - figma-api-first 产物 (MVP 用户手填)
+    ├── api-mapping.md                       # 阶段 C-up 产物 (MVP 用户手填 / 第 3 版 figma-api-first)
     ├── component-mapping.md                 # 阶段 C - figma-ui-api-mapper 产物
     ├── design-token-patch.md                # 阶段 D - figma-design-token 产物
     ├── implementation-spec.md               # 阶段 E - figma-emit-spec 主产物
@@ -23,7 +23,7 @@
 ```
 
 > MVP 阶段**没有** `figma-workflow.config.json`(决策:砍掉,默认硬编码 `docs/design/`)。
-> 第 2/3 版可加入。
+> 第 4 版可加入。
 
 ---
 
