@@ -14,6 +14,7 @@
 - `project-interview-analyzer`：把项目整理成面试材料。
 - `git-commit`：安全审查改动并生成提交。
 - `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C-low,renamed from `figma-api-mapper`)。
+- `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)。
 - `markdown-lint`：清理并规范 Markdown 文件格式。
 
 ## 统一结构

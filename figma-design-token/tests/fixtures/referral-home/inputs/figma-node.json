@@ -1,0 +1,139 @@
+{
+  "file_key": "FixtureReferral0001",
+  "node_id": "200:100",
+  "name": "ReferralHomePage",
+  "type": "FRAME",
+  "absoluteBoundingBox": { "x": 0, "y": 0, "width": 375, "height": 812 },
+  "paddingLeft": 12,
+  "paddingRight": 12,
+  "itemSpacing": 16,
+  "variables_used": [
+    { "name": "color/brand/primary", "value": "#FF6A3D", "type": "COLOR" },
+    { "name": "spacing/card/padding", "value": "12px", "type": "FLOAT" }
+  ],
+  "children": [
+    {
+      "id": "200:101",
+      "name": "StatusBar",
+      "type": "FRAME",
+      "children": []
+    },
+    {
+      "id": "200:110",
+      "name": "DiamondPreviewCard",
+      "type": "FRAME",
+      "cornerRadius": 12,
+      "paddingTop": 12,
+      "paddingBottom": 12,
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }],
+      "children": [
+        {
+          "id": "200:111",
+          "name": "diamond_card_bg",
+          "type": "RECTANGLE",
+          "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }]
+        },
+        {
+          "id": "200:112",
+          "name": "diamond_label",
+          "type": "TEXT",
+          "characters": "我的钻石",
+          "style": { "fontFamily": "Inter", "fontSize": 14, "fontWeight": 400, "fontStyle": "Regular" }
+        },
+        {
+          "id": "200:113",
+          "name": "diamond_value",
+          "type": "TEXT",
+          "characters": "1234",
+          "style": { "fontFamily": "Inter", "fontSize": 24, "fontWeight": 600, "fontStyle": "Semi Bold" },
+          "boundVariables": { "fills": { "type": "VARIABLE_ALIAS", "name": "color/brand/primary" } }
+        },
+        {
+          "id": "200:114",
+          "name": "record_entry_icon",
+          "type": "VECTOR",
+          "absoluteBoundingBox": { "width": 16, "height": 16 }
+        },
+        {
+          "id": "200:115",
+          "name": "record_entry_text",
+          "type": "TEXT",
+          "characters": "钻石记录",
+          "style": { "fontFamily": "Inter", "fontSize": 12, "fontWeight": 400, "fontStyle": "Regular" }
+        }
+      ]
+    },
+    {
+      "id": "200:120",
+      "name": "OperationEntryGrid",
+      "type": "FRAME",
+      "itemSpacing": 8,
+      "children": [
+        {
+          "id": "200:121",
+          "name": "EntryItem",
+          "type": "INSTANCE",
+          "children": [
+            { "id": "200:122", "name": "entry_icon", "type": "VECTOR", "absoluteBoundingBox": { "width": 32, "height": 32 } },
+            { "id": "200:123", "name": "entry_label", "type": "TEXT", "characters": "邀请", "style": { "fontFamily": "Inter", "fontSize": 12, "fontWeight": 400, "fontStyle": "Regular" } }
+          ]
+        },
+        {
+          "id": "200:124",
+          "name": "EntryItem",
+          "type": "INSTANCE",
+          "children": [
+            { "id": "200:125", "name": "entry_icon", "type": "VECTOR", "absoluteBoundingBox": { "width": 32, "height": 32 } },
+            { "id": "200:126", "name": "entry_label", "type": "TEXT", "characters": "兑换", "style": { "fontFamily": "Inter", "fontSize": 12, "fontWeight": 400, "fontStyle": "Regular" } }
+          ]
+        },
+        {
+          "id": "200:127",
+          "name": "EntryItem",
+          "type": "INSTANCE",
+          "children": [
+            { "id": "200:128", "name": "entry_icon", "type": "VECTOR", "absoluteBoundingBox": { "width": 32, "height": 32 } },
+            { "id": "200:129", "name": "entry_label", "type": "TEXT", "characters": "任务", "style": { "fontFamily": "Inter", "fontSize": 12, "fontWeight": 400, "fontStyle": "Regular" } }
+          ]
+        },
+        {
+          "id": "200:130",
+          "name": "EntryItem",
+          "type": "INSTANCE",
+          "children": [
+            { "id": "200:131", "name": "entry_icon", "type": "VECTOR", "absoluteBoundingBox": { "width": 32, "height": 32 } },
+            { "id": "200:132", "name": "entry_label", "type": "TEXT", "characters": "排行", "style": { "fontFamily": "Inter", "fontSize": 12, "fontWeight": 400, "fontStyle": "Regular" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "200:140",
+      "name": "BannerCarousel",
+      "type": "FRAME",
+      "absoluteBoundingBox": { "x": 0, "y": 0, "width": 351, "height": 120 },
+      "children": [
+        {
+          "id": "200:141",
+          "name": "banner_image",
+          "type": "RECTANGLE",
+          "fills": [{ "type": "IMAGE", "imageRef": "banner-001" }]
+        },
+        {
+          "id": "200:142",
+          "name": "banner_indicator",
+          "type": "ELLIPSE",
+          "absoluteBoundingBox": { "width": 6, "height": 6 }
+        }
+      ]
+    },
+    {
+      "id": "200:190",
+      "name": "HomeIndicator",
+      "type": "FRAME",
+      "children": []
+    }
+  ]
+}
