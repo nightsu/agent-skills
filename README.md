@@ -9,6 +9,7 @@
 - `git-commit`：安全审查改动并生成提交
 - `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C-low,renamed from `figma-api-mapper`)
 - `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)
+- `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)
 - `markitdown-export`：将 PDF、Word、Excel 等文件转换为同目录 Markdown
 - `markdown-lint`：清理并规范 Markdown 文件格式
 - `kabu-story`：为 3 到 4 岁儿童生成低认知负担、高情绪共鸣的故事
