@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma Workflow"
+  short_description: "按 docs/design/<feature>/ 产物驱动 C→D→E 流程"
+  default_prompt: "使用 $figma-workflow feature=<feature-name> 按 docs/design/<feature>/ 下的产物状态推断进度,展示阶段面板,提供 A/B/C-up 手填模板,并路由到 figma-ui-api-mapper / figma-design-token / figma-emit-spec;每阶段完成后展示 review gate,phase E 后展示 handoff 出口。"
