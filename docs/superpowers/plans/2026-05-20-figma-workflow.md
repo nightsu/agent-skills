@@ -101,16 +101,17 @@ No commit; empty directories are not tracked.
 
 - [ ] **Step 1: 写入主指引**
 
-`SKILL.md` must include:
+`SKILL.md` 风格参考已有 `figma-ui-api-mapper` / `figma-design-token` / `figma-emit-spec`,正文尽量使用中文,仅保留必要英文术语。必须包含:
 - Frontmatter `name: figma-workflow`
-- What this skill does
-- Prerequisites
-- Calling convention
-- Phase progression table
-- Progress panel format
-- Review gate behavior
-- Handoff exit behavior
-- What this skill does not do
+- `Position in figma-workflow`
+- `Prerequisites`
+- `Calling convention`
+- 适用场景 / 目标 / 工作流
+- 阶段进入条件表
+- 进度面板格式
+- Review gate 行为
+- Handoff 出口
+- 不要做的事
 
 - [ ] **Step 2: 验证**
 
@@ -118,11 +119,11 @@ Run:
 ```bash
 wc -l figma-workflow/SKILL.md
 head -5 figma-workflow/SKILL.md
-rg -n "Phase progression|Progress panel|Review gate|Handoff exit|What this skill does NOT do" figma-workflow/SKILL.md
+rg -n "适用场景|目标|工作流|阶段进入条件|进度面板|路由行为|Review gate 行为|Handoff 出口|不要做的事" figma-workflow/SKILL.md
 ```
 
 Expected:
-- 160~260 lines
+- 220~300 lines
 - frontmatter contains `name: figma-workflow`
 - all required sections found
 
@@ -360,7 +361,7 @@ ruby -ryaml -e "d = YAML.load_file('figma-workflow/agents/openai.yaml'); puts d[
 
 Expected:
 - expected files exist
-- `SKILL.md` 160~260 lines
+- `SKILL.md` 220~300 lines
 - JSON OK
 - `Figma Workflow`
 

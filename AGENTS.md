@@ -16,6 +16,7 @@
 - `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C-low,renamed from `figma-api-mapper`)。
 - `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)。
 - `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)。
+- `figma-workflow`:按 docs/design/<feature>/ 产物状态驱动 figma-workflow-suite C→D→E 阶段,展示 review gate 与 handoff 出口。
 - `markdown-lint`：清理并规范 Markdown 文件格式。
 
 ## 统一结构

@@ -18,6 +18,7 @@
         "./figma-ui-api-mapper",
         "./figma-design-token",
         "./figma-emit-spec",
+        "./figma-workflow",
         "./project-interview-analyzer",
         "./git-commit",
         "./markitdown-export",
