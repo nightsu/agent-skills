@@ -56,6 +56,10 @@ phase A → phase B → phase C-up → [phase C-low: figma-ui-api-mapper] → ph
 如果存在不确定的节点,技能不会强行猜测,而是把它们保留在 "Open Questions" 段,
 由 `figma-emit-spec` 汇总到 `open-questions.md`,交给用户调整。
 
+## Cache Contract
+
+优先读取 fresh `.figma-cache/` evidence。cache miss 或 invalid 时,调用 Figma MCP 并更新 manifest。`component-mapping.md` 只能写归纳后的 UI/API 绑定事实,不得粘贴 raw Figma JSON。
+
 ## 输入方式
 
 优先按下面顺序接收输入,拿到其中一种即可开始:
