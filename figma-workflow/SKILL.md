@@ -251,9 +251,10 @@ Choose:
 
 各阶段 self-check 规则由对应 phase skill 定义。self-check 不阻塞,除非下游 skill 自己失败。
 
-## Handoff 出口
+## 交接前工程化检查与 Handoff 出口
 
-只有 phase E 完成且用户在 review gate 选择 `[1] Proceed` 后,才显示 handoff 菜单:
+只有 phase E 完成且用户在 review gate 选择 `[1] Proceed` 后,才显示交接前工程化检查。
+所有 `required_prompt` 都 run / view / skip 后,才显示 handoff 菜单:
 
 ```text
 Handoff to planning / spec authoring:

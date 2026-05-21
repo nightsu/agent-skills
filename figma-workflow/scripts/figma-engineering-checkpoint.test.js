@@ -92,3 +92,26 @@ test("appends skip audit without changing products", () => {
   assert.match(audit, /continue_to_handoff: true/);
   assert.equal(fs.existsSync(path.join(featureDir, "assets-manifest.md")), false);
 });
+
+test("treats audited skips as handled on later inference", () => {
+  const featureDir = fs.mkdtempSync(path.join(os.tmpdir(), "engineering-skip-state-"));
+  write(path.join(featureDir, ".figma-cache/snapshots/baseline/metadata.file.1-2.json"), "{}\n");
+  write(path.join(featureDir, ".figma-cache/snapshots/current/metadata.file.1-2.json"), "{}\n");
+
+  const firstState = checkpoint.inferEngineeringCheckpoint(featureDir, { checkpoint: "pre-handoff" });
+  const skipped = firstState.items.filter((item) => item.recommendation === "required_prompt");
+
+  checkpoint.appendSkipAudit(featureDir, {
+    checkpoint: "pre-handoff",
+    phaseContext: "after_phase_e_review",
+    skipped,
+    continueField: "continue_to_handoff",
+    now: "2026-05-21T12:00:00+08:00",
+  });
+
+  const nextState = checkpoint.inferEngineeringCheckpoint(featureDir, { checkpoint: "pre-handoff" });
+
+  assert.equal(nextState.items.find((item) => item.skill === "figma-design-diff").status, "skipped");
+  assert.equal(nextState.items.find((item) => item.skill === "figma-assets-validate").status, "skipped");
+  assert.equal(checkpoint.canContinueToHandoff(nextState), true);
+});
