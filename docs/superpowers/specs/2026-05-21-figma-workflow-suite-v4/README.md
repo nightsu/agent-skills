@@ -48,6 +48,8 @@ v4 因此先做基础设施,不急着扩展更多平台集成。
 
 新增 `.figma-cache/` 约定,缓存 Figma MCP 的关键读取结果。
 
+详细设计见 `docs/superpowers/specs/2026-05-21-figma-cache-layer/README.md`。
+
 目标:
 
 - 避免同一 file/node 在 C-low/D 等阶段重复读取。
