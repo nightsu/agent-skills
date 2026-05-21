@@ -21,8 +21,6 @@ phase A → phase B → phase C-up → phase C-low → phase D → [phase E: fig
 - **由 orchestrator 调用** —— `figma-workflow feature=<name>` 在 phase E 自动路由到本 skill
 - **独立调用** —— 用户直接调用本 skill,传入 `feature` 参数
 
-参见 spec:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/04c-emit-spec.md`
-
 ## Prerequisites
 
 执行本 skill 前,以下 5 份上游产物必须**全部存在且非占位**:

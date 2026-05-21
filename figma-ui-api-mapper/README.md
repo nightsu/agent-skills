@@ -42,7 +42,7 @@ figma-ui-api-mapper feature=<feature-name>
 ```
 phase C-up           → figma-ui-api-mapper →  phase D            →  phase E
 api-mapping.md         component-mapping.md   figma-design-token   figma-emit-spec
-(MVP 用户手填)                                 design-token-patch    implementation-spec
+                                              design-token-patch    implementation-spec
                                                                        open-questions
 ```
 

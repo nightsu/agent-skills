@@ -20,8 +20,6 @@ phase A → phase B → phase C-up → phase C-low → [phase D: figma-design-to
 - **由 orchestrator 调用** —— `figma-workflow feature=<name>` 在 phase D 自动路由到本 skill
 - **独立调用** —— 用户直接调用本 skill,传入 `feature` 参数
 
-参见 spec:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/04b-design-token.md`
-
 ## Prerequisites
 
 执行本 skill 前,以下上游产物必须存在且非占位:

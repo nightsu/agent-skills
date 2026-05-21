@@ -29,7 +29,7 @@ figma-ui-understand feature=<feature-name>
 
 - Skill 使用说明:[SKILL.md](./SKILL.md)
 - 产物模板:[references/ui-understanding-template.md](./references/ui-understanding-template.md)
-- MVP 验证 fixture:[tests/fixtures/sales-workbench/](./tests/fixtures/sales-workbench/)
+- 验证 fixture:[tests/fixtures/sales-workbench/](./tests/fixtures/sales-workbench/)
 
 ## 上下游
 

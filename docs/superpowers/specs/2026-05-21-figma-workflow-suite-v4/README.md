@@ -190,6 +190,8 @@ v4 新增能力也必须遵守:
 
 ## Orchestrator Impact
 
+详细编排设计见 `docs/superpowers/specs/2026-05-21-figma-workflow-v4-orchestration-design.md`。该设计在 spec 层使用 v4 追踪版本,在 `figma-workflow` 面向用户的输出中呈现最终 workflow 编排。
+
 `figma-workflow` 在 v4 中需要新增可选菜单能力:
 
 - 当检测到同一 feature 有 cache 时,显示 cache 状态。
@@ -221,6 +223,7 @@ v4 新增能力也必须遵守:
 - P13: design diff spec / implementation。详细设计见 `docs/superpowers/specs/2026-05-21-figma-design-diff/README.md`。
 - P14: UI handoff minimum spec / implementation。
 - P15: assets + automated validation spec / implementation。
+- P16: workflow orchestration checkpoint spec / implementation。
 
 ---
 

@@ -1,6 +1,6 @@
 # figma-design-diff
 
-`figma-design-diff` 是 figma-workflow-suite v4 的 P13 工程化 skill。它基于 `.figma-cache/` before / after snapshots 生成 `docs/design/<feature>/design-diff.md`,帮助用户判断 Figma 改稿后要重跑哪些阶段。
+`figma-design-diff` 是 figma-workflow-suite 的工程化 skill。它基于 `.figma-cache/` before / after snapshots 生成 `docs/design/<feature>/design-diff.md`,帮助用户判断 Figma 改稿后要重跑哪些阶段。
 
 ## 边界
 

@@ -19,8 +19,6 @@ clarified-requirement.md → ui-understanding.md → api-mapping.md → componen
 - **由 orchestrator 调用** —— `figma-workflow feature=<name>` 在 phase A 路由到本 skill
 - **独立调用** —— 用户直接调用本 skill,传入 `feature` 参数
 
-参见 spec:`docs/superpowers/specs/2026-05-20-figma-workflow-suite-v2/README.md`
-
 ## Prerequisites
 
 - `feature` name,推荐 kebab-case

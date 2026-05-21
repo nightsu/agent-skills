@@ -1,6 +1,6 @@
 # sales-workbench fixture
 
-本 fixture 主题是“后台销售工作台”,来源于真实 MVP smoke test,并复用 P7 的 sales-workbench 需求澄清产物。
+本 fixture 主题是“后台销售工作台”,来源于真实 workflow smoke test,并复用 sales-workbench 需求澄清产物。
 
 它用于验证 `figma-ui-understand` 在 phase B 是否能稳定产出 `ui-understanding.md`:
 
