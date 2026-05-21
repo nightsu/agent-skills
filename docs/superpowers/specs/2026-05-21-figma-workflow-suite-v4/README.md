@@ -118,6 +118,8 @@ docs/design/<feature>/design-diff.md
 
 详细设计见 `docs/superpowers/specs/2026-05-21-figma-ui-handoff/README.md`。
 
+实现 skill:`figma-ui-handoff`。
+
 目标:
 
 - 明确 text characters、组件命名、Frame 边界、重复项、状态、资源标注的最低要求。

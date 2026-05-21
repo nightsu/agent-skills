@@ -31,6 +31,8 @@ Cache layer is optional evidence infrastructure. It can refresh or summarize Fig
 
 工程化检查点是强推荐的编排节点,不是新的 A-E phase。出现设计改稿或上游质量风险时,`figma-design-diff` / `figma-ui-handoff` 可以作为流程中提醒出现。Phase E review gate 通过后、handoff menu 之前,`figma-workflow` 必须展示交接前工程化检查。`required_prompt` 可以被 skip,但 skip 决策必须 audit 到 `inputs.md`。
 
+`figma-workflow` 可以通过 `figma-ui-handoff` 生成 `ui-handoff.md`,用于提示设计/产品补齐 Figma selection、文案、命名、重复项、状态和资源交接信息。该入口不属于 Phase E handoff,也不触发 coding。
+
 `figma-workflow` 可以通过 `figma-assets-validate` 生成 `assets-manifest.md` 和 `validation-report.md`,用于资源交付和验证收口。该入口不改变 Phase E handoff,也不触发 coding。
 
 ## Prerequisites

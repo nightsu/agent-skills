@@ -101,6 +101,21 @@ Diff actions:
 
 Diff action 不标记任何 Phase 完成,不自动覆盖 A/B/C/D/E 产物,不替代 review gate。
 
+## UI handoff
+
+当 `docs/design/<feature>/` 存在时,orchestrator 可以展示:
+
+```text
+UI handoff:
+  [ ] ui-handoff.md (not generated)
+
+Handoff actions:
+  [U] Generate ui-handoff.md
+  [V] View existing ui-handoff.md
+```
+
+UI handoff 是面向设计/产品的上游交接文档,不是 Phase E implementation handoff。它不标记任何 Phase 完成,不阻塞 Phase E,不授权 coding。
+
 ## Assets / validation
 
 当 `docs/design/<feature>/` 存在时,orchestrator 可以展示:
