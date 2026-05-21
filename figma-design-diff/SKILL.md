@@ -1,13 +1,13 @@
 ---
 name: figma-design-diff
-description: figma-workflow-suite 的 P13 工程化组件。基于 `.figma-cache/` 的 before / after snapshots 生成 design-diff.md,提示 Figma 改稿影响和建议重跑阶段。
+description: figma-workflow-suite 的工程化组件。基于 `.figma-cache/` 的 before / after snapshots 生成 design-diff.md,提示 Figma 改稿影响和建议重跑阶段。
 ---
 
 # Figma Design Diff
 
 ## Position in figma-workflow
 
-本 skill 是 `figma-workflow-suite` v4 的 P13 工程化能力,位于 P12 cache layer 之后、P14 UI handoff 之前。
+本 skill 是 `figma-workflow-suite` 的工程化能力,通常在 cache layer 已生成 before / after snapshots 后使用。
 
 它产出 `docs/design/<feature>/design-diff.md`。
 它不产出或修改 Phase A-E 的核心产物。
@@ -43,7 +43,7 @@ figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id>
 
 - 输出 `docs/design/<feature>/design-diff.md`
 - 在 `docs/design/<feature>/inputs.md` 追加一条 audit 记录
-- 第一版只比较同一 file key + 同一 node id
+- 当前实现只比较同一 file key + 同一 node id
 - 输出 added / removed / changed nodes
 - 输出 text / layout / token / asset signals
 - 输出 recommended rerun phases
@@ -61,7 +61,7 @@ figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id>
 ## 工作流
 
 1. Parse `feature=<feature-name>`, `fileKey=<file-key>`, `nodeId=<node-id>`.
-2. Ensure `docs/design/<feature>/.figma-cache/` exists; if missing, stop and recommend P12 cache refresh.
+2. Ensure `docs/design/<feature>/.figma-cache/` exists; if missing, stop and recommend cache refresh.
 3. Resolve baseline and current snapshots.
 4. Reject if baseline/current file key or node id differ.
 5. Compare metadata trees for added / removed / changed nodes.
@@ -99,7 +99,7 @@ figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id>
 | 文案变化但结构未变 | Phase B review + E |
 | UI/API 绑定候选变化 | C-low + E |
 | 颜色、字号、圆角、间距变化 | D + E |
-| 资源引用变化 | D review + P15 assets |
+| 资源引用变化 | D review + assets validation |
 | 只有 screenshot metadata 变化 | Manual review |
 | raw hash changed 但无法归类 | Manual review,必要时重跑 B/D |
 
@@ -125,7 +125,7 @@ figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id>
 | Check | Warning |
 |---|---|
 | baseline/current missing | "缺少 before/after snapshot,只能记录 baseline,不能生成有效 diff" |
-| file key or node id mismatch | "P13 第一版只支持同一 file/node diff" |
+| file key or node id mismatch | "当前实现只支持同一 file/node diff" |
 | only unknown changes | "存在无法归类变化,建议人工 review" |
 | recommended rerun phases empty but changes exist | "变化存在但没有重跑建议,需要人工补充" |
 

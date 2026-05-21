@@ -23,8 +23,6 @@ phase A → phase B → phase C-up → [phase C-low: figma-ui-api-mapper] → ph
   传入 `feature` 参数,本 skill 按约定路径读上游产物 + 写产物
 - **独立调用** —— 用户直接调用本 skill,传入 `feature` 参数,行为等价(skill 自己按约定路径读写)
 
-参见 spec:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/04a-ui-api-mapper.md`
-
 ## Prerequisites
 
 执行本 skill 前,以下上游产物必须存在且非占位:
@@ -126,8 +124,8 @@ phase A → phase B → phase C-up → [phase C-low: figma-ui-api-mapper] → ph
 ## 接口文档接入约定
 
 这个技能不绑定某一个接口平台,接口字段统一从上游 `api-mapping.md` 获取。
-`api-mapping.md` 的来源可以是 YAPI、Swagger/OpenAPI、后端字段清单、PRD 数据字典等
-(MVP 阶段由用户手填,第 2 版由 `figma-api-first` skill 生成)。
+`api-mapping.md` 的来源可以是 YAPI、Swagger/OpenAPI、后端字段清单、PRD 数据字典,
+也可以由 `figma-api-first` 根据用户提供的接口结构整理生成。
 
 接入约束:
 

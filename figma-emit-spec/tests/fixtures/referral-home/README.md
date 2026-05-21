@@ -32,13 +32,11 @@
 - `expected/implementation-spec.md` — 期望主产物
 - `expected/open-questions.md` — 期望 open-questions 汇总
 
-## MVP 验证方式
+## 验证方式
 
 人工 review。Agent 跑完后,用 `diff` 对比产物 vs expected:
 - 关键看 Auto Corrections Metadata 段 + Module 段的 Deferred 标记
 - 关键看 open-questions 的分段结构 + Deferred 段
 - 允许格式略有浮动(空行 / 列序),不允许语义偏离
 
-## 未来
-
-第 3 版引入 LLM-as-judge 或结构化等价检查。
+后续如需更稳定的自动化验收,可引入 LLM-as-judge 或结构化等价检查。

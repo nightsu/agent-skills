@@ -19,10 +19,8 @@
 - `inputs/figma-node.json` — 模拟 Figma MCP 返回的节点 JSON
 - `expected/component-mapping.md` — 期望产物
 
-## MVP 验证方式
+## 验证方式
 
 人工 review。Agent 跑完后,用 `diff` 看产物 vs expected,语义不一致由人判定。
 
-## 未来
-
-第 3 版引入 LLM-as-judge 或结构化等价检查,自动化此 fixture 的验证。
+后续如需更稳定的自动化验收,可引入 LLM-as-judge 或结构化等价检查。

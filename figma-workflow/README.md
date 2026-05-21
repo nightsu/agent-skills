@@ -2,7 +2,7 @@
 
 Part of the **figma-workflow-suite** —— suite orchestrator。
 
-按 `docs/design/<feature>/` 下的产物状态推断当前进度,串联 phase C-low / D / E 三个 active skill,
+按 `docs/design/<feature>/` 下的产物状态推断当前进度,串联 phase A-E 和工程化检查点,
 并在每阶段完成后展示 review gate。
 
 ## Quick start
@@ -31,18 +31,28 @@ docs/design/<feature>/
 ├── api-mapping.md
 ├── component-mapping.md
 ├── design-token-patch.md
+├── design-diff.md
+├── ui-handoff.md
+├── assets-manifest.md
+├── validation-report.md
 ├── implementation-spec.md
 └── open-questions.md
 ```
 
-## MVP 阶段
+## Workflow 阶段
 
-- phase A:`clarified-requirement.md` —— 用户手填,本 skill 提供模板
-- phase B:`ui-understanding.md` —— 用户手填,本 skill 提供模板
-- phase C-up:`api-mapping.md` —— 用户手填,本 skill 提供模板
+- phase A:`figma-clarify-requirement` → `clarified-requirement.md`
+- phase B:`figma-ui-understand` → `ui-understanding.md`
+- phase C-up:`figma-api-first` → `api-mapping.md`
 - phase C-low:`figma-ui-api-mapper` → `component-mapping.md`
 - phase D:`figma-design-token` → `design-token-patch.md`
 - phase E:`figma-emit-spec` → `implementation-spec.md` + `open-questions.md`
+
+Phase E review gate 通过后,进入交接前工程化检查:
+
+- `figma-design-diff` → `design-diff.md`
+- `figma-ui-handoff` → `ui-handoff.md`
+- `figma-assets-validate` → `assets-manifest.md` + `validation-report.md`
 
 ## Handoff
 
