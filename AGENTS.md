@@ -21,6 +21,7 @@
 - `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)。
 - `figma-workflow`:按 docs/design/<feature>/ 产物状态驱动 figma-workflow-suite C→D→E 阶段,展示 review gate 与 handoff 出口。
 - `figma-design-diff`:基于 `.figma-cache/` before/current evidence 生成 `design-diff.md`,提示 Figma 改稿影响和建议重跑阶段(P13)。
+- `figma-assets-validate`:读取已有 figma-workflow 产物,生成 `assets-manifest.md` 与 `validation-report.md`,收口资源交付和自动化验证(P15)。
 - `markdown-lint`：清理并规范 Markdown 文件格式。
 
 ## 统一结构

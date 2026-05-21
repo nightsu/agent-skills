@@ -101,6 +101,22 @@ Diff actions:
 
 Diff action 不标记任何 Phase 完成,不自动覆盖 A/B/C/D/E 产物,不替代 review gate。
 
+## Assets / validation
+
+当 `docs/design/<feature>/` 存在时,orchestrator 可以展示:
+
+```text
+Assets / validation:
+  [ ] assets-manifest.md (not generated)
+  [ ] validation-report.md (not generated)
+
+Actions:
+  [A] Generate assets manifest
+  [Q] Run validation checks
+```
+
+Assets / validation action 不标记任何 Phase 完成,不替代人工 review gate,不默认下载所有资源,不授权 coding。
+
 ## 工程化检查点
 
 工程化检查点不混入 A-E `Progress:` 表格。它们显示在独立区域:

@@ -153,6 +153,8 @@ docs/design/<feature>/ui-handoff.md
 
 详细设计见 `docs/superpowers/specs/2026-05-21-figma-assets-validation/README.md`。
 
+实现 skill:`figma-assets-validate`。
+
 目标:
 
 - 规范图片/icon 等资源如何被引用、下载或延后。
