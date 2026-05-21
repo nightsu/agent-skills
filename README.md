@@ -18,6 +18,10 @@
 - `markdown-lint`：清理并规范 Markdown 文件格式
 - `kabu-story`：为 3 到 4 岁儿童生成低认知负担、高情绪共鸣的故事
 
+## figma-workflow-suite 补充能力
+
+- P12 `figma cache layer`:在 `docs/design/<feature>/.figma-cache/` 缓存 Figma MCP evidence,供 C-low/D 和后续 diff 复用
+
 ## 安装
 
 推荐使用混合安装：

@@ -75,6 +75,10 @@ figma-ui-understand feature=<feature-name>
 - 不读取 sibling frames、其他 pages 或无关 nodes
 - screenshot 只做交叉校验,不是唯一事实来源
 
+## Cache Contract
+
+如果 `docs/design/<feature>/.figma-cache/` 不存在,Phase B 可以在调用 Figma MCP 后创建 cache entry。若存在 fresh cache,优先读取 cache 生成 `ui-understanding.md`。无论 cache 是否命中,Phase B 仍必须输出 `ui-understanding.md` 并进入 review gate。
+
 ## 工作流
 
 1. **解析 feature**

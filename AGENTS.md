@@ -59,3 +59,4 @@
 - 参考文件保持单层引用，不要层层嵌套。
 - 长参考文件需要尽量结构化，便于快速预览。
 - 只有跨仓库通用的规则放在这里，OpenSpec change 级别的默认约束不要重复写在此处。
+- `.figma-cache/` 是 feature 级 Figma evidence 缓存,不属于用户手写产物;不要把 raw Figma JSON 复制进 Phase A-E 的 `.md` 输出。

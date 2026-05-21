@@ -65,6 +65,10 @@ figma-design-token feature=<feature-name>
 - 抽取 `api_bound` 节点的文本内容(防止把样例数据当成业务事实)
 - 资源实际下载
 
+## Cache Contract
+
+优先读取 fresh `.figma-cache/` evidence 抽取 token。cache 不足时可 fallback 到 Figma MCP。`design-token-patch.md` 只写 token patch,不写 raw Figma JSON。
+
 ## 工作流
 
 1. **读取上游产物**
