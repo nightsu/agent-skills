@@ -1,6 +1,6 @@
 # Flow Map — referral-home
 
-本文档描述 suite 级 referral-home fixture 如何串联 A/B/C-up/C-low/D/E。
+本文档描述 suite 级 referral-home fixture 如何串联 A/B/C1/C2/D/E。
 
 ## 总览
 
@@ -8,7 +8,7 @@
 docs/design/referral-home/
 ├── clarified-requirement.md   ← phase A 手填
 ├── ui-understanding.md        ← phase B 手填
-├── api-mapping.md             ← phase C-up 手填
+├── api-mapping.md             ← phase C1 手填
 ├── component-mapping.md       ← figma-ui-api-mapper
 ├── design-token-patch.md      ← figma-design-token
 ├── implementation-spec.md     ← figma-emit-spec
@@ -21,10 +21,10 @@ docs/design/referral-home/
 |---|---|---|---|---|
 | A | 用户需求 | 手填模板 | `clarified-requirement.md` | `figma-emit-spec/tests/fixtures/referral-home/inputs/clarified-requirement.md` |
 | B | Figma 截图 / 人工理解 | 手填模板 | `ui-understanding.md` | `figma-emit-spec/tests/fixtures/referral-home/inputs/ui-understanding.md` |
-| C-up | YApi / Swagger / 字段清单 | 手填模板 | `api-mapping.md` | `figma-emit-spec/tests/fixtures/referral-home/inputs/api-mapping.md` |
-| C-low | A + B + C-up + Figma node | `figma-ui-api-mapper` | `component-mapping.md` | `figma-emit-spec/tests/fixtures/referral-home/inputs/component-mapping.md` |
+| C1 | YApi / Swagger / 字段清单 | 手填模板 | `api-mapping.md` | `figma-emit-spec/tests/fixtures/referral-home/inputs/api-mapping.md` |
+| C2 | A + B + C1 + Figma node | `figma-ui-api-mapper` | `component-mapping.md` | `figma-emit-spec/tests/fixtures/referral-home/inputs/component-mapping.md` |
 | D | `component-mapping.md` + Figma node | `figma-design-token` | `design-token-patch.md` | `figma-design-token/tests/fixtures/referral-home/expected/design-token-patch.md` |
-| E | A/B/C-up/C-low/D 五份产物 | `figma-emit-spec` | `implementation-spec.md` + `open-questions.md` | `figma-emit-spec/tests/fixtures/referral-home/expected/` |
+| E | A/B/C1/C2/D 五份产物 | `figma-emit-spec` | `implementation-spec.md` + `open-questions.md` | `figma-emit-spec/tests/fixtures/referral-home/expected/` |
 
 ## Orchestrator 期望
 
@@ -40,11 +40,11 @@ figma-workflow/tests/fixtures/progress-states/empty-feature.expected.md
 
 期望:
 
-- A/B/C-up/C-low/D/E 全部 `[ ]`
+- A/B/C1/C2/D/E 全部 `[ ]`
 - `clarified-requirement.md` 标 `← next`
 - next step 提示复制 phase A 模板
 
-### A/B/C-up/C-low 已完成
+### A/B/C1/C2 已完成
 
 对应:
 
@@ -54,7 +54,7 @@ figma-workflow/tests/fixtures/progress-states/ready-for-d.expected.md
 
 期望:
 
-- A/B/C-up/C-low 为 `[✓]`
+- A/B/C1/C2 为 `[✓]`
 - `design-token-patch.md` 标 `← next`
 - next step 为 `Run figma-design-token (phase D)`
 
@@ -71,7 +71,7 @@ figma-workflow/tests/fixtures/progress-states/ready-for-d.expected.md
 
 fixture 验证重点:
 
-- C-low 完成后不自动进入 D
+- C2 完成后不自动进入 D
 - D 完成后不自动进入 E
 - E 完成后先展示 E 的 review gate,用户选择 Proceed 后才进入 handoff 菜单
 

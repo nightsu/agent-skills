@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** 新建 `figma-api-first` skill(figma-workflow-suite Phase C-up),把用户粘贴的接口结构整理成 `docs/design/<feature>/api-mapping.md`。
+**Goal:** 新建 `figma-api-first` skill(figma-workflow-suite Phase C1),把用户粘贴的接口结构整理成 `docs/design/<feature>/api-mapping.md`。
 
-**Architecture:** 这是一个独立 Phase C-up skill,目录结构沿用现有 figma suite skill:`SKILL.md` + `README.md` + `agents/openai.yaml` + `references/` + `tests/fixtures/`。第一版只处理用户粘贴接口结构,不接 YApi/Swagger/OpenAPI 抓取,不调用 Figma MCP,不写业务代码。
+**Architecture:** 这是一个独立 Phase C1 skill,目录结构沿用现有 figma suite skill:`SKILL.md` + `README.md` + `agents/openai.yaml` + `references/` + `tests/fixtures/`。第一版只处理用户粘贴接口结构,不接 YApi/Swagger/OpenAPI 抓取,不调用 Figma MCP,不写业务代码。
 
 **Tech Stack:** Markdown、YAML frontmatter、人工 review fixture、现有 figma-workflow-suite 文档规范。
 
@@ -55,12 +55,12 @@ docs/superpowers/fixtures/figma-workflow-suite/sales-workbench/flow-map.md
 
 | File | Responsibility |
 |---|---|
-| `figma-api-first/SKILL.md` | Phase C-up 主指引,定义输入、输出、工作流、边界和 self-check |
+| `figma-api-first/SKILL.md` | Phase C1 主指引,定义输入、输出、工作流、边界和 self-check |
 | `figma-api-first/README.md` | 仓库门面,说明 skill 在 suite 中的位置和快速调用方式 |
 | `figma-api-first/agents/openai.yaml` | OpenAI/Codex agent 接入配置 |
 | `figma-api-first/references/api-mapping-template.md` | 输出模板,兼容现有 `figma-workflow/templates/api-mapping.md` |
 | `figma-api-first/tests/fixtures/sales-workbench/` | 回归 fixture,使用销售工作台嵌套指标接口结构 |
-| `figma-workflow/*` | 把 C-up 从默认手填改为优先路由 `figma-api-first`,保留模板 fallback |
+| `figma-workflow/*` | 把 C1 从默认手填改为优先路由 `figma-api-first`,保留模板 fallback |
 | Project catalogs | 暴露新 skill 给 Codex / Claude Code |
 
 ## Task List
@@ -70,7 +70,7 @@ docs/superpowers/fixtures/figma-workflow-suite/sales-workbench/flow-map.md
 - [ ] **Task 3:** 写 reference template
 - [ ] **Task 4:** 写 README 和 OpenAI agent 配置
 - [ ] **Task 5:** 新增 sales-workbench fixture
-- [ ] **Task 6:** 更新 `figma-workflow` C-up 路由契约
+- [ ] **Task 6:** 更新 `figma-workflow` C1 路由契约
 - [ ] **Task 7:** 注册 skill 到项目级 catalog
 - [ ] **Task 8:** 文档验证、提交、推送和 PR
 
@@ -135,7 +135,7 @@ prints the created directories.
 ```markdown
 ---
 name: figma-api-first
-description: figma-workflow-suite 的 phase C-up 组件。把用户粘贴的接口结构、返回值类型或字段清单整理为 api-mapping.md,供 figma-ui-api-mapper 在 C-low 阶段消费。
+description: figma-workflow-suite 的 phase C1 组件。把用户粘贴的接口结构、返回值类型或字段清单整理为 api-mapping.md,供 figma-ui-api-mapper 在 C2 阶段消费。
 ---
 ```
 
@@ -148,9 +148,9 @@ Include:
 
 ## Position in figma-workflow
 
-本 skill 是 `figma-workflow-suite` 的 Phase C-up:
+本 skill 是 `figma-workflow-suite` 的 Phase C1:
 
-phase A → phase B → phase C-up → phase C-low → phase D → phase E
+phase A → phase B → phase C1 → phase C2 → phase D → phase E
 clarified-requirement.md → ui-understanding.md → api-mapping.md → component-mapping.md → design-token-patch.md → implementation-spec.md
 
 `figma-api-first` 产出 `api-mapping.md`。
@@ -232,8 +232,8 @@ Self-check rules:
 
 | Check | Warning |
 |---|---|
-| `Data Sources` empty | "Data Sources 缺失,不能进入 C-low" |
-| `Field Mapping` empty | "Field Mapping 缺失,不能进入 C-low" |
+| `Data Sources` empty | "Data Sources 缺失,不能进入 C2" |
+| `Field Mapping` empty | "Field Mapping 缺失,不能进入 C2" |
 | field type contains `unknown` | "存在 unknown 类型,建议 review 后再继续" |
 | `Open Questions` contains non-deferred items | "存在未解决接口问题,建议 review 后再继续" |
 | template placeholder remains | "产物仍含模板占位,orchestrator 会视为未完成" |
@@ -243,7 +243,7 @@ Self-check rules:
 Run:
 
 ```bash
-rg -n "phase C-up|api-mapping.md|TypeScript|JSON response|不调用 Figma MCP|不修改业务代码|Open Questions|inputs.md|figma-ui-api-mapper" figma-api-first/SKILL.md
+rg -n "phase C1|api-mapping.md|TypeScript|JSON response|不调用 Figma MCP|不修改业务代码|Open Questions|inputs.md|figma-ui-api-mapper" figma-api-first/SKILL.md
 ```
 
 Expected: all key phrases found.
@@ -340,7 +340,7 @@ git commit -m "docs(figma-api-first): add api mapping template"
 ```markdown
 # figma-api-first
 
-`figma-api-first` 是 figma-workflow-suite 的 Phase C-up skill。
+`figma-api-first` 是 figma-workflow-suite 的 Phase C1 skill。
 
 它把用户粘贴的接口结构、返回值类型或字段清单整理成:
 
@@ -352,7 +352,7 @@ docs/design/<feature>/api-mapping.md
 
 - 已完成 `clarified-requirement.md` 和 `ui-understanding.md`。
 - 需要把接口返回结构先稳定成字段事实。
-- 准备让 `figma-ui-api-mapper` 在 C-low 阶段结合 Figma 做 UI/API 绑定。
+- 准备让 `figma-ui-api-mapper` 在 C2 阶段结合 Figma 做 UI/API 绑定。
 
 ## 不做什么
 
@@ -377,7 +377,7 @@ figma-api-first feature=<feature-name>
 ```yaml
 name: figma-api-first
 version: 0.1.0
-description: "Generate api-mapping.md from pasted API structures for figma-workflow-suite Phase C-up."
+description: "Generate api-mapping.md from pasted API structures for figma-workflow-suite Phase C1."
 default_prompt: "使用 $figma-api-first feature=<feature-name> 读取 docs/design/<feature>/ 下的 clarified-requirement.md 和 ui-understanding.md,根据用户粘贴的接口结构整理 api-mapping.md,并在 inputs.md 追加 audit 记录。"
 ```
 
@@ -386,7 +386,7 @@ default_prompt: "使用 $figma-api-first feature=<feature-name> 读取 docs/desi
 Run:
 
 ```bash
-rg -n "figma-api-first|Phase C-up|api-mapping.md|不调用 Figma MCP|不修改业务代码|default_prompt" figma-api-first/README.md figma-api-first/agents/openai.yaml
+rg -n "figma-api-first|Phase C1|api-mapping.md|不调用 Figma MCP|不修改业务代码|default_prompt" figma-api-first/README.md figma-api-first/agents/openai.yaml
 ```
 
 Expected: all key phrases found.
@@ -571,7 +571,7 @@ git commit -m "test(figma-api-first): add sales workbench fixture"
 
 ---
 
-### Task 6: 更新 `figma-workflow` C-up 路由契约
+### Task 6: 更新 `figma-workflow` C1 路由契约
 
 **Files:**
 - Modify: `figma-workflow/SKILL.md`
@@ -580,25 +580,25 @@ git commit -m "test(figma-api-first): add sales workbench fixture"
 
 - [ ] **Step 1: 更新 `figma-workflow/SKILL.md`**
 
-Change C-up wording:
+Change C1 wording:
 
 - From: v2 still manual `api-mapping.md`
 - To: v3 prefers `figma-api-first`; template fallback remains available
 
 Required phrases:
 
-- `C-up:优先调用 figma-api-first;不可用时提示模板`
+- `C1:优先调用 figma-api-first;不可用时提示模板`
 - `figma-api-first` 不接 YApi / Swagger / OpenAPI 自动抓取
-- 不自动进入 C-low
+- 不自动进入 C2
 - 不修改业务代码
 
 - [ ] **Step 2: 更新 `progress-routing.md`**
 
-Add C-up skill menu:
+Add C1 skill menu:
 
 ```text
 Next step:
-  [1] Run figma-api-first (phase C-up)
+  [1] Run figma-api-first (phase C1)
   [2] Use template fallback
   [3] Manually edit a product
   [4] Exit
@@ -606,21 +606,21 @@ Next step:
 
 State:
 
-- C-up requires A + B non-placeholder.
+- C1 requires A + B non-placeholder.
 - If `figma-api-first` is unavailable, fallback is `templates/api-mapping.md`.
-- C-up completion returns to review gate; it does not automatically run `figma-ui-api-mapper`.
+- C1 completion returns to review gate; it does not automatically run `figma-ui-api-mapper`.
 
 - [ ] **Step 3: 更新 suite fixture flow map**
 
-Change sales-workbench flow map C-up row:
+Change sales-workbench flow map C1 row:
 
 ```markdown
-| C-up | figma-api-first | api-mapping.md | skill route preferred; template fallback |
+| C1 | figma-api-first | api-mapping.md | skill route preferred; template fallback |
 ```
 
 Add note:
 
-- P10 replaces v2 manual C-up for this fixture.
+- P10 replaces v2 manual C1 for this fixture.
 - It still uses pasted API structure, not platform fetching.
 
 - [ ] **Step 4: Verify**
@@ -628,7 +628,7 @@ Add note:
 Run:
 
 ```bash
-rg -n "figma-api-first|C-up|api-mapping.md|template fallback|YApi|Swagger|OpenAPI|不修改业务代码|不自动进入 C-low" figma-workflow/SKILL.md figma-workflow/references/progress-routing.md docs/superpowers/fixtures/figma-workflow-suite/sales-workbench/flow-map.md
+rg -n "figma-api-first|C1|api-mapping.md|template fallback|YApi|Swagger|OpenAPI|不修改业务代码|不自动进入 C2" figma-workflow/SKILL.md figma-workflow/references/progress-routing.md docs/superpowers/fixtures/figma-workflow-suite/sales-workbench/flow-map.md
 ```
 
 Expected: all key phrases found.
@@ -637,7 +637,7 @@ Expected: all key phrases found.
 
 ```bash
 git add figma-workflow/SKILL.md figma-workflow/references/progress-routing.md docs/superpowers/fixtures/figma-workflow-suite/sales-workbench/flow-map.md
-git commit -m "docs(figma-workflow): route c-up to api first"
+git commit -m "docs(figma-workflow): route c1 to api first"
 ```
 
 ---
@@ -654,7 +654,7 @@ git commit -m "docs(figma-workflow): route c-up to api first"
 Add `figma-api-first` to 当前技能:
 
 ```markdown
-- `figma-api-first`:把接口结构整理为 api-mapping.md(figma-workflow-suite 的 phase C-up)。
+- `figma-api-first`:把接口结构整理为 api-mapping.md(figma-workflow-suite 的 phase C1)。
 ```
 
 - [ ] **Step 2: 更新 root `README.md`**
@@ -670,7 +670,7 @@ Add a skill entry consistent with existing figma skill entries.
 Run:
 
 ```bash
-rg -n "figma-api-first|phase C-up|api-mapping.md" AGENTS.md README.md .claude-plugin/marketplace.json
+rg -n "figma-api-first|phase C1|api-mapping.md" AGENTS.md README.md .claude-plugin/marketplace.json
 ```
 
 Expected: all key phrases found.
@@ -692,7 +692,7 @@ git commit -m "chore: register figma-api-first skill"
 - [ ] **Step 1: Run verification**
 
 ```bash
-rg -n "figma-api-first|phase C-up|api-mapping.md|TypeScript|JSON response|YApi|Swagger|OpenAPI|不调用 Figma MCP|不修改业务代码|Open Questions|figma-ui-api-mapper" \
+rg -n "figma-api-first|phase C1|api-mapping.md|TypeScript|JSON response|YApi|Swagger|OpenAPI|不调用 Figma MCP|不修改业务代码|Open Questions|figma-ui-api-mapper" \
   figma-api-first \
   figma-workflow/SKILL.md \
   figma-workflow/references/progress-routing.md \
@@ -727,21 +727,21 @@ gh pr create \
   --base docs/figma-workflow-suite-design \
   --head codex/p10-figma-api-first \
   --title "docs: add figma api first plan" \
-  --body "Adds the P10 plan for figma-api-first, the Phase C-up skill that generates api-mapping.md from pasted API structures. The plan keeps YApi/Swagger/OpenAPI fetching out of scope for the first version."
+  --body "Adds the P10 plan for figma-api-first, the Phase C1 skill that generates api-mapping.md from pasted API structures. The plan keeps YApi/Swagger/OpenAPI fetching out of scope for the first version."
 ```
 
 ---
 
 ## Self-Review Checklist
 
-- [ ] `figma-api-first` is Phase C-up.
+- [ ] `figma-api-first` is Phase C1.
 - [ ] It produces `api-mapping.md`.
 - [ ] It does not belong to `figma-ui-api-mapper`.
 - [ ] First version supports pasted API structures only.
 - [ ] YApi / Swagger / OpenAPI fetching remains out of scope.
 - [ ] It does not call Figma MCP.
 - [ ] It does not write business code.
-- [ ] `figma-workflow` routes C-up to the skill when available, with template fallback.
+- [ ] `figma-workflow` routes C1 to the skill when available, with template fallback.
 - [ ] sales-workbench fixture covers nested metric fields.
 
 ## Out of Scope

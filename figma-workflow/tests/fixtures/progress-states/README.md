@@ -5,7 +5,7 @@
 ## 覆盖场景
 
 - `empty-feature.expected.md`:新 feature 目录刚创建,所有产物缺失,下一步应提示 phase A 手填模板。
-- `ready-for-d.expected.md`:A / B / C-up / C-low 已完成,下一步应运行 `figma-design-token`。
+- `ready-for-d.expected.md`:A / B / C1 / C2 已完成,下一步应运行 `figma-design-token`。
 
 ## 验证重点
 

@@ -34,7 +34,7 @@ figma-ui-understand feature=<feature-name>
 ## 上下游
 
 ```
-phase A                    → figma-ui-understand → phase C-up / C-low
+phase A                    → figma-ui-understand → phase C1 / C2
 clarified-requirement.md     ui-understanding.md   api-mapping.md / component-mapping.md
 ```
 

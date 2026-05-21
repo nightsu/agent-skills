@@ -76,7 +76,7 @@
 #### slot label 取值优先级
 
 1. `design-token-patch.md` 真值 (D) — 优先
-2. `component-mapping.md` C-low 推测 — fallback
+2. `component-mapping.md` C2 推测 — fallback
 3. 若两边都缺,用 `<TBD>` 占位 + 写入 open-questions
 
 ### `## API Usage`
@@ -122,7 +122,7 @@
 - **填充:** 列出本次合成的所有 `label_drift` 自动校正
 
 ```markdown
-- label_drift: N 个 label 已从 phase C-low 自动校正为 phase D 真实值
+- label_drift: N 个 label 已从 phase C2 自动校正为 phase D 真实值
 - 校正详情:
   - <Module>.<slot>: "<原 label>" → "<校正后 label>"
   - ...

@@ -46,8 +46,8 @@ Choose:
 |---|---|---|
 | A (手填) | 套件不参与,跳过 self-check;orchestrator 只检查"非模板占位" | [§3.1](./03-orchestrator.md#31-阶段进入条件产物驱动推断) |
 | B (手填) | 同上 | 同上 |
-| C-up (`api-mapping.md`,手填) | 同上 | 同上 |
-| C-low (`figma-ui-api-mapper`) | needs_confirmation / unknown / 低置信度 / Open Questions 数 | [§4a](./04a-ui-api-mapper.md#自查规则用于-5-review-gate) |
+| C1 (`api-mapping.md`,手填) | 同上 | 同上 |
+| C2 (`figma-ui-api-mapper`) | needs_confirmation / unknown / 低置信度 / Open Questions 数 | [§4a](./04a-ui-api-mapper.md#自查规则用于-5-review-gate) |
 | D (`figma-design-token`) | INFERRED 标记 / 缺 token 的 module | [§4b](./04b-design-token.md#自查规则用于-5-review-gate) |
 | E (`figma-emit-spec`) | Open Questions 总数 / 冲突 / Verification 未勾 / INFERRED 数 | [§4c](./04c-emit-spec.md#自查规则用于-5-review-gate) |
 

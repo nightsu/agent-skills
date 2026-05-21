@@ -18,7 +18,7 @@
 The main workflow remains:
 
 ```text
-A → B → C-up → C-low → D → E
+A → B → C1 → C2 → D → E
 ```
 
 v4 capabilities appear in two places:
@@ -65,7 +65,7 @@ When v4 is complete, figma-workflow-suite has 10 related skills: 7 main-chain sk
 
 ### Mid-Workflow Prompt
 
-`figma-workflow` may show a v4 prompt after C-low or D if a risk is visible.
+`figma-workflow` may show a v4 prompt after C2 or D if a risk is visible.
 
 Examples:
 

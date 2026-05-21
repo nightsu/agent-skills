@@ -7,12 +7,12 @@
 - [ ] 商品列表是否分页?
 
 ## From Phase B (ui-understanding.md)
-- [ ] HotProductList 是否真的在本页(MVP 第 1 屏)?可能需 phase C-low 核对 Figma node 确认
+- [ ] HotProductList 是否真的在本页(MVP 第 1 屏)?可能需 phase C2 核对 Figma node 确认
 
-## From Phase C-up (api-mapping.md)
+## From Phase C1 (api-mapping.md)
 (无)
 
-## From Phase C-low (component-mapping.md, needs_confirmation: true)
+## From Phase C2 (component-mapping.md, needs_confirmation: true)
 - [ ] node `hot_product_section`: 不确定本页是否包含 HotProductList,需 phase D 视觉确认
 
 ## From Phase D (design-token-patch.md, INFERRED)

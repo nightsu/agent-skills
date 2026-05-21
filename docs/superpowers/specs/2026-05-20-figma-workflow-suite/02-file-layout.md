@@ -15,7 +15,7 @@
     ├── clarified-requirement.md             # 阶段 A 产物 (MVP 用户手填,套件给模板)
     ├── ui-understanding.md                  # 阶段 B 产物 (MVP 用户手填,套件给模板)
     │
-    ├── api-mapping.md                       # 阶段 C-up 产物 (MVP 用户手填 / 第 3 版 figma-api-first)
+    ├── api-mapping.md                       # 阶段 C1 产物 (MVP 用户手填 / 第 3 版 figma-api-first)
     ├── component-mapping.md                 # 阶段 C - figma-ui-api-mapper 产物
     ├── design-token-patch.md                # 阶段 D - figma-design-token 产物
     ├── implementation-spec.md               # 阶段 E - figma-emit-spec 主产物

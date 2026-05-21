@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** 新增 suite 级 `referral-home` 端到端 fixture,验证 figma-workflow-suite MVP 从 A/B/C-up 手填产物到 C-low/D/E 输出和 superpowers handoff 的完整链路。
+**Goal:** 新增 suite 级 `referral-home` 端到端 fixture,验证 figma-workflow-suite MVP 从 A/B/C1 手填产物到 C2/D/E 输出和 superpowers handoff 的完整链路。
 
 **Architecture:** 这是文档型 fixture,不新增可执行测试。fixture 放在 `docs/superpowers/fixtures/figma-workflow-suite/referral-home/`,用一份 flow map 串联现有 per-skill fixtures,再补齐 suite 级验收清单与 handoff 期望。
 
@@ -51,7 +51,7 @@ docs/superpowers/fixtures/figma-workflow-suite/referral-home/
 
 README 必须说明:
 - 这是 suite 级端到端 fixture,不是单个 skill fixture
-- 覆盖 referral-home 从 A/B/C-up → C-low → D → E → handoff
+- 覆盖 referral-home 从 A/B/C1 → C2 → D → E → handoff
 - 复用现有 per-skill fixture,避免复制大段重复产物
 - MVP 验证方式是人工 review
 
@@ -72,8 +72,8 @@ git commit -m "test(figma-workflow-suite): add e2e fixture README"
 - [ ] **Step 1: 写 flow map**
 
 必须包含:
-- phase A/B/C-up 输入来源
-- C-low/D/E 对应 skill 和产物
+- phase A/B/C1 输入来源
+- C2/D/E 对应 skill 和产物
 - 每一步引用现有 fixture 路径
 - 预期 progress panel 转换
 - 明确 C→D→E 不自动连跑,每步都需要 review gate
@@ -177,7 +177,7 @@ python3 markitdown-export/tests/test_check_markitdown.py
 
 Expected:
 - 4 个 fixture 文件存在
-- 引用 C-low/D/E 和 superpowers handoff
+- 引用 C2/D/E 和 superpowers handoff
 - unittest 通过
 
 - [ ] **Step 2: Push and PR**

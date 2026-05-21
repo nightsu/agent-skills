@@ -6,7 +6,7 @@
   - DiamondPreviewCard
   - OperationEntryGrid (4 instances)
   - BannerCarousel
-  - HotProductList (待 phase C-low 确认是否在本视图内)
+  - HotProductList (待 phase C2 确认是否在本视图内)
 
 ## Suspected Components
 
@@ -27,4 +27,4 @@
 - 装饰背景
 
 ## Questions
-- HotProductList 是否真的在本页(MVP 第 1 屏)?可能需 phase C-low 核对 Figma node 确认
+- HotProductList 是否真的在本页(MVP 第 1 屏)?可能需 phase C2 核对 Figma node 确认

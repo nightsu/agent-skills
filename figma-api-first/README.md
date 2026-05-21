@@ -1,6 +1,6 @@
 # figma-api-first
 
-`figma-api-first` 是 figma-workflow-suite 的 Phase C-up skill。
+`figma-api-first` 是 figma-workflow-suite 的 Phase C1 skill。
 
 它把用户粘贴的接口结构、返回值类型或字段清单整理成:
 
@@ -12,7 +12,7 @@ docs/design/<feature>/api-mapping.md
 
 - 已完成 `clarified-requirement.md` 和 `ui-understanding.md`。
 - 需要把接口返回结构先稳定成字段事实。
-- 准备让 `figma-ui-api-mapper` 在 C-low 阶段结合 Figma 做 UI/API 绑定。
+- 准备让 `figma-ui-api-mapper` 在 C2 阶段结合 Figma 做 UI/API 绑定。
 
 ## 不做什么
 

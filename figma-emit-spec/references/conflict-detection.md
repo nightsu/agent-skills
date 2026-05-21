@@ -17,7 +17,7 @@
 ### 为什么自动校正
 
 来自 validation-findings.md F2:在 MVP 真实业务跑通中发现,
-`figma-ui-api-mapper`(phase C-low)如果只调 `get_metadata`,会拿到 Figma node.name(经常是 placeholder),
+`figma-ui-api-mapper`(phase C2)如果只调 `get_metadata`,会拿到 Figma node.name(经常是 placeholder),
 导致 label 推测大量错位(实测 12/15 错位 = 80%)。
 
 `figma-design-token`(phase D)通过 `get_design_context` 拿到的 `characters` 是真实业务文案的事实来源。
@@ -48,7 +48,7 @@ for each module in component-mapping.md:
 
 ```markdown
 ## Auto Corrections Metadata
-- label_drift: N 个 label 已从 phase C-low 自动校正为 phase D 真实值
+- label_drift: N 个 label 已从 phase C2 自动校正为 phase D 真实值
 - 校正详情:
   - DiamondPreviewCard.primary_value: "钻石余额" → "钻石数量"
   - OperationEntryGrid.list_item_label: "入口" → "运营入口"
@@ -58,7 +58,7 @@ for each module in component-mapping.md:
 
 ### 触发
 
-任何 open question(无论来自 phase A/B/C-up/C-low/D 哪个产物)前缀 `[deferred]`,即视为 deferred。
+任何 open question(无论来自 phase A/B/C1/C2/D 哪个产物)前缀 `[deferred]`,即视为 deferred。
 
 例:
 ```markdown

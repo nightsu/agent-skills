@@ -113,7 +113,7 @@ test("detects added, changed, text, layout, and token changes", () => {
   });
   assert.deepEqual(
     recommendations.map((item) => item.phase),
-    ["B", "C-low", "D", "E"],
+    ["B", "C2", "D", "E"],
   );
 });
 

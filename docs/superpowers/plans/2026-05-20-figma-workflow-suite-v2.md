@@ -57,7 +57,7 @@ The file must include these sections:
 # Figma Workflow Suite v2 — Design Spec
 
 ## TL;DR
-Phase A/B/C-up/C-low/D/E only produce docs/design/<feature>/ artifacts.
+Phase A/B/C1/C2/D/E only produce docs/design/<feature>/ artifacts.
 Business code starts only after Phase E review gate and handoff.
 
 ## Skill Contracts
@@ -235,7 +235,7 @@ Expected files:
 Expected behavior:
 
 - `figma-workflow` routes A/B to v2 skills when available.
-- C-up still points to the handfilled `api-mapping.md` template.
+- C1 still points to the handfilled `api-mapping.md` template.
 - `figma-emit-spec` handoff to `superpowers:writing-plans` uses only `implementation-spec.md`.
 - OpenSpec is surfaced as a manual handoff target, not auto-generated.
 
@@ -244,7 +244,7 @@ Expected behavior:
 ## Self-Review Checklist
 
 - [ ] P6 is documentation/planning only.
-- [ ] v2 skill contracts are scoped and do not overlap C-up/C-low/D/E responsibilities.
+- [ ] v2 skill contracts are scoped and do not overlap C1/C2/D/E responsibilities.
 - [ ] apply boundary is explicit and repeated in spec and plan.
 - [ ] follow-up slices are independently reviewable.
 - [ ] `figma-api-first` is explicitly outside v2 scope.

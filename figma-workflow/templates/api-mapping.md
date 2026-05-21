@@ -1,6 +1,6 @@
 # API Mapping — <feature>
 
-> phase C-up 手填产物。填写完成后删除所有 `<!-- TODO: ... -->` 标记。
+> phase C1 手填产物。填写完成后删除所有 `<!-- TODO: ... -->` 标记。
 
 ## Data Sources
 <!-- TODO: 列出页面依赖的接口、方法和用途。 -->

@@ -18,7 +18,7 @@ figma-design-token feature=<feature-name>
 ## Prerequisites
 
 `docs/design/<feature>/` 目录下必须已有:
-- `component-mapping.md`(phase C-low 产物)
+- `component-mapping.md`(phase C2 产物)
 
 以及 Figma file key + node id。
 
@@ -36,7 +36,7 @@ figma-design-token feature=<feature-name>
 ## 上下游
 
 ```
-phase C-low                 →  figma-design-token      →  phase E
+phase C2                 →  figma-design-token      →  phase E
 component-mapping.md          design-token-patch.md      figma-emit-spec
                                                           implementation-spec.md
 ```

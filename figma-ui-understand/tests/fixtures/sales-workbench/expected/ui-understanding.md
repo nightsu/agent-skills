@@ -56,4 +56,4 @@
 
 - [ ] [deferred] Help icon detailed copy is not visible in the fixture and should stay out of Phase B facts.
 - [ ] [deferred] Empty/error visuals are not confirmed by screenshot and remain deferred.
-- [ ] no API field binding in phase B; field binding belongs to phase C-up / C-low.
+- [ ] no API field binding in phase B; field binding belongs to phase C1 / C2.

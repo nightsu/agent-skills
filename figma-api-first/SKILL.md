@@ -1,16 +1,16 @@
 ---
 name: figma-api-first
-description: figma-workflow-suite 的 phase C-up 组件。把用户粘贴的接口结构、返回值类型或字段清单整理为 api-mapping.md,供 figma-ui-api-mapper 在 C-low 阶段消费。
+description: figma-workflow-suite 的 phase C1 组件。把用户粘贴的接口结构、返回值类型或字段清单整理为 api-mapping.md,供 figma-ui-api-mapper 在 C2 阶段消费。
 ---
 
 # Figma API First
 
 ## Position in figma-workflow
 
-本 skill 是 `figma-workflow-suite` 的 Phase C-up:
+本 skill 是 `figma-workflow-suite` 的 Phase C1:
 
 ```text
-phase A → phase B → phase C-up → phase C-low → phase D → phase E
+phase A → phase B → phase C1 → phase C2 → phase D → phase E
 clarified-requirement.md → ui-understanding.md → api-mapping.md → component-mapping.md → design-token-patch.md → implementation-spec.md
 ```
 
@@ -34,7 +34,7 @@ figma-api-first feature=<feature-name>
 
 ## 适用场景
 
-- 已完成 Phase A / B,准备进入 C-up
+- 已完成 Phase A / B,准备进入 C1
 - 需要把接口返回结构先整理成稳定字段事实
 - 希望让 `figma-ui-api-mapper` 后续基于同一份 `api-mapping.md` 做 UI/API 绑定
 - 用户只有粘贴的接口结构,暂时没有可自动抓取的平台入口
@@ -148,8 +148,8 @@ figma-api-first feature=<feature-name>
 
 | Check | Warning |
 |---|---|
-| `Data Sources` empty | "Data Sources 缺失,不能进入 C-low" |
-| `Field Mapping` empty | "Field Mapping 缺失,不能进入 C-low" |
+| `Data Sources` empty | "Data Sources 缺失,不能进入 C2" |
+| `Field Mapping` empty | "Field Mapping 缺失,不能进入 C2" |
 | field type contains `unknown` | "存在 unknown 类型,建议 review 后再继续" |
 | `Open Questions` contains non-deferred items | "存在未解决接口问题,建议 review 后再继续" |
 | template placeholder remains | "产物仍含模板占位,orchestrator 会视为未完成" |
@@ -158,8 +158,8 @@ self-check 不阻塞产物落盘;是否继续由 `figma-workflow` 的 review gat
 
 ## 下游衔接
 
-- C-up 完成后回到 `figma-workflow` review gate,不自动进入 C-low
-- 进入 C-low 时,`figma-ui-api-mapper` 读取本 skill 生成的 `api-mapping.md`
+- C1 完成后回到 `figma-workflow` review gate,不自动进入 C2
+- 进入 C2 时,`figma-ui-api-mapper` 读取本 skill 生成的 `api-mapping.md`
 - 后续 Phase D / E 不需要知道 `api-mapping.md` 来自手填还是 `figma-api-first`
 
 ## 不要做的事

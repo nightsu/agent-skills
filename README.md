@@ -9,8 +9,8 @@
 - `git-commit`：安全审查改动并生成提交
 - `figma-clarify-requirement`:把用户需求整理成 clarified-requirement.md(figma-workflow-suite 的 phase A)
 - `figma-ui-understand`:从 Figma node 提取页面结构和 UI 语义,输出 ui-understanding.md(figma-workflow-suite 的 phase B)
-- `figma-api-first`:把接口结构整理成 api-mapping.md(figma-workflow-suite 的 phase C-up)
-- `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C-low,renamed from `figma-api-mapper`)
+- `figma-api-first`:把接口结构整理成 api-mapping.md(figma-workflow-suite 的 phase C1)
+- `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C2,renamed from `figma-api-mapper`)
 - `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)
 - `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)
 - `figma-workflow`:按 docs/design/<feature>/ 产物状态驱动 figma-workflow-suite C→D→E 阶段,展示 review gate 与 handoff 出口
@@ -25,7 +25,7 @@
 
 主链路保持 7 个 skill:`figma-workflow` + Phase A-E 的 6 个阶段 skill。v4 工程化能力按需新增独立 skill,不改变 Phase A-E 的 coding boundary。
 
-- P12 `figma cache layer`:在 `docs/design/<feature>/.figma-cache/` 缓存 Figma MCP evidence,供 C-low/D 和后续 diff 复用
+- P12 `figma cache layer`:在 `docs/design/<feature>/.figma-cache/` 缓存 Figma MCP evidence,供 C2/D 和后续 diff 复用
 - P13 `figma-design-diff`:基于 `.figma-cache/` before/current evidence 生成 `design-diff.md`,提示 recommended rerun phases
 - P14 `figma-ui-handoff`:生成 `ui-handoff.md`,帮助设计/产品补齐上游交接信息
 - P15 `figma-assets-validate`:生成 `assets-manifest.md` 与 `validation-report.md`,收口资源交付和自动化验证

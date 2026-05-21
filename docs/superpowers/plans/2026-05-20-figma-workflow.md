@@ -4,7 +4,7 @@
 
 **Goal:** 新建 `figma-workflow` skill,作为 figma-workflow-suite MVP 的 orchestrator,按 `docs/design/<feature>/` 的产物存在性推断下一阶段,展示进度面板、review gate 与 handoff 出口说明。
 
-**Architecture:** 这是一个文档型 orchestrator skill,不引入可执行程序。`SKILL.md` 放核心流程和调用约定,`references/progress-routing.md` 放阶段推断、菜单与 review gate 细节,`templates/` 放 A/B/C-up 手填产物模板,`tests/fixtures/progress-states/` 放人工 review fixture。
+**Architecture:** 这是一个文档型 orchestrator skill,不引入可执行程序。`SKILL.md` 放核心流程和调用约定,`references/progress-routing.md` 放阶段推断、菜单与 review gate 细节,`templates/` 放 A/B/C1 手填产物模板,`tests/fixtures/progress-states/` 放人工 review fixture。
 
 **Tech Stack:** Markdown、YAML frontmatter、Claude Code marketplace JSON、人工 fixture review。
 
@@ -56,7 +56,7 @@ README.md
 - [ ] **Task 3:** 写 `agents/openai.yaml`
 - [ ] **Task 4:** 写 `README.md`
 - [ ] **Task 5:** 写 `references/progress-routing.md`
-- [ ] **Task 6:** 写 A/B/C-up 手填模板
+- [ ] **Task 6:** 写 A/B/C1 手填模板
 - [ ] **Task 7:** 新增 `progress-states` fixture
 - [ ] **Task 8:** 注册 catalog
 - [ ] **Task 9:** Final review + commit/push/PR
@@ -150,7 +150,7 @@ Refs: docs/superpowers/plans/2026-05-20-figma-workflow.md Task 2
 interface:
   display_name: "Figma Workflow"
   short_description: "按 docs/design/<feature>/ 产物驱动 C→D→E 流程"
-  default_prompt: "使用 $figma-workflow feature=<feature-name> 按 docs/design/<feature>/ 下的产物存在性推断进度,展示阶段面板,提供 A/B/C-up 手填模板,并路由到 figma-ui-api-mapper / figma-design-token / figma-emit-spec;每阶段完成后展示 review gate,phase E 后展示 handoff 出口。"
+  default_prompt: "使用 $figma-workflow feature=<feature-name> 按 docs/design/<feature>/ 下的产物存在性推断进度,展示阶段面板,提供 A/B/C1 手填模板,并路由到 figma-ui-api-mapper / figma-design-token / figma-emit-spec;每阶段完成后展示 review gate,phase E 后展示 handoff 出口。"
 ```
 
 - [ ] **Step 2: 验证 YAML**
@@ -185,7 +185,7 @@ README must explain:
 - this is the suite orchestrator
 - quick start `figma-workflow feature=<feature-name>`
 - artifact layout under `docs/design/<feature>/`
-- active MVP phases: C-low, D, E
+- active MVP phases: C2, D, E
 - handoff options after phase E
 
 - [ ] **Step 2: Commit**
@@ -227,7 +227,7 @@ Refs: docs/superpowers/plans/2026-05-20-figma-workflow.md Task 5
 
 ---
 
-### Task 6: 写 A/B/C-up 手填模板
+### Task 6: 写 A/B/C1 手填模板
 
 **Files:**
 - Create: `figma-workflow/templates/clarified-requirement.md`
@@ -273,7 +273,7 @@ Refs: docs/superpowers/plans/2026-05-20-figma-workflow.md Task 6
 
 Fixture must cover:
 - empty feature directory → next step phase A templates
-- A/B/C-up/C-low present → next step phase D
+- A/B/C1/C2 present → next step phase D
 - expected progress panel format
 
 - [ ] **Step 2: 验证内容**

@@ -1,6 +1,6 @@
 ---
 name: figma-ui-api-mapper
-description: figma-workflow-suite 的 phase C-low 组件。合并上游 api-mapping.md 与 Figma node,清理非业务噪音,区分 api_bound / ui_static / ui_copy / unknown,输出可审阅的 component-mapping.md。
+description: figma-workflow-suite 的 phase C2 组件。合并上游 api-mapping.md 与 Figma node,清理非业务噪音,区分 api_bound / ui_static / ui_copy / unknown,输出可审阅的 component-mapping.md。
 ---
 
 > ⚠ **Renamed from `figma-api-mapper`. Old name no longer works.**
@@ -9,17 +9,17 @@ description: figma-workflow-suite 的 phase C-low 组件。合并上游 api-mapp
 
 ## Position in figma-workflow
 
-本 skill 是 `figma-workflow-suite` 的一部分,处于 **phase C-low**(阶段 C 下半段):
+本 skill 是 `figma-workflow-suite` 的一部分,处于 **phase C2**:
 
 ```
-phase A → phase B → phase C-up → [phase C-low: figma-ui-api-mapper] → phase D → phase E
+phase A → phase B → phase C1 → [phase C2: figma-ui-api-mapper] → phase D → phase E
                     api-mapping.md  ↓                                    design-token  emit-spec
                                     component-mapping.md
 ```
 
 可以通过两种方式调用:
 
-- **由 orchestrator 调用** —— `figma-workflow feature=<name>` 在 phase C-low 自动路由到本 skill,
+- **由 orchestrator 调用** —— `figma-workflow feature=<name>` 在 phase C2 自动路由到本 skill,
   传入 `feature` 参数,本 skill 按约定路径读上游产物 + 写产物
 - **独立调用** —— 用户直接调用本 skill,传入 `feature` 参数,行为等价(skill 自己按约定路径读写)
 

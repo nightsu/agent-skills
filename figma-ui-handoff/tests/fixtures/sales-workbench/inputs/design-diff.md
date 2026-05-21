@@ -10,5 +10,5 @@
 
 | Phase | Reason |
 |---|---|
-| C-low | 新增指标卡可能影响 API/UI binding |
+| C2 | 新增指标卡可能影响 API/UI binding |
 | P14 | 更新 UI handoff follow-up |

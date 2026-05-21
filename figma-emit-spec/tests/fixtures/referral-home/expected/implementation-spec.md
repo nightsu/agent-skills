@@ -139,7 +139,7 @@ ReferralHomePage
 见 open-questions.md
 
 ## Auto Corrections Metadata
-- label_drift: 2 个 label 已从 phase C-low 自动校正为 phase D 真实值
+- label_drift: 2 个 label 已从 phase C2 自动校正为 phase D 真实值
 - 校正详情:
-  - DiamondPreviewCard.primary_value: "钻石余额"(C-low 推测) → "钻石数量"(D 真值)
-  - OperationEntryGrid.list_item_label: "入口"(C-low 推测) → "运营入口"(D 真值)
+  - DiamondPreviewCard.primary_value: "钻石余额"(C2 推测) → "钻石数量"(D 真值)
+  - OperationEntryGrid.list_item_label: "入口"(C2 推测) → "运营入口"(D 真值)

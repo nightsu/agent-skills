@@ -27,7 +27,7 @@
 
 - `inputs/clarified-requirement.md` — 模拟用户阶段 A 手填产物
 - `inputs/ui-understanding.md` — 模拟用户阶段 B 手填产物
-- `inputs/api-mapping.md` — 模拟用户阶段 C-up 手填产物
+- `inputs/api-mapping.md` — 模拟用户阶段 C1 手填产物
 - `inputs/figma-node.json` — 模拟 Figma MCP 返回的节点 JSON
 - `expected/component-mapping.md` — 期望产物
 

@@ -197,7 +197,7 @@ A + B + C(上 + 下) + D 全部 5 份产物存在且非占位:
 
 ### 为什么 `label_drift` 自动校正而非写入 open-questions
 
-`figma-ui-api-mapper`(phase C-low)可能未拿到真实 `characters`(若 Figma 文本节点 name 是 placeholder,
+`figma-ui-api-mapper`(phase C2)可能未拿到真实 `characters`(若 Figma 文本节点 name 是 placeholder,
 当 spec §4a 工作流要求同时调 `get_design_context` 后此情况大幅减少,但仍存在 edge case)。
 
 `figma-design-token`(phase D)通过 `get_design_context` 拿到的 `characters` 是真实业务文案的事实来源。

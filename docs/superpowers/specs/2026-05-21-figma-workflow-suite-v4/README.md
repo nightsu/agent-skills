@@ -33,12 +33,12 @@ P15 assets+QA → 资源下载约定和自动化验证,放在最后收口
 
 ## Why v4
 
-MVP 到 v3 已经把 A/B/C-up/C-low/D/E 的主链路补齐:
+MVP 到 v3 已经把 A/B/C1/C2/D/E 的主链路补齐:
 
 - Phase A:`figma-clarify-requirement`
 - Phase B:`figma-ui-understand`
-- Phase C-up:`figma-api-first`
-- Phase C-low:`figma-ui-api-mapper`
+- Phase C1:`figma-api-first`
+- Phase C2:`figma-ui-api-mapper`
 - Phase D:`figma-design-token`
 - Phase E:`figma-emit-spec`
 - Orchestrator:`figma-workflow`
@@ -59,7 +59,7 @@ v4 因此先做基础设施,不急着扩展更多平台集成。
 
 目标:
 
-- 避免同一 file/node 在 C-low/D 等阶段重复读取。
+- 避免同一 file/node 在 C2/D 等阶段重复读取。
 - 为后续 diff 提供 before / after 基线。
 - 让 `inputs.md` 不再承担大体量原始证据记录。
 

@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** 为 figma-workflow-suite 增加 feature 级 `.figma-cache/` 缓存层,让 Phase B / C-low / D 可以复用 Figma MCP 读取证据,并为 P13 design diff 提供基线。
+**Goal:** 为 figma-workflow-suite 增加 feature 级 `.figma-cache/` 缓存层,让 Phase B / C2 / D 可以复用 Figma MCP 读取证据,并为 P13 design diff 提供基线。
 
 **Architecture:** 新增共享 cache reference 和最小脚本,把 manifest schema、path 规则、cache hit/miss 行为沉到 `figma-workflow/references/` 与 `scripts/` 中。各 phase skill 先只更新文档契约和 fixture,实现时通过同一 cache helper 读写 `.figma-cache/`,避免每个 skill 自行拼路径。
 
@@ -61,7 +61,7 @@ docs/superpowers/specs/2026-05-21-figma-workflow-suite-v4/README.md
 | `figma-workflow/scripts/figma-cache.js` | 最小 cache helper: path resolve、manifest read/write、entry validation、summary 输出 |
 | `figma-workflow/references/progress-routing.md` | orchestrator 如何展示 cache summary 和 refresh action |
 | `figma-ui-understand/SKILL.md` | Phase B 说明如何写入/复用 cache |
-| `figma-ui-api-mapper/SKILL.md` | Phase C-low 说明如何优先读取 cache |
+| `figma-ui-api-mapper/SKILL.md` | Phase C2 说明如何优先读取 cache |
 | `figma-design-token/SKILL.md` | Phase D 说明如何优先读取 cache |
 | fixture `.figma-cache/` | sales-workbench 示例 manifest 和 cache entry |
 | `README.md` / `AGENTS.md` | 仓库级技能清单补充 cache layer 能力说明 |
@@ -72,7 +72,7 @@ docs/superpowers/specs/2026-05-21-figma-workflow-suite-v4/README.md
 - [ ] **Task 2:** 编写 cache layer reference
 - [ ] **Task 3:** 实现最小 `figma-cache.js` helper
 - [ ] **Task 4:** 更新 `figma-workflow` cache 路由说明
-- [ ] **Task 5:** 更新 Phase B / C-low / D skill 契约
+- [ ] **Task 5:** 更新 Phase B / C2 / D skill 契约
 - [ ] **Task 6:** 新增 sales-workbench cache fixture
 - [ ] **Task 7:** 更新项目级说明
 - [ ] **Task 8:** 验证、提交、推送和 PR
@@ -239,7 +239,7 @@ Expected output shape:
 ```text
 Cache: docs/design/sales-workbench/.figma-cache/manifest.json
 Entries: 1
-- YclTRHKbwKZYdt8uY52fkw 122924:5188 fresh C-low
+- YclTRHKbwKZYdt8uY52fkw 122924:5188 fresh C2
 ```
 
 - [ ] **Step 4: Add helper self-test fixture command**
@@ -318,7 +318,7 @@ Expected: all key phrases found.
 
 ---
 
-### Task 5: 更新 Phase B / C-low / D skill 契约
+### Task 5: 更新 Phase B / C2 / D skill 契约
 
 **Files:**
 - Modify: `figma-ui-understand/SKILL.md`
@@ -335,7 +335,7 @@ In `figma-ui-understand/SKILL.md`, add:
 如果 `docs/design/<feature>/.figma-cache/` 不存在,Phase B 可以在调用 Figma MCP 后创建 cache entry。若存在 fresh cache,优先读取 cache 生成 `ui-understanding.md`。无论 cache 是否命中,Phase B 仍必须输出 `ui-understanding.md` 并进入 review gate。
 ```
 
-- [ ] **Step 2: C-low 读取 cache 说明**
+- [ ] **Step 2: C2 读取 cache 说明**
 
 In `figma-ui-api-mapper/SKILL.md`, add:
 
@@ -392,7 +392,7 @@ Create a one-entry manifest for:
 - `file_key`: `YclTRHKbwKZYdt8uY52fkw`
 - `node_id`: `122924:5188`
 - `node_id_safe`: `122924-5188`
-- `captured_by_phase`: `C-low`
+- `captured_by_phase`: `C2`
 - `status`: `fresh`
 
 - [ ] **Step 3: 写 metadata fixture**
@@ -460,7 +460,7 @@ Expected:
 
 ```text
 Entries: 1
-- YclTRHKbwKZYdt8uY52fkw 122924:5188 fresh C-low
+- YclTRHKbwKZYdt8uY52fkw 122924:5188 fresh C2
 ```
 
 ---
@@ -477,7 +477,7 @@ Entries: 1
 Add a short Chinese note:
 
 ```markdown
-- P12 `figma cache layer`:在 `docs/design/<feature>/.figma-cache/` 缓存 Figma MCP evidence,供 C-low/D 和后续 diff 复用。
+- P12 `figma cache layer`:在 `docs/design/<feature>/.figma-cache/` 缓存 Figma MCP evidence,供 C2/D 和后续 diff 复用。
 ```
 
 - [ ] **Step 2: AGENTS 增加维护提示**

@@ -7,4 +7,4 @@
 - 修改一个卡片宽度。
 - 修改一个 token summary。
 
-预期输出 `design-diff.md`,并建议重跑 Phase B / C-low / D / E。
+预期输出 `design-diff.md`,并建议重跑 Phase B / C2 / D / E。

@@ -19,7 +19,7 @@
 
 - **第 1 版 (本 spec, MVP)**:orchestrator + C/D/E 三个 skill
 - **第 2 版**:补 A/B 两个 skill + 外部 handoff(`superpowers:brainstorming` / OpenSpec)
-- **第 3 版**:补 `figma-api-first`,替代 C-up 手填 `api-mapping.md`
+- **第 3 版**:补 `figma-api-first`,替代 C1 手填 `api-mapping.md`
 - **第 4 版**:缓存层 / diff / UI handoff 规范
 
 ---
@@ -88,7 +88,7 @@ Suite E2E fixture:[referral-home](../../fixtures/figma-workflow-suite/referral-h
 
 **本 spec 不包含(留给第 2/3/4 版):**
 - 阶段 A/B 的两个 skill(`figma-clarify-requirement`、`figma-ui-understand`)
-- 阶段 C-up 的 `figma-api-first`
+- 阶段 C1 的 `figma-api-first`
 - 外部 skill handoff 的接入(`superpowers:writing-plans`)
 - 缓存层、diff、UI handoff 规范
 

@@ -13,7 +13,7 @@
       "design_context_path": "design-context.YclTRHKbwKZYdt8uY52fkw.122924-5188.json",
       "screenshot_meta_path": "screenshots/screenshot.YclTRHKbwKZYdt8uY52fkw.122924-5188.json",
       "captured_at": "2026-05-21T10:05:00+08:00",
-      "captured_by_phase": "C-low",
+      "captured_by_phase": "C2",
       "figma_mcp_tools": ["get_metadata", "get_design_context", "get_screenshot"],
       "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "status": "fresh"
