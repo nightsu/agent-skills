@@ -28,15 +28,15 @@
 
 ## Visual Notes
 
-- 
+-
 
 ## Non-business UI To Ignore
 
-- 
+-
 
 ## Open Questions
 
-- [ ] 
+- [ ]
 
 ## 填写约定
 
