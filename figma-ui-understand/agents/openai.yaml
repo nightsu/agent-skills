@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma UI Understand"
+  short_description: "把 Figma node 整理成 ui-understanding.md"
+  default_prompt: "使用 $figma-ui-understand feature=<feature-name> 读取 docs/design/<feature>/clarified-requirement.md 和指定 Figma node,调用 get_metadata / get_design_context / get_screenshot,提取页面结构、重复模式、疑似组件和 UI 语义,输出 docs/design/<feature>/ui-understanding.md,并在 inputs.md 追加一条记录。不要做 API 字段绑定,不要写业务代码,不要把 node.name 当作真实文案。"

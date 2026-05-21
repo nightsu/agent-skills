@@ -13,7 +13,16 @@
 - `document-analysis`：理解、摘要并审阅文档。
 - `project-interview-analyzer`：把项目整理成面试材料。
 - `git-commit`：安全审查改动并生成提交。
-- `figma-api-mapper`：清理 Figma 节点并映射 UI 与接口字段。
+- `figma-clarify-requirement`:把用户自然语言需求整理为 clarified-requirement.md(figma-workflow-suite 的 phase A)。
+- `figma-ui-understand`:从指定 Figma node 提取页面结构、重复模式、疑似组件和 UI 语义,输出 ui-understanding.md(figma-workflow-suite 的 phase B)。
+- `figma-api-first`:把接口结构整理为 api-mapping.md(figma-workflow-suite 的 phase C1)。
+- `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C2,renamed from `figma-api-mapper`)。
+- `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)。
+- `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)。
+- `figma-workflow`:按 docs/design/<feature>/ 产物状态驱动 figma-workflow-suite C→D→E 阶段,展示 review gate 与 handoff 出口。
+- `figma-design-diff`:基于 `.figma-cache/` before/current evidence 生成 `design-diff.md`,提示 Figma 改稿影响和建议重跑阶段(P13)。
+- `figma-ui-handoff`:读取已有 figma-workflow 产物,生成 `ui-handoff.md`,帮助设计/产品补齐上游交接信息(P14)。
+- `figma-assets-validate`:读取已有 figma-workflow 产物,生成 `assets-manifest.md` 与 `validation-report.md`,收口资源交付和自动化验证(P15)。
 - `markdown-lint`：清理并规范 Markdown 文件格式。
 
 ## 统一结构
@@ -53,3 +62,4 @@
 - 参考文件保持单层引用，不要层层嵌套。
 - 长参考文件需要尽量结构化，便于快速预览。
 - 只有跨仓库通用的规则放在这里，OpenSpec change 级别的默认约束不要重复写在此处。
+- `.figma-cache/` 是 feature 级 Figma evidence 缓存,不属于用户手写产物;不要把 raw Figma JSON 复制进 Phase A-E 的 `.md` 输出。

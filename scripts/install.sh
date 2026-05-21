@@ -18,6 +18,9 @@ EOF
 target="${1:-install}"
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 plugin_name="ethan-skills"
+stale_skill_names=(
+  "figma-api-mapper"
+)
 codex_home="${CODEX_HOME:-$HOME/.codex}"
 codex_skills_dir="${codex_home}/skills"
 codex_plugins_dir="${codex_home}/plugins"
@@ -67,6 +70,21 @@ unlink_skills() {
   done
 }
 
+unlink_stale_skills() {
+  local base_dir="$1"
+
+  [[ -d "${base_dir}" ]] || return 0
+
+  for skill_name in "${stale_skill_names[@]}"; do
+    local target_path="${base_dir}/${skill_name}"
+    local old_target="${repo_root}/${skill_name}"
+    if [[ -L "${target_path}" ]] && [[ "$(readlink "${target_path}")" == "${old_target}" ]]; then
+      rm -f "${target_path}"
+      echo "removed stale ${target_path}"
+    fi
+  done
+}
+
 install_claude_plugin() {
   local plugin_ref="${plugin_name}@${plugin_name}"
 
@@ -97,19 +115,24 @@ remove_plugin_dir() {
 case "${target}" in
   install)
     link_skills "${codex_skills_dir}"
+    unlink_stale_skills "${codex_skills_dir}"
     remove_plugin_dir "${codex_plugins_dir}"
     unlink_skills "${claude_skills_dir}"
+    unlink_stale_skills "${claude_skills_dir}"
     remove_plugin_dir "${claude_plugins_dir}"
     install_claude_plugin
     ;;
   skills)
     link_skills "${codex_skills_dir}"
+    unlink_stale_skills "${codex_skills_dir}"
     remove_plugin_dir "${codex_plugins_dir}"
     ;;
   update)
     link_skills "${codex_skills_dir}"
+    unlink_stale_skills "${codex_skills_dir}"
     remove_plugin_dir "${codex_plugins_dir}"
     unlink_skills "${claude_skills_dir}"
+    unlink_stale_skills "${claude_skills_dir}"
     install_claude_plugin
     ;;
   -h|--help)

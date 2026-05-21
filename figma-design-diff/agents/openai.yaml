@@ -1,0 +1,3 @@
+name: figma-design-diff
+description: 基于 .figma-cache before/after snapshots 生成 design-diff.md,提示 Figma 改稿影响和 recommended rerun phases。
+default_prompt: "使用 $figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id> 对比 docs/design/<feature>/.figma-cache/ 的 before/current evidence,输出 docs/design/<feature>/design-diff.md,并在 inputs.md 追加一条记录。不要修改 Phase A-E 产物,不要写业务代码。"

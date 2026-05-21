@@ -1,0 +1,65 @@
+{
+  "file_key": "FixtureCourseList0001",
+  "node_id": "100:200",
+  "name": "CourseListPage",
+  "type": "FRAME",
+  "children": [
+    {
+      "id": "100:201",
+      "name": "StatusBar",
+      "type": "FRAME",
+      "children": []
+    },
+    {
+      "id": "100:202",
+      "name": "Header",
+      "type": "FRAME",
+      "children": [
+        { "id": "100:203", "name": "Title", "type": "TEXT", "characters": "课程列表" }
+      ]
+    },
+    {
+      "id": "100:210",
+      "name": "CourseList",
+      "type": "FRAME",
+      "children": [
+        {
+          "id": "100:211",
+          "name": "CourseCard",
+          "type": "INSTANCE",
+          "componentId": "comp-course-card",
+          "children": [
+            { "id": "100:212", "name": "course_cover", "type": "RECTANGLE", "fills": [{ "type": "IMAGE", "imageRef": "cover-001" }] },
+            { "id": "100:213", "name": "course_title", "type": "TEXT", "characters": "少儿美术启蒙" },
+            { "id": "100:214", "name": "teacher_name", "type": "TEXT", "characters": "王老师" },
+            { "id": "100:215", "name": "course_price", "type": "TEXT", "characters": "199 元" },
+            { "id": "100:216", "name": "promo_tag", "type": "TEXT", "characters": "限时优惠" },
+            { "id": "100:217", "name": "favorite_icon", "type": "VECTOR" },
+            { "id": "100:218", "name": "card_bg", "type": "RECTANGLE", "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }] }
+          ]
+        },
+        {
+          "id": "100:221",
+          "name": "CourseCard",
+          "type": "INSTANCE",
+          "componentId": "comp-course-card",
+          "children": [
+            { "id": "100:222", "name": "course_cover", "type": "RECTANGLE", "fills": [{ "type": "IMAGE", "imageRef": "cover-002" }] },
+            { "id": "100:223", "name": "course_title", "type": "TEXT", "characters": "趣味数学启蒙" },
+            { "id": "100:224", "name": "teacher_name", "type": "TEXT", "characters": "李老师" },
+            { "id": "100:225", "name": "course_price", "type": "TEXT", "characters": "249 元" },
+            { "id": "100:226", "name": "promo_tag", "type": "TEXT", "characters": "限时优惠" },
+            { "id": "100:227", "name": "favorite_icon", "type": "VECTOR" },
+            { "id": "100:228", "name": "card_bg", "type": "RECTANGLE", "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "100:290",
+      "name": "HomeIndicator",
+      "type": "FRAME",
+      "children": []
+    }
+  ]
+}
