@@ -54,9 +54,9 @@ Phase E review gate 通过后,进入交接前工程化检查:
 - `figma-ui-handoff` → `ui-handoff.md`
 - `figma-assets-validate` → `assets-manifest.md` + `validation-report.md`
 
-## Handoff
+## 交接前检查与 Handoff
 
-phase E 完成后进入 handoff 出口:
+phase E review gate 通过后,先进入交接前工程化检查。检查项处理完成后,再进入 handoff 出口:
 
 - builtin:`task-breakdown.md`
 - `superpowers:writing-plans`

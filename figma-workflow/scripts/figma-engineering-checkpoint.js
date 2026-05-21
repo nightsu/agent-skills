@@ -33,6 +33,27 @@ function productStatus(featureDir, product) {
   return products.every((fileName) => exists(path.join(featureDir, fileName))) ? "generated" : "missing";
 }
 
+function hasSkipAudit(featureDir, checkpoint, skill) {
+  const audit = readTextIfExists(path.join(featureDir, "inputs.md"));
+  if (!audit) return false;
+
+  return audit
+    .split(/^## /m)
+    .some((block) => block.includes("figma-workflow@engineering-checkpoint") &&
+      block.includes(`- checkpoint: ${checkpoint}`) &&
+      block.includes(`- skill: ${skill}`));
+}
+
+function applyAuditedSkips(featureDir, checkpoint, items) {
+  return items.map((item) => {
+    if (item.status !== "missing" || !hasSkipAudit(featureDir, checkpoint, item.skill)) {
+      return item;
+    }
+
+    return { ...item, status: "skipped" };
+  });
+}
+
 function inferEngineeringCheckpoint(featureDir, options = {}) {
   const checkpoint = options.checkpoint || "pre-handoff";
   const snapshots = hasSnapshots(featureDir);
@@ -73,7 +94,7 @@ function inferEngineeringCheckpoint(featureDir, options = {}) {
     risk: "assets and boundary checks not reviewed before handoff",
   });
 
-  return { checkpoint, featureDir, items };
+  return { checkpoint, featureDir, items: applyAuditedSkips(featureDir, checkpoint, items) };
 }
 
 function isHandled(item) {

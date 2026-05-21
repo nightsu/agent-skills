@@ -269,9 +269,10 @@ Risk notes:
 
 summary 不落新文件。它只帮助用户在 handoff 前看到工程化检查结果和 skip 风险。
 
-## Phase E handoff
+## 交接前工程化检查与 Phase E handoff
 
-phase E 完成并在 review gate 选择 [1] 后,追加 handoff 菜单:
+phase E 完成并在 review gate 选择 [1] 后,先展示交接前工程化检查。
+所有 `required_prompt` 都 run / view / skip 后,再追加 handoff 菜单:
 
 ```text
 Handoff to planning / spec authoring:

@@ -378,6 +378,15 @@ function readSnapshot(snapshotDir) {
   };
 }
 
+function inferFeatureFromSnapshotDir(snapshotDir) {
+  const parts = path.resolve(snapshotDir).split(path.sep);
+  const cacheIndex = parts.lastIndexOf(".figma-cache");
+  if (cacheIndex > 0) {
+    return parts[cacheIndex - 1];
+  }
+  return "unknown-feature";
+}
+
 function buildDiffFromSnapshots(beforeDir, afterDir) {
   const before = readSnapshot(beforeDir);
   const after = readSnapshot(afterDir);
@@ -391,7 +400,7 @@ function buildDiffFromSnapshots(beforeDir, afterDir) {
   const layoutChanges = diffLayout(before.metadata, after.metadata);
   const tokenChanges = diffTokens(before.context, after.context);
   const result = {
-    feature: "sales-workbench",
+    feature: inferFeatureFromSnapshotDir(afterDir),
     fileKey: after.metadata.file_key,
     nodeId: after.metadata.node_id,
     generatedAt: after.metadata.captured_at || after.context.captured_at || "2026-05-21T11:20:00+08:00",
@@ -442,6 +451,7 @@ module.exports = {
   diffTokens,
   hashJson,
   indexNodes,
+  inferFeatureFromSnapshotDir,
   readJson,
   recommendRerunPhases,
   renderDesignDiffMarkdown,
