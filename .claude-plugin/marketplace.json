@@ -23,6 +23,7 @@
         "./figma-emit-spec",
         "./figma-workflow",
         "./figma-design-diff",
+        "./figma-assets-validate",
         "./project-interview-analyzer",
         "./git-commit",
         "./markitdown-export",
