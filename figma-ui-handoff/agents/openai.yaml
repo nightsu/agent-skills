@@ -1,0 +1,3 @@
+name: figma-ui-handoff
+description: 读取 docs/design/<feature>/ 下已有产物,生成 ui-handoff.md,帮助设计/产品补齐 Figma selection、文案、命名、重复项、状态和资源交接信息。
+default_prompt: "使用 $figma-ui-handoff feature=<feature-name> 读取 docs/design/<feature>/ 下已有产物,输出 docs/design/<feature>/ui-handoff.md,并在 inputs.md 追加一条记录。不要修改 Figma 文件,不要生成 implementation spec,不要写业务代码。"
