@@ -11,16 +11,19 @@ description: figma-workflow-suite 的 orchestrator。按 docs/design/<feature>/ 
 
 ```
 phase A → phase B → phase C-up → phase C-low → phase D → phase E → handoff 出口
-手填      手填      手填         ui-api-mapper  design-token  emit-spec
+clarify   UI理解     手填 API     ui-api-mapper  design-token  emit-spec
 ```
 
-MVP 中真正自动路由的阶段是:
+v2 中的阶段路由:
 
+- **phase A**:优先调用 `figma-clarify-requirement`;不可用时提示模板
+- **phase B**:优先调用 `figma-ui-understand`;不可用时提示模板
+- **phase C-up**:仍手填 `api-mapping.md`;未来由 `figma-api-first` 替代,但不属于本版本
 - **phase C-low**:`figma-ui-api-mapper`
 - **phase D**:`figma-design-token`
 - **phase E**:`figma-emit-spec`
 
-phase A / B / C-up 仍由用户手填,本 skill 只提供模板、路径提示和占位检查。
+Phase E 只交付实施输入文档和 handoff 选择。handoff 后可进入 OpenSpec / planning / task breakdown 等准备阶段;业务代码只能在用户明确确认执行 coding 后开始。
 
 参见 spec:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/03-orchestrator.md`
 
@@ -63,17 +66,22 @@ figma-workflow feature=<feature-name>
 
 - 根据 `docs/design/<feature>/` 下的文件存在性推断进度
 - 展示当前 feature 的进度面板
-- 对 A/B/C-up 给出手填模板路径和目标产物路径
+- 对 A/B 优先路由到 v2 skill,不可用时 fallback 到模板路径
+- 对 C-up 保持手填 `api-mapping.md` 模板路径
 - 对 C-low / D / E 路由到对应 skill
 - 每阶段结束后展示 review gate
-- phase E 结束后展示 handoff 出口
+- Phase E 结束后展示 handoff 出口并收紧 apply boundary
 
 **不**承担:
 
 - 自动连跑多阶段
-- 自动生成 A/B/C-up 语义内容
+- 自动生成 C-up 语义内容
+- 实现 `figma-api-first`
+- 自动生成 `api-mapping.md`
 - 自动回答 open questions
 - 调用 Figma MCP(由下游 phase skill 自己调用)
+- 未经用户明确确认执行 coding 就写业务代码
+- 自动调用 apply/coding agent
 - 修改已有上游产物
 
 ## 产物布局
@@ -112,7 +120,9 @@ docs/design/<feature>/
    - 退出
 
 5. **路由到阶段动作**
-   - A / B / C-up:提示复制模板并手填
+   - A:优先调用 `figma-clarify-requirement`;不可用时提示模板
+   - B:优先调用 `figma-ui-understand`;不可用时提示模板
+   - C-up:提示复制 `templates/api-mapping.md` 后手填(v2 仍手填)
    - C-low:调用 `figma-ui-api-mapper`
    - D:调用 `figma-design-token`
    - E:调用 `figma-emit-spec`
@@ -129,9 +139,9 @@ docs/design/<feature>/
 
 | 目标阶段 | 进入条件 | 缺失时处理 |
 |---|---|---|
-| A 手填 `clarified-requirement.md` | 永远可进入 | 提供 `templates/clarified-requirement.md` |
-| B 手填 `ui-understanding.md` | A 存在且非占位 | 阻塞并提示缺 A |
-| C-up 手填 `api-mapping.md` | A + B 存在且非占位 | 阻塞并提示缺 A/B |
+| A `figma-clarify-requirement` | 永远可进入 | skill 不可用时 fallback 到 `templates/clarified-requirement.md` |
+| B `figma-ui-understand` | A 存在且非占位 | 阻塞并提示缺 A;skill 不可用时 fallback 到 `templates/ui-understanding.md` |
+| C-up 手填 `api-mapping.md` | A + B 存在且非占位 | 阻塞并提示缺 A/B;未来 `figma-api-first` 不属于 v2 |
 | C-low `figma-ui-api-mapper` | A + B + `api-mapping.md` 存在且非占位 | 阻塞并列缺失产物 |
 | D `figma-design-token` | A + B + `api-mapping.md` + `component-mapping.md` 存在且非占位 | 阻塞并列缺失产物 |
 | E `figma-emit-spec` | A + B + C + `design-token-patch.md` 存在且非占位 | 阻塞并列缺失产物 |
@@ -188,9 +198,9 @@ Next step:
 
 | 阶段 | 行为 |
 |---|---|
-| A | 提示把 `templates/clarified-requirement.md` 复制到 `docs/design/<feature>/clarified-requirement.md` 后手填 |
-| B | 提示把 `templates/ui-understanding.md` 复制到 `docs/design/<feature>/ui-understanding.md` 后手填 |
-| C-up | 提示把 `templates/api-mapping.md` 复制到 `docs/design/<feature>/api-mapping.md` 后手填 |
+| A | 调用 `figma-clarify-requirement feature=<feature>`;若不可用,提示把 `templates/clarified-requirement.md` 复制到 `docs/design/<feature>/clarified-requirement.md` 后手填 |
+| B | 调用 `figma-ui-understand feature=<feature>`;若不可用,提示模板并索取 Figma file key / node id |
+| C-up | 仍手填 `api-mapping.md`,提示把 `templates/api-mapping.md` 复制到 `docs/design/<feature>/api-mapping.md` 后手填 |
 | C-low | 调用 `figma-ui-api-mapper feature=<feature>` 并向用户索取 Figma file key / node id |
 | D | 调用 `figma-design-token feature=<feature>` 并向用户索取或复用 Figma file key / node id |
 | E | 调用 `figma-emit-spec feature=<feature>` |
@@ -223,7 +233,7 @@ Choose:
 只有 phase E 完成且用户在 review gate 选择 `[1] Proceed` 后,才显示 handoff 菜单:
 
 ```text
-Handoff to apply stage:
+Handoff to planning / spec authoring:
   [1] Builtin — generate task-breakdown.md
   [2] superpowers:writing-plans
   [3] Manual — exit, I'll take implementation-spec.md elsewhere
@@ -232,13 +242,15 @@ Handoff to apply stage:
 
 行为:
 
-- **Builtin**:从 `implementation-spec.md` 的 Modules 拆出 `task-breakdown.md`
-- **superpowers**:调用 `superpowers:writing-plans`,把 `implementation-spec.md` 作为输入
-- **Manual**:退出,不写偏好
+- **Builtin**:从 `implementation-spec.md` 的 Modules 拆出 `task-breakdown.md`,不写代码
+- **superpowers**:推荐在可用时选择;调用 `superpowers:writing-plans`,把 `implementation-spec.md` 作为输入
+- **Manual**:退出,不写偏好;可把 OpenSpec 作为外部目标,但 P9 不生成 OpenSpec proposal
 - **Pause**:退出,不写偏好
 
 如果 `.workflow-prefs.json` 已记录 `handoff_after_emit`,菜单顶部显示上次选择和 `[P]` 快捷键。
 即使有上次选择,也**不自动重放**。
+
+Phase E handoff 是 OpenSpec / planning / task breakdown 等准备阶段的入口,不是默认 coding 入口。任何 handoff 选项都不应在 `figma-workflow` 内部直接写业务代码;业务代码只能在用户明确确认执行 coding 后开始。
 
 ## 错误处理
 
@@ -254,8 +266,10 @@ Handoff to apply stage:
 ## 不要做的事
 
 - ❌ 不自动连跑多阶段
-- ❌ 不实现 phase A/B 的自动需求澄清或 UI 理解
+- ❌ 不实现 `figma-api-first`
 - ❌ 不自动生成 `api-mapping.md`
+- ❌ 不在用户明确确认执行 coding 前写业务代码
+- ❌ 不自动调用 apply/coding agent
 - ❌ 不跨 feature 操作
 - ❌ 不实现 `.figma-cache/`
 - ❌ 不做 Figma 改稿 diff
