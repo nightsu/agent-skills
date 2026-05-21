@@ -144,6 +144,8 @@ docs/design/<feature>/ui-handoff.md
 
 最后补 assets 下载约定和自动化验证。
 
+详细设计见 `docs/superpowers/specs/2026-05-21-figma-assets-validation/README.md`。
+
 目标:
 
 - 规范图片/icon 等资源如何被引用、下载或延后。
