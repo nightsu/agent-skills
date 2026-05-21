@@ -215,7 +215,7 @@ v2 必须兼容 MVP 已存在的产物:
 
 - 第 2 版: `figma-clarify-requirement` + `figma-ui-understand` + 外部 handoff / coding boundary。
 - 第 3 版: `figma-api-first`,替代 C-up 手填 `api-mapping.md`。
-- 第 4 版: 缓存层 / diff / UI handoff 规范 / assets / 自动化验证。
+- 第 4 版: 缓存层 / diff / UI handoff 规范 / assets / 自动化验证。详见 `docs/superpowers/specs/2026-05-21-figma-workflow-suite-v4/README.md`。
 
 `figma-api-first` 不属于 `figma-ui-api-mapper`;两者同属 Phase C,但分别产出 `api-mapping.md` 和 `component-mapping.md`。
 

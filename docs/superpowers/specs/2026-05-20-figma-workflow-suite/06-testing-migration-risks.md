@@ -133,6 +133,8 @@ interface:
 
 ### 第 4 版
 
+> 范围拆分见 `docs/superpowers/specs/2026-05-21-figma-workflow-suite-v4/README.md`。
+
 - `.figma-cache/` 三层缓存
 - `design-diff.md` Figma 改稿差量
 - UI handoff 最低规范文档(给设计师的)
