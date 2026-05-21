@@ -109,6 +109,8 @@ docs/design/<feature>/design-diff.md
 
 新增面向设计师 / 产品的最低交接规范,帮助上游 Figma 和需求输入更稳定。
 
+详细设计见 `docs/superpowers/specs/2026-05-21-figma-ui-handoff/README.md`。
+
 目标:
 
 - 明确 text characters、组件命名、Frame 边界、重复项、状态、资源标注的最低要求。
@@ -136,6 +138,7 @@ docs/design/<feature>/ui-handoff.md
 - 不修改 Figma 文件。
 - 不要求设计师使用特定设计系统。
 - 不把 handoff 文档当作 implementation spec。
+- 不把 UI handoff 当作 Phase E 的 implementation handoff 或 coding 入口。
 
 ### P15: Assets and Automated Validation
 
