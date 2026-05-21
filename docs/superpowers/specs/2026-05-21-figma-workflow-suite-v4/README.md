@@ -76,6 +76,8 @@ docs/design/<feature>/.figma-cache/
 
 基于 `.figma-cache/` 的两个快照产出 `design-diff.md`。
 
+详细设计见 `docs/superpowers/specs/2026-05-21-figma-design-diff/README.md`。
+
 目标:
 
 - 让 Figma 改稿影响可 review。
