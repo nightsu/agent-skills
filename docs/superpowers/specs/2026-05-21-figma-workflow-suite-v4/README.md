@@ -22,6 +22,13 @@ P15 assets+QA → 资源下载约定和自动化验证,放在最后收口
 
 优先级是 **cache → diff → UI handoff → assets / 自动化验证**。
 
+技能数量口径:
+
+- 主链路保持 7 个 skill:`figma-workflow` + Phase A-E 的 6 个阶段 skill。
+- v4 预计新增 3 个工程化 skill:`figma-design-diff`、`figma-ui-handoff`、`figma-assets-validate`。
+- P12 cache layer 不新增独立 skill,只提供 `figma-workflow` reference / scripts 和 phase contract。
+- v4 全部落地后,figma-workflow-suite 相关 skill 总数预计为 10 个。
+
 ---
 
 ## Why v4
@@ -211,7 +218,7 @@ v4 新增能力也必须遵守:
 
 - P11: v4 scope split spec + implementation plan。
 - P12: cache layer spec / implementation。
-- P13: design diff spec / implementation。
+- P13: design diff spec / implementation。详细设计见 `docs/superpowers/specs/2026-05-21-figma-design-diff/README.md`。
 - P14: UI handoff minimum spec / implementation。
 - P15: assets + automated validation spec / implementation。
 

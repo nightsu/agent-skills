@@ -14,13 +14,17 @@
 - `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)
 - `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)
 - `figma-workflow`:按 docs/design/<feature>/ 产物状态驱动 figma-workflow-suite C→D→E 阶段,展示 review gate 与 handoff 出口
+- `figma-design-diff`:基于 `.figma-cache/` before/current evidence 生成 `design-diff.md`,用于改稿影响 review
 - `markitdown-export`：将 PDF、Word、Excel 等文件转换为同目录 Markdown
 - `markdown-lint`：清理并规范 Markdown 文件格式
 - `kabu-story`：为 3 到 4 岁儿童生成低认知负担、高情绪共鸣的故事
 
 ## figma-workflow-suite 补充能力
 
+主链路保持 7 个 skill:`figma-workflow` + Phase A-E 的 6 个阶段 skill。v4 工程化能力按需新增独立 skill,不改变 Phase A-E 的 coding boundary。
+
 - P12 `figma cache layer`:在 `docs/design/<feature>/.figma-cache/` 缓存 Figma MCP evidence,供 C-low/D 和后续 diff 复用
+- P13 `figma-design-diff`:基于 `.figma-cache/` before/current evidence 生成 `design-diff.md`,提示 recommended rerun phases
 
 ## 安装
 
