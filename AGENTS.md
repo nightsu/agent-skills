@@ -14,6 +14,7 @@
 - `project-interview-analyzer`：把项目整理成面试材料。
 - `git-commit`：安全审查改动并生成提交。
 - `figma-clarify-requirement`:把用户自然语言需求整理为 clarified-requirement.md(figma-workflow-suite 的 phase A)。
+- `figma-ui-understand`:从指定 Figma node 提取页面结构、重复模式、疑似组件和 UI 语义,输出 ui-understanding.md(figma-workflow-suite 的 phase B)。
 - `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C-low,renamed from `figma-api-mapper`)。
 - `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)。
 - `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)。
