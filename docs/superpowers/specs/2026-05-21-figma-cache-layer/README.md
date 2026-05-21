@@ -9,7 +9,7 @@
 
 ## TL;DR
 
-P12 为 figma-workflow-suite 增加 feature 级 `.figma-cache/` 约定,缓存 Figma MCP 的读取证据,减少 C-low / D / 后续 diff 阶段重复读取同一 node。
+P12 为 figma-workflow-suite 增加 feature 级 `.figma-cache/` 约定,缓存 Figma MCP 的读取证据,减少 C2 / D / 后续 diff 阶段重复读取同一 node。
 
 第一版只做三件事:
 
@@ -103,7 +103,7 @@ docs/design/<feature>/.figma-cache/
       "design_context_path": "design-context.YclTRHKbwKZYdt8uY52fkw.122924-5188.json",
       "screenshot_meta_path": "screenshots/screenshot.YclTRHKbwKZYdt8uY52fkw.122924-5188.json",
       "captured_at": "2026-05-21T10:05:00+08:00",
-      "captured_by_phase": "C-low",
+      "captured_by_phase": "C2",
       "figma_mcp_tools": ["get_metadata", "get_design_context", "get_screenshot"],
       "content_hash": "sha256:<hash-of-normalized-cache-entry>",
       "status": "fresh"
@@ -120,7 +120,7 @@ docs/design/<feature>/.figma-cache/
 | `feature` | 对应 `docs/design/<feature>/` |
 | `entries[]` | 一个 Figma file/node 对应一个 entry |
 | `node_id_safe` | 文件名安全版本,只用于 path |
-| `captured_by_phase` | 触发读取的 phase,例如 `B` / `C-low` / `D` |
+| `captured_by_phase` | 触发读取的 phase,例如 `B` / `C2` / `D` |
 | `figma_mcp_tools` | 本次缓存使用过的 Figma MCP tool 名称 |
 | `content_hash` | 对 normalized metadata + design context + screenshot meta 计算的 hash |
 | `status` | `fresh` / `stale` / `invalid` |
@@ -199,7 +199,7 @@ phase skill needs Figma evidence
 
 ```markdown
 - at: 2026-05-21T10:05:00+08:00
-  phase: C-low
+  phase: C2
   skill: figma-ui-api-mapper
   figma_file_key: YclTRHKbwKZYdt8uY52fkw
   figma_node_id: 122924:5188
@@ -217,7 +217,7 @@ phase skill needs Figma evidence
 - 如果已有 fresh cache,可以优先读取 cache。
 - 仍必须输出 `ui-understanding.md` 并进入 review gate。
 
-### Phase C-low: `figma-ui-api-mapper`
+### Phase C2: `figma-ui-api-mapper`
 
 - 优先读取 fresh cache,避免重复调用 Figma MCP。
 - 只把已归纳 UI 事实写入 `component-mapping.md`。
@@ -267,7 +267,7 @@ Cache actions:
 
 P12 实现完成后至少验证:
 
-- fresh cache 命中时,C-low 或 D 不需要再次调用同一 Figma MCP evidence。
+- fresh cache 命中时,C2 或 D 不需要再次调用同一 Figma MCP evidence。
 - cache miss 时,能调用 Figma MCP 并写入 manifest。
 - manifest entry 文件缺失时,status 视为 invalid,并 fallback。
 - `.md` 产物不包含 raw Figma JSON。

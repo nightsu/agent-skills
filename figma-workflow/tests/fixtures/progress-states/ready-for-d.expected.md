@@ -7,8 +7,8 @@ Dir:     docs/design/referral-home/
 Progress:
   [✓] A      clarified-requirement.md          (handwritten, 1.2 KB)
   [✓] B      ui-understanding.md               (handwritten, 2.4 KB)
-  [✓] C-up   api-mapping.md                    (handwritten, 1.8 KB)
-  [✓] C-low  component-mapping.md              (figma-ui-api-mapper, 2026-05-20 15:08)
+  [✓] C1     api-mapping.md                    (handwritten, 1.8 KB)
+  [✓] C2     component-mapping.md              (figma-ui-api-mapper, 2026-05-20 15:08)
   [ ] D      design-token-patch.md             ← next
   [ ] E      implementation-spec.md
   [ ] E      open-questions.md

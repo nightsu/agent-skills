@@ -7,8 +7,8 @@ Dir:     docs/design/referral-home/
 Progress:
   [ ] A      clarified-requirement.md          ← next
   [ ] B      ui-understanding.md
-  [ ] C-up   api-mapping.md
-  [ ] C-low  component-mapping.md
+  [ ] C1     api-mapping.md
+  [ ] C2     component-mapping.md
   [ ] D      design-token-patch.md
   [ ] E      implementation-spec.md
   [ ] E      open-questions.md

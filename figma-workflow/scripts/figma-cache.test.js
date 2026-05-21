@@ -48,7 +48,7 @@ test("writes manifest and summarizes fresh entries", () => {
         metadata_path: "metadata.YclTRHKbwKZYdt8uY52fkw.122924-5188.json",
         design_context_path: "design-context.YclTRHKbwKZYdt8uY52fkw.122924-5188.json",
         screenshot_meta_path: "screenshots/screenshot.YclTRHKbwKZYdt8uY52fkw.122924-5188.json",
-        captured_by_phase: "C-low",
+        captured_by_phase: "C2",
         status: "fresh",
       },
     ],
@@ -58,5 +58,5 @@ test("writes manifest and summarizes fresh entries", () => {
 
   assert.match(summary, /Cache: .*\.figma-cache\/manifest\.json/);
   assert.match(summary, /Entries: 1/);
-  assert.match(summary, /- YclTRHKbwKZYdt8uY52fkw 122924:5188 fresh C-low/);
+  assert.match(summary, /- YclTRHKbwKZYdt8uY52fkw 122924:5188 fresh C2/);
 });

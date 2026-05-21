@@ -4,7 +4,7 @@
 
 **Goal:** 新增 `figma-ui-handoff` 能力,把已存在的 Figma workflow 产物整理成 `docs/design/<feature>/ui-handoff.md`,帮助设计/产品补齐上游输入质量。
 
-**Architecture:** 这是 P14 的独立工程化 skill,读取 A/B/C-low/D/P13/E 的 Markdown 产物并生成上游交接文档。实现时新增 `figma-ui-handoff/` skill 目录和模板,并在 `figma-workflow` 中提供可选入口;它不修改 Figma、不修改 Phase A-E 产物、不写业务代码。
+**Architecture:** 这是 P14 的独立工程化 skill,读取 A/B/C2/D/P13/E 的 Markdown 产物并生成上游交接文档。实现时新增 `figma-ui-handoff/` skill 目录和模板,并在 `figma-workflow` 中提供可选入口;它不修改 Figma、不修改 Phase A-E 产物、不写业务代码。
 
 **Tech Stack:** Markdown、YAML frontmatter、轻量 Markdown parsing、现有 figma-workflow-suite skill 结构和 fixture。
 

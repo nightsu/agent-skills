@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** 把现有 `figma-api-mapper` skill 改名为 `figma-ui-api-mapper`,改写 SKILL.md 以适配 figma-workflow-suite(读上游 .md 产物、输出 Markdown 表格、明确 phase C-low 定位),并产出一个端到端 fixture 验证回归等价。
+**Goal:** 把现有 `figma-api-mapper` skill 改名为 `figma-ui-api-mapper`,改写 SKILL.md 以适配 figma-workflow-suite(读上游 .md 产物、输出 Markdown 表格、明确 phase C2 定位),并产出一个端到端 fixture 验证回归等价。
 
 **Architecture:** 这是一次"原地重构":目录改名 → SKILL.md 重写 → references 内容保持 → agents/openai.yaml 微调 → 新增 tests/fixtures/ 做回归 + 新增 README.md。**不写代码**(skill 是 markdown 指引文档),改动全是文档。
 
@@ -148,7 +148,7 @@ Expected: commit 成功,3 文件 renamed(git 自动识别为 rename,而非 delet
 ```markdown
 ---
 name: figma-ui-api-mapper
-description: figma-workflow-suite 的 phase C-low 组件。合并上游 api-mapping.md 与 Figma node,清理非业务噪音,区分 api_bound / ui_static / ui_copy / unknown,输出可审阅的 component-mapping.md。
+description: figma-workflow-suite 的 phase C2 组件。合并上游 api-mapping.md 与 Figma node,清理非业务噪音,区分 api_bound / ui_static / ui_copy / unknown,输出可审阅的 component-mapping.md。
 ---
 
 > ⚠ **Renamed from `figma-api-mapper`. Old name no longer works.**
@@ -157,17 +157,17 @@ description: figma-workflow-suite 的 phase C-low 组件。合并上游 api-mapp
 
 ## Position in figma-workflow
 
-本 skill 是 `figma-workflow-suite` 的一部分,处于 **phase C-low**(阶段 C 下半段):
+本 skill 是 `figma-workflow-suite` 的一部分,处于 **phase C2**:
 
 ```
-phase A → phase B → phase C-up → [phase C-low: figma-ui-api-mapper] → phase D → phase E
+phase A → phase B → phase C1 → [phase C2: figma-ui-api-mapper] → phase D → phase E
                     api-mapping.md  ↓                                    design-token  emit-spec
                                     component-mapping.md
 ```
 
 可以通过两种方式调用:
 
-- **由 orchestrator 调用** —— `figma-workflow feature=<name>` 在 phase C-low 自动路由到本 skill,
+- **由 orchestrator 调用** —— `figma-workflow feature=<name>` 在 phase C2 自动路由到本 skill,
   传入 `feature` 参数,本 skill 按约定路径读上游产物 + 写产物
 - **独立调用** —— 用户直接调用本 skill,传入 `feature` 参数,行为等价(skill 自己按约定路径读写)
 
@@ -579,7 +579,7 @@ Refs: docs/superpowers/plans/2026-05-20-figma-ui-api-mapper-migration.md Task 4
 
 > Renamed from `figma-api-mapper`. Old name no longer works.
 
-Part of the **figma-workflow-suite** —— phase C-low.
+Part of the **figma-workflow-suite** —— phase C2.
 读取上游 `api-mapping.md` + 用户提供的 Figma node,清理非业务噪音,
 区分 `api_bound` / `ui_static` / `ui_copy` / `unknown`,
 输出可审阅的 `component-mapping.md`。
@@ -592,7 +592,7 @@ Part of the **figma-workflow-suite** —— phase C-low.
 figma-ui-api-mapper feature=<feature-name>
 ```
 
-(或由 `figma-workflow feature=<feature-name>` 在 phase C-low 自动路由调用)
+(或由 `figma-workflow feature=<feature-name>` 在 phase C2 自动路由调用)
 
 ## Prerequisites
 
@@ -617,7 +617,7 @@ figma-ui-api-mapper feature=<feature-name>
 ## 上下游
 
 ```
-phase C-up           → figma-ui-api-mapper →  phase D            →  phase E
+phase C1           → figma-ui-api-mapper →  phase D            →  phase E
 api-mapping.md         component-mapping.md   figma-design-token   figma-emit-spec
 (MVP 用户手填)                                 design-token-patch    implementation-spec
                                                                        open-questions

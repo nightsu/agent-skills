@@ -144,7 +144,7 @@ Include:
 
 本 skill 是 `figma-workflow-suite` 的 phase B:
 
-phase A → phase B → phase C-up → phase C-low → phase D → phase E
+phase A → phase B → phase C1 → phase C2 → phase D → phase E
 clarified-requirement.md → ui-understanding.md → api-mapping.md → component-mapping.md → design-token-patch.md → implementation-spec.md
 
 ## Prerequisites
@@ -230,7 +230,7 @@ Self-check rules:
 
 | Check | Warning |
 |---|---|
-| `Page Structure` empty | "Page Structure 缺失,不能进入 Phase C-low" |
+| `Page Structure` empty | "Page Structure 缺失,不能进入 Phase C2" |
 | `Suspected Components` empty | "Suspected Components 缺失,建议 review 后再继续" |
 | missing screenshot confirmation | "未使用截图校验整体结构,建议补充 get_screenshot" |
 | `node.name` used as copy source | "检测到 node.name 被当作真实文案,需改用 characters" |
@@ -353,7 +353,7 @@ figma-ui-understand feature=<feature-name>
 
 ## 上下游
 
-phase A → phase B → phase C-up / C-low
+phase A → phase B → phase C1 / C2
 clarified-requirement.md → ui-understanding.md → api-mapping.md / component-mapping.md
 ```
 

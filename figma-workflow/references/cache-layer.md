@@ -35,7 +35,7 @@ docs/design/<feature>/.figma-cache/
       "design_context_path": "design-context.YclTRHKbwKZYdt8uY52fkw.122924-5188.json",
       "screenshot_meta_path": "screenshots/screenshot.YclTRHKbwKZYdt8uY52fkw.122924-5188.json",
       "captured_at": "2026-05-21T10:05:00+08:00",
-      "captured_by_phase": "C-low",
+      "captured_by_phase": "C2",
       "figma_mcp_tools": ["get_metadata", "get_design_context", "get_screenshot"],
       "content_hash": "sha256:<hash-of-normalized-cache-entry>",
       "status": "fresh"
@@ -52,7 +52,7 @@ docs/design/<feature>/.figma-cache/
 | `feature` | 对应 `docs/design/<feature>/` |
 | `entries[]` | 一个 Figma file/node 对应一个 entry |
 | `node_id_safe` | 文件名安全版本,只用于 path |
-| `captured_by_phase` | 触发读取的 phase,例如 `B` / `C-low` / `D` |
+| `captured_by_phase` | 触发读取的 phase,例如 `B` / `C2` / `D` |
 | `figma_mcp_tools` | 本次缓存使用过的 Figma MCP tool 名称 |
 | `content_hash` | 对 normalized metadata + design context + screenshot meta 计算的 hash |
 | `status` | `fresh` / `stale` / `invalid` |
@@ -76,6 +76,6 @@ docs/design/<feature>/.figma-cache/
 ## Phase Integration
 
 - Phase B `figma-ui-understand`:首次读取 Figma MCP 后可创建 cache;fresh cache 可作为生成 `ui-understanding.md` 的 evidence。
-- Phase C-low `figma-ui-api-mapper`:优先读取 fresh cache,miss 或 invalid 时 fallback 到 Figma MCP。
+- Phase C2 `figma-ui-api-mapper`:优先读取 fresh cache,miss 或 invalid 时 fallback 到 Figma MCP。
 - Phase D `figma-design-token`:优先读取 fresh cache 抽取 token;cache 不足时 fallback 到 Figma MCP。
 - `figma-workflow`:只展示 cache summary 和 refresh 提示,不把 cache 状态当成阶段完成条件。

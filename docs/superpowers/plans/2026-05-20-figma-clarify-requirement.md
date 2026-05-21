@@ -141,7 +141,7 @@ Include:
 
 本 skill 是 `figma-workflow-suite` 的 phase A:
 
-phase A → phase B → phase C-up → phase C-low → phase D → phase E
+phase A → phase B → phase C1 → phase C2 → phase D → phase E
 clarified-requirement.md → ui-understanding.md → api-mapping.md → component-mapping.md → design-token-patch.md → implementation-spec.md
 
 ## Prerequisites

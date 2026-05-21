@@ -32,7 +32,7 @@ docs/design/<feature>/design-diff.md
 P12 解决了 Figma evidence 可缓存的问题,但缓存本身不告诉用户"设计改稿影响了什么"。真实工作流里常见的问题是:
 
 - 设计师改了文案,但实现规格仍引用旧文案。
-- Frame 结构或重复项数量变了,但 C-low/D 没有重跑。
+- Frame 结构或重复项数量变了,但 C2/D 没有重跑。
 - 只改了颜色/圆角/字号,却误以为要从 A 到 E 全量重跑。
 - Figma 改动发生在 Phase E 之后,用户不知道是否需要重新生成 `implementation-spec.md`。
 
@@ -198,7 +198,7 @@ figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id>
 | Phase | Recommendation | Reason |
 |---|---|---|
 | B | review | Text changed |
-| C-low | skip | No UI/API binding change detected |
+| C2 | skip | No UI/API binding change detected |
 | D | rerun | Color token changed |
 | E | rerun | Downstream implementation spec may be stale |
 
@@ -239,15 +239,15 @@ Severity 建议:
 
 | Change | Recommended Phase |
 |---|---|
-| 新增/删除业务模块或重复项 | Phase B + C-low + D + E |
+| 新增/删除业务模块或重复项 | Phase B + C2 + D + E |
 | 文案变化但结构未变 | Phase B review + E |
-| UI/API 绑定候选变化 | C-low + E |
+| UI/API 绑定候选变化 | C2 + E |
 | 颜色、字号、圆角、间距变化 | D + E |
 | 资源引用变化 | D review + P15 assets |
 | 只有 screenshot metadata 变化 | Manual review |
 | raw hash changed but无法归类 | Manual review,必要时重跑 B/D |
 
-如果多个规则命中,取更严格的推荐。例如新增节点同时有 token 变化时,推荐 B/C-low/D/E。
+如果多个规则命中,取更严格的推荐。例如新增节点同时有 token 变化时,推荐 B/C2/D/E。
 
 ---
 
@@ -297,7 +297,7 @@ P13 实现完成后至少验证:
 - 文案变化能进入 Text Changes。
 - bounds 或 layout summary 变化能进入 Layout Changes。
 - token summary 变化能进入 Visual Token Signals。
-- `Recommended Rerun Phases` 能根据变化类型给出 B/C-low/D/E 建议。
+- `Recommended Rerun Phases` 能根据变化类型给出 B/C2/D/E 建议。
 - diff 生成不修改 A/B/C/D/E 产物。
 - diff 生成不写业务代码。
 

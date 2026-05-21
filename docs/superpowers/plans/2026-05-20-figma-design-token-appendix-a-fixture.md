@@ -25,7 +25,7 @@
 
 ## 文件
 
-- `inputs/component-mapping.md` — 模拟 phase C-low 产物,标明 3 个模块
+- `inputs/component-mapping.md` — 模拟 phase C2 产物,标明 3 个模块
 - `inputs/figma-node.json` — 模拟 Figma MCP 返回的节点 JSON(含 variables / assets)
 - `expected/design-token-patch.md` — 期望产物(对齐 spec §4b 示例)
 

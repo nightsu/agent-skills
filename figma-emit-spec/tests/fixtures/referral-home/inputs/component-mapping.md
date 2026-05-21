@@ -18,7 +18,7 @@
 |---|---|---|---|---|---|---|
 | diamond_card_bg | ui_static | container | — | 0.95 | false | — |
 | diamond_label | ui_copy | label "钻石" | — | 0.92 | false | — |
-| diamond_value | api_bound | primary_value "钻石余额" | user.diamond.balance | 0.96 | false | C-low 推测 label(可能错位) |
+| diamond_value | api_bound | primary_value "钻石余额" | user.diamond.balance | 0.96 | false | C2 推测 label(可能错位) |
 | record_entry_icon | ui_static | entry_icon | — | 0.95 | false | — |
 | record_entry_text | ui_copy | entry_text "记录" | — | 0.88 | false | — |
 
@@ -26,7 +26,7 @@
 | node_id | binding_type | ui_role | api_field | confidence | needs_confirmation | reason | repeat_group |
 |---|---|---|---|---|---|---|---|
 | entry_icon | api_bound | list_item_icon | entries[].iconUrl | 0.94 | false | — | entry_grid_item |
-| entry_label | api_bound | list_item_label "入口" | entries[].title | 0.95 | false | C-low 推测 label(可能错位) | entry_grid_item |
+| entry_label | api_bound | list_item_label "入口" | entries[].title | 0.95 | false | C2 推测 label(可能错位) | entry_grid_item |
 
 ### BannerCarousel
 | node_id | binding_type | ui_role | api_field | confidence | needs_confirmation | reason | repeat_group |

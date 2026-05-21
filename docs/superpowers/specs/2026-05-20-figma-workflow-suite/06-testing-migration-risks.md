@@ -127,7 +127,7 @@ interface:
 
 ### 第 3 版
 
-- `figma-api-first` 替代手填阶段 C-up,产出 `api-mapping.md`
+- `figma-api-first` 替代手填阶段 C1,产出 `api-mapping.md`
 - `figma-api-first` 先支持用户粘贴接口结构 / 字段清单,再评估 YApi/Swagger 实际抓取
 - 字段数 vs UI 槽位数核对必须读 Figma metadata,不能只看截图
 

@@ -34,7 +34,7 @@ figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id>
 ## 适用场景
 
 - Figma node 已重新读取,需要知道改稿影响了哪些设计实现材料。
-- Phase E 之后发现设计有变化,需要判断是否重跑 B/C-low/D/E。
+- Phase E 之后发现设计有变化,需要判断是否重跑 B/C2/D/E。
 - 用户希望在进入 coding 前审阅改稿差量。
 
 ## 目标
@@ -95,9 +95,9 @@ figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id>
 
 | Change | Recommended Phase |
 |---|---|
-| 新增/删除业务模块或重复项 | Phase B + C-low + D + E |
+| 新增/删除业务模块或重复项 | Phase B + C2 + D + E |
 | 文案变化但结构未变 | Phase B review + E |
-| UI/API 绑定候选变化 | C-low + E |
+| UI/API 绑定候选变化 | C2 + E |
 | 颜色、字号、圆角、间距变化 | D + E |
 | 资源引用变化 | D review + assets validation |
 | 只有 screenshot metadata 变化 | Manual review |
@@ -117,7 +117,7 @@ figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id>
 - baseline: <snapshot-id>
 - current: <snapshot-id>
 - output: design-diff.md
-- recommended_rerun: <B|C-low|D|E|manual>
+- recommended_rerun: <B|C2|D|E|manual>
 ```
 
 ## Self-Check

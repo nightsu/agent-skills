@@ -43,8 +43,8 @@ docs/design/<feature>/
 
 - phase A:`figma-clarify-requirement` → `clarified-requirement.md`
 - phase B:`figma-ui-understand` → `ui-understanding.md`
-- phase C-up:`figma-api-first` → `api-mapping.md`
-- phase C-low:`figma-ui-api-mapper` → `component-mapping.md`
+- phase C1:`figma-api-first` → `api-mapping.md`
+- phase C2:`figma-ui-api-mapper` → `component-mapping.md`
 - phase D:`figma-design-token` → `design-token-patch.md`
 - phase E:`figma-emit-spec` → `implementation-spec.md` + `open-questions.md`
 

@@ -28,13 +28,13 @@ P12 cache layer 是基础设施,不新增独立 skill。工程化层全部落地
 
 工程化检查点出现在两个位置:
 
-1. **Mid-workflow prompt**:C-low 或 D 后,当设计改稿、cache snapshot、unknown/open questions 等风险出现时提示 P13/P14。
+1. **Mid-workflow prompt**:C2 或 D 后,当设计改稿、cache snapshot、unknown/open questions 等风险出现时提示 P13/P14。
 2. **Pre-handoff checkpoint**:Phase E review gate 通过后、handoff menu 之前,汇总 P13/P14/P15 状态。
 
 顺序:
 
 ```text
-A → B → C-up → C-low → D → E
+A → B → C1 → C2 → D → E
 → Phase E review gate
 → 交接前工程化检查
 → handoff menu

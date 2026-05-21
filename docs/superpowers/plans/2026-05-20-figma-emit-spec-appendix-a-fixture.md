@@ -4,7 +4,7 @@
 >
 > 本附录提供 Task 7 中要写入 `figma-emit-spec/tests/fixtures/referral-home/` 下各文件的**完整内容**。
 > 沿用 P2 referral-home 主题保持套件 fixture 数据连贯;故意在 `component-mapping.md` 中注入
-> label_drift(C-low label 与 D label 不一致)+ 在 `clarified-requirement.md` 注入 `[deferred]` 标记,
+> label_drift(C2 label 与 D label 不一致)+ 在 `clarified-requirement.md` 注入 `[deferred]` 标记,
 > 展示 emit-spec 的两个核心机制工作。
 
 ---
@@ -23,14 +23,14 @@
 
 人工 review 验证。让 Agent 读 `inputs/` 下的 5 份模拟产物,合成 `implementation-spec.md` + `open-questions.md`,
 和 `expected/` 对比,确认**关键行为**:
-- `label_drift` 自动校正(C-low 槽位 label 被 D 真实 label 覆盖)
+- `label_drift` 自动校正(C2 槽位 label 被 D 真实 label 覆盖)
 - `[deferred]` 标记在 spec 中显式标"本期不实现"
 - 跨产物冲突写入 open-questions(field_unbound / module_missing_token / module_drift)
 - 6 phase 分段汇总 open questions
 
 ## 注入的测试场景
 
-- `component-mapping.md` 中 `DiamondPreviewCard.primary_value` label 故意写成"钻石余额"(C-low 推测)
+- `component-mapping.md` 中 `DiamondPreviewCard.primary_value` label 故意写成"钻石余额"(C2 推测)
   → `design-token-patch.md` 中真实 label 是"钻石数量"(D 真值)
   → emit-spec 应自动校正,implementation-spec 用"钻石数量",并在 Auto Corrections Metadata 段说明
 - `clarified-requirement.md` 第 1 个 open question 带 `[deferred]` 前缀
@@ -40,8 +40,8 @@
 
 - `inputs/clarified-requirement.md` — phase A 模拟产物(含 [deferred] open question)
 - `inputs/ui-understanding.md` — phase B 模拟产物
-- `inputs/api-mapping.md` — phase C-up 模拟产物
-- `inputs/component-mapping.md` — phase C-low 模拟产物(故意含 label_drift)
+- `inputs/api-mapping.md` — phase C1 模拟产物
+- `inputs/component-mapping.md` — phase C2 模拟产物(故意含 label_drift)
 - `inputs/design-token-patch.md` — phase D 模拟产物(直接复用 P2 fixture)
 - `expected/implementation-spec.md` — 期望主产物
 - `expected/open-questions.md` — 期望 open-questions 汇总
@@ -109,7 +109,7 @@
   - DiamondPreviewCard
   - OperationEntryGrid (4 instances)
   - BannerCarousel
-  - HotProductList (待 phase C-low 确认是否在本视图内)
+  - HotProductList (待 phase C2 确认是否在本视图内)
 
 ## Suspected Components
 
@@ -130,7 +130,7 @@
 - 装饰背景
 
 ## Questions
-- HotProductList 是否真的在本页(MVP 第 1 屏)?可能需 phase C-low 核对 Figma node 确认
+- HotProductList 是否真的在本页(MVP 第 1 屏)?可能需 phase C2 核对 Figma node 确认
 ```
 
 ---
@@ -194,7 +194,7 @@
 |---|---|---|---|---|---|---|
 | diamond_card_bg | ui_static | container | — | 0.95 | false | — |
 | diamond_label | ui_copy | label "钻石" | — | 0.92 | false | — |
-| diamond_value | api_bound | primary_value "钻石余额" | user.diamond.balance | 0.96 | false | C-low 推测 label(可能错位) |
+| diamond_value | api_bound | primary_value "钻石余额" | user.diamond.balance | 0.96 | false | C2 推测 label(可能错位) |
 | record_entry_icon | ui_static | entry_icon | — | 0.95 | false | — |
 | record_entry_text | ui_copy | entry_text "记录" | — | 0.88 | false | — |
 
@@ -202,7 +202,7 @@
 | node_id | binding_type | ui_role | api_field | confidence | needs_confirmation | reason | repeat_group |
 |---|---|---|---|---|---|---|---|
 | entry_icon | api_bound | list_item_icon | entries[].iconUrl | 0.94 | false | — | entry_grid_item |
-| entry_label | api_bound | list_item_label "入口" | entries[].title | 0.95 | false | C-low 推测 label(可能错位) | entry_grid_item |
+| entry_label | api_bound | list_item_label "入口" | entries[].title | 0.95 | false | C2 推测 label(可能错位) | entry_grid_item |
 
 ### BannerCarousel
 | node_id | binding_type | ui_role | api_field | confidence | needs_confirmation | reason | repeat_group |
@@ -429,10 +429,10 @@ ReferralHomePage
 见 open-questions.md
 
 ## Auto Corrections Metadata
-- label_drift: 2 个 label 已从 phase C-low 自动校正为 phase D 真实值
+- label_drift: 2 个 label 已从 phase C2 自动校正为 phase D 真实值
 - 校正详情:
-  - DiamondPreviewCard.primary_value: "钻石余额"(C-low 推测) → "钻石数量"(D 真值)
-  - OperationEntryGrid.list_item_label: "入口"(C-low 推测) → "运营入口"(D 真值)
+  - DiamondPreviewCard.primary_value: "钻石余额"(C2 推测) → "钻石数量"(D 真值)
+  - OperationEntryGrid.list_item_label: "入口"(C2 推测) → "运营入口"(D 真值)
 ```
 
 ---
@@ -449,12 +449,12 @@ ReferralHomePage
 - [ ] 商品列表是否分页?
 
 ## From Phase B (ui-understanding.md)
-- [ ] HotProductList 是否真的在本页(MVP 第 1 屏)?可能需 phase C-low 核对 Figma node 确认
+- [ ] HotProductList 是否真的在本页(MVP 第 1 屏)?可能需 phase C2 核对 Figma node 确认
 
-## From Phase C-up (api-mapping.md)
+## From Phase C1 (api-mapping.md)
 (无)
 
-## From Phase C-low (component-mapping.md, needs_confirmation: true)
+## From Phase C2 (component-mapping.md, needs_confirmation: true)
 - [ ] node `hot_product_section`: 不确定本页是否包含 HotProductList,需 phase D 视觉确认
 
 ## From Phase D (design-token-patch.md, INFERRED)

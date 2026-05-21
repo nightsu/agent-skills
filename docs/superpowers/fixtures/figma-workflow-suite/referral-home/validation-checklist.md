@@ -15,8 +15,8 @@
 
 - [ ] phase A 输入存在:`figma-emit-spec/tests/fixtures/referral-home/inputs/clarified-requirement.md`
 - [ ] phase B 输入存在:`figma-emit-spec/tests/fixtures/referral-home/inputs/ui-understanding.md`
-- [ ] phase C-up 输入存在:`figma-emit-spec/tests/fixtures/referral-home/inputs/api-mapping.md`
-- [ ] phase C-low 产物存在:`figma-emit-spec/tests/fixtures/referral-home/inputs/component-mapping.md`
+- [ ] phase C1 输入存在:`figma-emit-spec/tests/fixtures/referral-home/inputs/api-mapping.md`
+- [ ] phase C2 产物存在:`figma-emit-spec/tests/fixtures/referral-home/inputs/component-mapping.md`
 - [ ] phase D 产物存在:`figma-emit-spec/tests/fixtures/referral-home/inputs/design-token-patch.md`
 - [ ] phase E expected 主产物存在:`figma-emit-spec/tests/fixtures/referral-home/expected/implementation-spec.md`
 - [ ] phase E expected open questions 存在:`figma-emit-spec/tests/fixtures/referral-home/expected/open-questions.md`

@@ -65,7 +65,7 @@ Figma 中字体的 `style` 字段在不同字族下命名不一致,常见陷阱:
 
 **不出条目**的情况:
 - 纯色填充的容器(`Suggested Export` 留 `—`,或直接跳过)
-- 装饰背景(在 phase C-low `Ignored Nodes` 中已过滤)
+- 装饰背景(在 phase C2 `Ignored Nodes` 中已过滤)
 
 **推荐导出格式:**
 

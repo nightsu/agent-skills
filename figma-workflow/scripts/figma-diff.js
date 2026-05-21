@@ -189,7 +189,7 @@ function recommendRerunPhases(diff) {
 
   if (diff.addedNodes?.length || diff.removedNodes?.length) {
     add("B", "rerun", "Nodes added or removed");
-    add("C-low", "rerun", "UI/API binding may have changed");
+    add("C2", "rerun", "UI/API binding may have changed");
     add("D", "rerun", "Token extraction may be stale");
     add("E", "rerun", "Implementation spec may be stale");
   }
@@ -219,7 +219,7 @@ function recommendRerunPhases(diff) {
     add("Manual review", "review", "Unknown evidence changed");
   }
 
-  return ["B", "C-low", "D", "E", "P15 assets", "Manual review"]
+  return ["B", "C2", "D", "E", "P15 assets", "Manual review"]
     .filter((phase) => recommendations.has(phase))
     .map((phase) => recommendations.get(phase));
 }

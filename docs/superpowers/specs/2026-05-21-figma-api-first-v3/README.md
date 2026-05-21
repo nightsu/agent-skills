@@ -9,7 +9,7 @@
 
 ## TL;DR
 
-第 3 版补齐 Phase C-up 的 `figma-api-first` skill,用来替代手填 `api-mapping.md`。
+第 3 版补齐 Phase C1 的 `figma-api-first` skill,用来替代手填 `api-mapping.md`。
 
 第一版只支持用户粘贴接口结构 / 返回值类型 / 字段清单,暂不接 YApi、Swagger 或 OpenAPI 平台抓取:
 
@@ -22,8 +22,8 @@
 
 `figma-api-first` 不属于 `figma-ui-api-mapper`。两者同属 Phase C,但职责不同:
 
-- C-up `figma-api-first`:接口事实 → `api-mapping.md`
-- C-low `figma-ui-api-mapper`:Figma UI + `api-mapping.md` → `component-mapping.md`
+- C1 `figma-api-first`:接口事实 → `api-mapping.md`
+- C2 `figma-ui-api-mapper`:Figma UI + `api-mapping.md` → `component-mapping.md`
 
 ---
 
@@ -32,10 +32,10 @@
 MVP 和 v2 已经验证:
 
 - A/B 可以产出需求事实和 UI 理解。
-- C-low/D/E 可以消费 `api-mapping.md` 并继续生成实现规格。
-- 手填 C-up 是当前链路里最容易产生字段遗漏、类型误读和 UI 槽位数量误判的位置。
+- C2/D/E 可以消费 `api-mapping.md` 并继续生成实现规格。
+- 手填 C1 是当前链路里最容易产生字段遗漏、类型误读和 UI 槽位数量误判的位置。
 
-真实项目验证暴露过一个问题:如果只看截图填写 `api-mapping.md`,容易把接口字段数和 UI 槽位数混在一起判断。`figma-api-first` 的目标是先把接口事实稳定下来,再交给 C-low 与 Figma UI 做绑定。
+真实项目验证暴露过一个问题:如果只看截图填写 `api-mapping.md`,容易把接口字段数和 UI 槽位数混在一起判断。`figma-api-first` 的目标是先把接口事实稳定下来,再交给 C2 与 Figma UI 做绑定。
 
 ---
 
@@ -43,7 +43,7 @@ MVP 和 v2 已经验证:
 
 ### In Scope
 
-- 新增 `figma-api-first` skill,处于 Phase C-up。
+- 新增 `figma-api-first` skill,处于 Phase C1。
 - 读取 `docs/design/<feature>/clarified-requirement.md` 和 `ui-understanding.md` 作为语义辅助。
 - 接收用户粘贴的接口返回结构、TypeScript type、JSON 示例或字段清单。
 - 产出 `docs/design/<feature>/api-mapping.md`。
@@ -66,7 +66,7 @@ MVP 和 v2 已经验证:
 ## Position in Workflow
 
 ```text
-phase A → phase B → phase C-up → phase C-low → phase D → phase E
+phase A → phase B → phase C1 → phase C2 → phase D → phase E
 clarify   UI理解     api-first    ui-api-mapper  design-token  emit-spec
 ```
 
@@ -173,7 +173,7 @@ clarify   UI理解     api-first    ui-api-mapper  design-token  emit-spec
 
 1. 解析 `feature=<feature-name>`;缺失则拒绝执行。
 2. 确认 `docs/design/<feature>/` 存在;不存在时创建目录并提示确认 feature 名。
-3. 读取 `clarified-requirement.md` 和 `ui-understanding.md`;缺失或仍是模板占位则拒绝进入 C-up。
+3. 读取 `clarified-requirement.md` 和 `ui-understanding.md`;缺失或仍是模板占位则拒绝进入 C1。
 4. 获取用户粘贴的接口结构;没有接口结构时请求用户提供。
 5. 解析接口事实:
    - API 名称 / method / 业务用途。
@@ -193,8 +193,8 @@ clarify   UI理解     api-first    ui-api-mapper  design-token  emit-spec
 
 | Check | Warning |
 |---|---|
-| `Data Sources` 为空 | "Data Sources 缺失,不能进入 C-low" |
-| `Field Mapping` 为空 | "Field Mapping 缺失,不能进入 C-low" |
+| `Data Sources` 为空 | "Data Sources 缺失,不能进入 C2" |
+| `Field Mapping` 为空 | "Field Mapping 缺失,不能进入 C2" |
 | 字段类型包含 `unknown` | "存在 unknown 类型,建议 review 后再继续" |
 | `Open Questions` 存在非 deferred 项 | "存在未解决接口问题,建议 review 后再继续" |
 | 仍含模板占位标记 | "产物仍含模板占位,orchestrator 会视为未完成" |
@@ -205,18 +205,18 @@ self-check 不阻塞产物落盘;是否继续由 `figma-workflow` 的 review gat
 
 ## Orchestrator Integration
 
-`figma-workflow` 在 v3 中调整 C-up 行为:
+`figma-workflow` 在 v3 中调整 C1 行为:
 
 - 如果缺 `api-mapping.md`,且 `figma-api-first` 可用,优先提示运行 `figma-api-first`。
 - 如果 skill 不可用,或用户选择 fallback,继续提示手填 `templates/api-mapping.md`。
 - 不自动从外部平台抓取接口。
-- 不自动进入 C-low;C-up 完成后仍进入 review gate。
+- 不自动进入 C2;C1 完成后仍进入 review gate。
 
 菜单建议:
 
 ```text
 Next step:
-  [1] Run figma-api-first (phase C-up)
+  [1] Run figma-api-first (phase C1)
   [2] Use template fallback
   [3] Manually edit a product
   [4] Exit
@@ -243,7 +243,7 @@ P10 验收至少覆盖:
 - 缺 A 或 B 时拒绝执行。
 - 不调用 Figma MCP。
 - 不修改业务代码目录。
-- `figma-workflow` 的 C-up 菜单优先推荐 `figma-api-first`,并保留模板 fallback。
+- `figma-workflow` 的 C1 菜单优先推荐 `figma-api-first`,并保留模板 fallback。
 
 ---
 

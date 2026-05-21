@@ -21,9 +21,9 @@
 
 ## Important Boundary
 
-`figma-api-first` belongs to **Phase C-up** and remains a future v3 / P10 item.
+`figma-api-first` belongs to **Phase C1** and remains a future v3 / P10 item.
 
-P9 must not implement `figma-api-first`, must not replace `api-mapping.md`, and must not change C-up from "manual template" to an automated skill. P9 may only mention that C-up is still manual in v2 and will be replaced by `figma-api-first` later.
+P9 must not implement `figma-api-first`, must not replace `api-mapping.md`, and must not change C1 from "manual template" to an automated skill. P9 may only mention that C1 is still manual in v2 and will be replaced by `figma-api-first` later.
 
 ## File Structure
 
@@ -48,11 +48,11 @@ docs/superpowers/fixtures/figma-workflow-suite/sales-workbench/
 
 | File | Responsibility |
 |---|---|
-| `figma-workflow/SKILL.md` | 更新 orchestrator 主说明:A/B 路由到 v2 skills,C-up 仍手填,Phase E 前不写业务代码 |
+| `figma-workflow/SKILL.md` | 更新 orchestrator 主说明:A/B 路由到 v2 skills,C1 仍手填,Phase E 前不写业务代码 |
 | `figma-workflow/references/progress-routing.md` | 更新阶段进入条件、菜单、fallback 语义和 handoff 菜单细节 |
 | `figma-emit-spec/SKILL.md` | 收紧 emit-spec 边界:只合成 spec,不触发代码修改;handoff 只交付明确输入 |
 | `figma-emit-spec/references/spec-template.md` | 在 implementation spec 模板规则中补 apply boundary 文案 |
-| `docs/superpowers/fixtures/figma-workflow-suite/sales-workbench/` | suite 级 fixture,验证 A/B skill 路由、C-up 手填、Phase E 后 handoff 才进入 apply stage |
+| `docs/superpowers/fixtures/figma-workflow-suite/sales-workbench/` | suite 级 fixture,验证 A/B skill 路由、C1 手填、Phase E 后 handoff 才进入 apply stage |
 
 ## Task List
 
@@ -102,7 +102,7 @@ Expected:
 Replace the MVP-only phase overview with v2 wording:
 
 ```markdown
-phase A → phase B → phase C-up → phase C-low → phase D → phase E → handoff 出口
+phase A → phase B → phase C1 → phase C2 → phase D → phase E → handoff 出口
 clarify   UI理解     手填 API     ui-api-mapper  design-token  emit-spec
 ```
 
@@ -110,16 +110,16 @@ Include:
 
 - phase A routes to `figma-clarify-requirement` when available
 - phase B routes to `figma-ui-understand` when available
-- phase C-up remains manual `api-mapping.md` in v2
-- future `figma-api-first` will replace C-up, but is not part of this version
+- phase C1 remains manual `api-mapping.md` in v2
+- future `figma-api-first` will replace C1, but is not part of this version
 - business code starts only after Phase E review gate and handoff
 
 - [ ] **Step 2: Update goals and non-goals**
 
-In `目标`, replace "对 A/B/C-up 给出手填模板路径" with:
+In `目标`, replace "对 A/B/C1 给出手填模板路径" with:
 
 - A/B: route to v2 skill when available, fallback to template
-- C-up: keep manual template path
+- C1: keep manual template path
 - Phase E: show handoff menu and enforce apply boundary
 
 In `不承担`, include:
@@ -136,8 +136,8 @@ Update workflow step 5:
 ```markdown
 - A:优先调用 `figma-clarify-requirement`;不可用时提示模板
 - B:优先调用 `figma-ui-understand`;不可用时提示模板
-- C-up:提示复制 `templates/api-mapping.md` 后手填(v2 仍手填)
-- C-low/D/E:路由到现有 skill
+- C1:提示复制 `templates/api-mapping.md` 后手填(v2 仍手填)
+- C2/D/E:路由到现有 skill
 ```
 
 Update stage entry table rows:
@@ -146,7 +146,7 @@ Update stage entry table rows:
 |---|---|
 | A | `figma-clarify-requirement` if available; fallback template |
 | B | `figma-ui-understand` if available; fallback template |
-| C-up | manual `api-mapping.md`; future `figma-api-first` not in v2 |
+| C1 | manual `api-mapping.md`; future `figma-api-first` not in v2 |
 
 - [ ] **Step 4: Update routing behavior**
 
@@ -154,8 +154,8 @@ Update `## 路由行为` table:
 
 - A:调用 `figma-clarify-requirement feature=<feature>`;若不可用,提示模板
 - B:调用 `figma-ui-understand feature=<feature>`;若不可用,提示模板并索取 Figma file key / node id
-- C-up:仍手填 `api-mapping.md`
-- C-low/D/E unchanged
+- C1:仍手填 `api-mapping.md`
+- C2/D/E unchanged
 
 - [ ] **Step 5: Strengthen handoff text**
 
@@ -197,7 +197,7 @@ Change A/B actions:
 ```markdown
 | A | `clarified-requirement.md` | 永远可进入 | 调用 `figma-clarify-requirement`;不可用时提示模板 |
 | B | `ui-understanding.md` | A 非占位 | 调用 `figma-ui-understand`;不可用时提示模板 |
-| C-up | `api-mapping.md` | A + B 非占位 | 提示复制 `templates/api-mapping.md` 后手填(v2 仍手填;未来由 `figma-api-first` 替代) |
+| C1 | `api-mapping.md` | A + B 非占位 | 提示复制 `templates/api-mapping.md` 后手填(v2 仍手填;未来由 `figma-api-first` 替代) |
 ```
 
 - [ ] **Step 2: Split manual and skill menus**
@@ -205,7 +205,7 @@ Change A/B actions:
 Replace `## 手填阶段菜单` with:
 
 - `## Phase A/B skill 菜单`
-- `## C-up 手填菜单`
+- `## C1 手填菜单`
 
 A/B skill menu:
 
@@ -219,7 +219,7 @@ Next step:
 
 B uses `figma-ui-understand` in option 1.
 
-C-up manual menu:
+C1 manual menu:
 
 ```text
 Next step:
@@ -228,11 +228,11 @@ Next step:
   [3] Exit
 ```
 
-State that C-up remains manual in v2 and `figma-api-first` is a future phase C-up skill.
+State that C1 remains manual in v2 and `figma-api-first` is a future phase C1 skill.
 
 - [ ] **Step 3: Update skill stage menu**
 
-Keep C-low/D/E menu unchanged, but state A/B are now also skill-routed when available and use their own menu.
+Keep C2/D/E menu unchanged, but state A/B are now also skill-routed when available and use their own menu.
 
 - [ ] **Step 4: Update Phase E handoff**
 
@@ -249,7 +249,7 @@ Update handoff handling:
 Run:
 
 ```bash
-rg -n "figma-clarify-requirement|figma-ui-understand|figma-api-first|C-up 手填|Phase A/B skill|superpowers.*recommended|OpenSpec|不写业务代码" figma-workflow/references/progress-routing.md
+rg -n "figma-clarify-requirement|figma-ui-understand|figma-api-first|C1 手填|Phase A/B skill|superpowers.*recommended|OpenSpec|不写业务代码" figma-workflow/references/progress-routing.md
 ```
 
 Expected: all key phrases found.
@@ -396,8 +396,8 @@ README must explain:
 |---|---|---|---|
 | A | figma-clarify-requirement | clarified-requirement.md | skill route preferred; template fallback |
 | B | figma-ui-understand | ui-understanding.md | skill route preferred; template fallback |
-| C-up | manual api-mapping template | api-mapping.md | still manual in v2; future figma-api-first |
-| C-low | figma-ui-api-mapper | component-mapping.md | unchanged |
+| C1 | manual api-mapping template | api-mapping.md | still manual in v2; future figma-api-first |
+| C2 | figma-ui-api-mapper | component-mapping.md | unchanged |
 | D | figma-design-token | design-token-patch.md | unchanged |
 | E | figma-emit-spec | implementation-spec.md + open-questions.md | handoff menu appears after review gate Proceed |
 ```
@@ -419,7 +419,7 @@ README must explain:
 Run:
 
 ```bash
-rg -n "sales-workbench|figma-clarify-requirement|figma-ui-understand|figma-api-first|C-up|superpowers:writing-plans|implementation-spec.md|task-breakdown.md|OpenSpec|no business code" docs/superpowers/fixtures/figma-workflow-suite/sales-workbench
+rg -n "sales-workbench|figma-clarify-requirement|figma-ui-understand|figma-api-first|C1|superpowers:writing-plans|implementation-spec.md|task-breakdown.md|OpenSpec|no business code" docs/superpowers/fixtures/figma-workflow-suite/sales-workbench
 ```
 
 Expected: all key phrases found.
@@ -483,7 +483,7 @@ gh pr create \
 
 - [ ] A routes to `figma-clarify-requirement` when available.
 - [ ] B routes to `figma-ui-understand` when available.
-- [ ] C-up remains manual in v2.
+- [ ] C1 remains manual in v2.
 - [ ] `figma-api-first` is explicitly future v3/P10, not implemented in P9.
 - [ ] Phase E handoff is the first point where apply/coding may start.
 - [ ] `superpowers:writing-plans` is recommended when available.
@@ -494,7 +494,7 @@ gh pr create \
 ## Out of Scope
 
 - Implementing `figma-api-first`.
-- Updating C-up to automated routing.
+- Updating C1 to automated routing.
 - Writing application code.
 - Calling Figma MCP.
 - Generating OpenSpec proposals.

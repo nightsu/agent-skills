@@ -149,13 +149,13 @@ Add:
 
 v4 出现在两个位置:
 
-1. **Mid-workflow prompt**:C-low 或 D 后,当设计改稿、cache snapshot、unknown/open questions 等风险出现时提示 P13/P14。
+1. **Mid-workflow prompt**:C2 或 D 后,当设计改稿、cache snapshot、unknown/open questions 等风险出现时提示 P13/P14。
 2. **Pre-handoff checkpoint**:Phase E review gate 通过后、handoff menu 之前,汇总 P13/P14/P15 状态。
 
 顺序:
 
 ```text
-A → B → C-up → C-low → D → E
+A → B → C1 → C2 → D → E
 → Phase E review gate
 → v4 pre-handoff checkpoint
 → handoff menu
@@ -570,7 +570,7 @@ Create `figma-workflow/tests/fixtures/v4-checkpoint/README.md`:
 ## 覆盖场景
 
 - `pre-handoff.expected.md`:Phase E review gate 通过后,展示 P13/P14/P15 状态和 handoff 前风险。
-- `mid-workflow.expected.md`:C-low 或 D 后,当设计改稿或 unknown/open questions 出现时,展示 P13/P14 中途提醒。
+- `mid-workflow.expected.md`:C2 或 D 后,当设计改稿或 unknown/open questions 出现时,展示 P13/P14 中途提醒。
 
 ## 验证重点
 

@@ -15,8 +15,8 @@
 - `git-commit`：安全审查改动并生成提交。
 - `figma-clarify-requirement`:把用户自然语言需求整理为 clarified-requirement.md(figma-workflow-suite 的 phase A)。
 - `figma-ui-understand`:从指定 Figma node 提取页面结构、重复模式、疑似组件和 UI 语义,输出 ui-understanding.md(figma-workflow-suite 的 phase B)。
-- `figma-api-first`:把接口结构整理为 api-mapping.md(figma-workflow-suite 的 phase C-up)。
-- `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C-low,renamed from `figma-api-mapper`)。
+- `figma-api-first`:把接口结构整理为 api-mapping.md(figma-workflow-suite 的 phase C1)。
+- `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C2,renamed from `figma-api-mapper`)。
 - `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)。
 - `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)。
 - `figma-workflow`:按 docs/design/<feature>/ 产物状态驱动 figma-workflow-suite C→D→E 阶段,展示 review gate 与 handoff 出口。

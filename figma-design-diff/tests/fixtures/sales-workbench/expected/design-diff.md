@@ -69,7 +69,7 @@
 | Phase | Recommendation | Reason |
 |---|---|---|
 | B | rerun | Nodes added or removed |
-| C-low | rerun | UI/API binding may have changed |
+| C2 | rerun | UI/API binding may have changed |
 | D | rerun | Token extraction may be stale |
 | E | rerun | Implementation spec may be stale |
 

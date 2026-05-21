@@ -19,8 +19,8 @@ figma-emit-spec feature=<feature-name>
 `docs/design/<feature>/` 目录下必须**已有 5 份产物**:
 - `clarified-requirement.md`(phase A)
 - `ui-understanding.md`(phase B)
-- `api-mapping.md`(phase C-up)
-- `component-mapping.md`(phase C-low)
+- `api-mapping.md`(phase C1)
+- `component-mapping.md`(phase C2)
 - `design-token-patch.md`(phase D)
 
 ## Outputs
@@ -41,7 +41,7 @@ figma-emit-spec feature=<feature-name>
 ## 上下游
 
 ```
-phase A/B/C-up/C-low/D       →  figma-emit-spec     →  apply stage
+phase A/B/C1/C2/D       →  figma-emit-spec     →  apply stage
 5 份 .md 产物                    implementation-spec    用户 coding agent
                                 + open-questions       或 superpowers:writing-plans
                                 + (optional) task-     或 OpenSpec

@@ -3,8 +3,8 @@
 这是 `figma-workflow-suite` 的 suite 级端到端 fixture,用于验证 MVP 链路:
 
 ```text
-phase A/B/C-up 手填产物
-  → phase C-low figma-ui-api-mapper
+phase A/B/C1 手填产物
+  → phase C2 figma-ui-api-mapper
   → phase D figma-design-token
   → phase E figma-emit-spec
   → handoff superpowers:writing-plans
@@ -23,7 +23,7 @@ phase A/B/C-up 手填产物
 
 ## 本目录文件
 
-- `flow-map.md` — referral-home 从 A/B/C-up 到 E 的 suite 级流转图
+- `flow-map.md` — referral-home 从 A/B/C1 到 E 的 suite 级流转图
 - `validation-checklist.md` — MVP 成功标准验收清单
 - `handoff-superpowers.expected.md` — phase E 后 handoff 到 `superpowers:writing-plans` 的期望行为
 

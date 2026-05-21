@@ -10,7 +10,7 @@
 
 - Phase A 优先路由到 `figma-clarify-requirement`,不可用时 fallback 到模板。
 - Phase B 优先路由到 `figma-ui-understand`,不可用时 fallback 到模板。
-- Phase C-up 在 v2 仍手填 `api-mapping.md`,未来再由 `figma-api-first` 替代。
+- Phase C1 在 v2 仍手填 `api-mapping.md`,未来再由 `figma-api-first` 替代。
 - Phase E 只产出 `implementation-spec.md` / `open-questions.md` 并展示 handoff 菜单。
 - handoff 后可进入 OpenSpec / planning / task breakdown 等准备阶段。
 - 业务代码只能在用户明确确认执行 coding 后开始。
@@ -24,7 +24,7 @@
 
 ## 本目录文件
 
-- `flow-map.md` — sales-workbench 在 A/B/C-up/C-low/D/E 的 suite 级流转图。
+- `flow-map.md` — sales-workbench 在 A/B/C1/C2/D/E 的 suite 级流转图。
 - `handoff-apply-boundary.expected.md` — Phase E handoff 与 coding 边界期望。
 
 ## 约束

@@ -400,7 +400,7 @@ Classify:
 Rules:
 
 ```js
-node_added/node_removed => B, C-low, D, E
+node_added/node_removed => B, C2, D, E
 text_changed => B review, E
 layout_changed => B review, D, E
 token_changed => D, E
@@ -506,7 +506,7 @@ Include:
 - 修改一个卡片宽度。
 - 修改一个 token summary。
 
-预期输出 `design-diff.md`,并建议重跑 Phase B / C-low / D / E。
+预期输出 `design-diff.md`,并建议重跑 Phase B / C2 / D / E。
 ```
 
 - [ ] **Step 2: 写 baseline metadata**
@@ -606,7 +606,7 @@ Expected file must include:
 - `外呼率` → `首次外呼率` in Text Changes
 - width `240` → `260` in Layout Changes
 - `card.background` `#FFFFFF` → `#F8FAFF` in Visual Token Signals
-- Recommended rerun phases include `B`, `C-low`, `D`, `E`
+- Recommended rerun phases include `B`, `C2`, `D`, `E`
 
 - [ ] **Step 6: Verify fixture**
 
@@ -805,4 +805,4 @@ Expected: PR targets `docs/figma-workflow-suite-design`.
 - P13 只产出 `design-diff.md` 和 audit 记录。
 - P13 不修改 A/B/C/D/E 产物。
 - P13 不写业务代码。
-- `Recommended Rerun Phases` 覆盖 B/C-low/D/E。
+- `Recommended Rerun Phases` 覆盖 B/C2/D/E。
