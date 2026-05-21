@@ -17,6 +17,7 @@
         "./document-analysis",
         "./figma-clarify-requirement",
         "./figma-ui-understand",
+        "./figma-api-first",
         "./figma-ui-api-mapper",
         "./figma-design-token",
         "./figma-emit-spec",
