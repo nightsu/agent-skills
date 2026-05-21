@@ -240,4 +240,7 @@ v2 验收至少覆盖:
 
 - `figma-clarify-requirement` 是否应该直接调用 `superpowers:brainstorming`,还是只借鉴其输出格式。
 - v2 是否需要给 A/B 两个 skill 各自准备真实项目 fixture,还是先做 suite 级 fixture。
-- 第 3 版 `figma-api-first` 先支持用户粘贴接口结构,还是同时接入 YApi/Swagger。
+
+## Resolved in v3
+
+- 第 3 版 `figma-api-first` 第一版只支持用户粘贴接口结构 / 返回值类型 / 字段清单,暂不接 YApi / Swagger / OpenAPI 平台抓取。详见 `docs/superpowers/specs/2026-05-21-figma-api-first-v3/README.md`。
