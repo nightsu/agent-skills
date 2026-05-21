@@ -22,6 +22,7 @@
         "./figma-design-token",
         "./figma-emit-spec",
         "./figma-workflow",
+        "./figma-design-diff",
         "./project-interview-analyzer",
         "./git-commit",
         "./markitdown-export",

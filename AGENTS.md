@@ -20,6 +20,7 @@
 - `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)。
 - `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)。
 - `figma-workflow`:按 docs/design/<feature>/ 产物状态驱动 figma-workflow-suite C→D→E 阶段,展示 review gate 与 handoff 出口。
+- `figma-design-diff`:基于 `.figma-cache/` before/current evidence 生成 `design-diff.md`,提示 Figma 改稿影响和建议重跑阶段(P13)。
 - `markdown-lint`：清理并规范 Markdown 文件格式。
 
 ## 统一结构
