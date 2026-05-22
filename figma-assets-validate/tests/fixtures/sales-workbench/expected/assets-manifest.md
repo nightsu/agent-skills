@@ -9,6 +9,7 @@
 |---|---:|---:|---:|
 | icon | 1 | 1 | 0 |
 | image | 1 | 0 | 1 |
+| visual-baseline | 2 | 1 | 0 |
 
 ## Asset References
 
@@ -16,6 +17,13 @@
 |---|---|---|---|---|---|---|---|---|
 | icon-filter | icon | design-token-patch.md | 122924:6110 | svg | yes | assets/icon-filter.svg | pending | Used by filter action |
 | chart-empty | image | design-token-patch.md / ui-handoff.md | 122924:6220 | png | deferred | assets/chart-empty.png | deferred | Source needs confirmation |
+
+## Visual Baselines
+
+| Baseline ID | Figma Node | Image Path | Metadata Path | Required | Purpose | Status | Notes |
+|---|---|---|---|---|---|---|---|
+| default | 123075:3394 | snapshots/default.png | snapshots/default.json | yes | implementation_visual_baseline | downloaded | Main sales workbench dashboard |
+| narrow | 123075:3520 | snapshots/narrow.png | snapshots/narrow.json | no | responsive_reference | pending | Optional narrow viewport reference |
 
 ## Download Plan
 
