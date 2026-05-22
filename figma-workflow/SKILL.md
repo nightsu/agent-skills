@@ -33,7 +33,7 @@ Cache layer is optional evidence infrastructure. It can refresh or summarize Fig
 
 `figma-workflow` 可以通过 `figma-ui-handoff` 生成 `ui-handoff.md`,用于提示设计/产品补齐 Figma selection、文案、命名、重复项、状态和资源交接信息。该入口不属于 Phase E handoff,也不触发 coding。
 
-`figma-workflow` 可以通过 `figma-assets-validate` 生成 `assets-manifest.md` 和 `validation-report.md`,用于资源交付和验证收口。该入口不改变 Phase E handoff,也不触发 coding。
+`figma-workflow` 可以通过 `figma-assets-validate` 生成 `assets-manifest.md`、`validation-report.md` 和 `snapshots/`,用于资源交付、visual baseline 和 spec/snapshot 验证收口。该入口不改变 Phase E handoff,也不触发 coding。
 
 ## Prerequisites
 
@@ -109,6 +109,7 @@ docs/design/<feature>/
 ├── ui-handoff.md
 ├── assets-manifest.md
 ├── validation-report.md
+├── snapshots/
 ├── implementation-spec.md
 └── open-questions.md
 ```
@@ -148,7 +149,7 @@ docs/design/<feature>/
 
 7. **phase E 后进入交接前工程化检查**
    - 只有用户在 phase E review gate 选择继续时才出现
-   - 汇总 `design-diff.md`、`ui-handoff.md`、`assets-manifest.md` / `validation-report.md`
+   - 汇总 `design-diff.md`、`ui-handoff.md`、`assets-manifest.md` / `validation-report.md` / `snapshots/`
    - `figma-assets-validate` 永远作为 handoff 前 `required_prompt`
    - 用户可以 run / view / skip
    - skip 必须写入 `inputs.md` audit

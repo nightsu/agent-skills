@@ -1,6 +1,6 @@
 ---
 name: figma-assets-validate
-description: figma-workflow-suite 的 P15 工程化组件。读取 docs/design/<feature>/ 下的资源引用和阶段产物,生成 assets-manifest.md 与 validation-report.md,收口资源交付和自动化验证。
+description: figma-workflow-suite 的 P15 工程化组件。读取 docs/design/<feature>/ 下的资源引用、阶段产物和 Figma evidence,生成 assets-manifest.md、validation-report.md 与 snapshots/,收口资源交付、visual baseline 和自动化验证。
 ---
 
 # Figma Assets Validate
@@ -9,7 +9,7 @@ description: figma-workflow-suite 的 P15 工程化组件。读取 docs/design/<
 
 本 skill 是 `figma-workflow-suite` 的 P15 工程化能力,用于资源交付和验证收口。
 
-它产出 `docs/design/<feature>/assets-manifest.md` 和 `docs/design/<feature>/validation-report.md`。
+它产出 `docs/design/<feature>/assets-manifest.md`、`docs/design/<feature>/validation-report.md` 和 `docs/design/<feature>/snapshots/`。
 它不写业务代码,不替代人工 review gate,不改变 Phase E coding boundary。
 
 ## Prerequisites

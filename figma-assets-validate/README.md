@@ -1,6 +1,6 @@
 # figma-assets-validate
 
-`figma-assets-validate` 是 figma-workflow-suite 的 P15 工程化 skill。它读取 `docs/design/<feature>/` 下已有产物,生成 `assets-manifest.md` 和 `validation-report.md`,用于资源交付和自动化验证收口。
+`figma-assets-validate` 是 figma-workflow-suite 的 P15 工程化 skill。它读取 `docs/design/<feature>/` 下已有产物和 Figma evidence,生成 `assets-manifest.md`、`validation-report.md` 和 `snapshots/`,用于资源交付、visual baseline 和自动化验证收口。
 
 ## 使用方式
 
