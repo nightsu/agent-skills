@@ -137,6 +137,9 @@ figma-design-token feature=<feature-name>
 |---|---|---|---|
 | ... | ... | ... | ... |
 
+## Open Questions
+如存在变量缺失、资源导出格式或推断 token 需要确认,用 `- [ ]` 记录在这里;没有则写 `(无)`。
+
 ## Ignored
 - StatusBar / HomeIndicator / 装饰背景(已在 component-mapping 阶段过滤)
 ```
@@ -197,5 +200,3 @@ skill 在产物落盘后,应输出以下自查信息供 orchestrator 的 review 
 ## 参考
 
 - 抽取细节:[references/token-extraction.md](references/token-extraction.md)
-- Spec:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/04b-design-token.md`
-- Suite README:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/README.md`

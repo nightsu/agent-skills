@@ -29,5 +29,5 @@ Handle required prompts before continuing to handoff.
 - User can run, view, or skip `figma-design-diff` / `figma-ui-handoff` / `figma-assets-validate`.
 - P15 generates or validates `assets-manifest.md`, `validation-report.md`, and required visual baselines.
 - Required prompts must be handled before handoff menu appears.
-- Skip writes `figma-workflow@engineering-checkpoint` audit to `inputs.md`.
+- Skip writes `figma-workflow@v4-checkpoint` audit to `inputs.md`.
 - No business code is written.

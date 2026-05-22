@@ -281,6 +281,3 @@ skill 在产物落盘后,输出自查报告供 orchestrator review gate 使用:
 
 - 冲突检测细节:[references/conflict-detection.md](references/conflict-detection.md)
 - spec 模板填充规则:[references/spec-template.md](references/spec-template.md)
-- Spec:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/04c-emit-spec.md`
-- Review gate & handoff:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/05-review-gate-and-handoff.md`
-- Validation findings (F2/F3 来源):`docs/superpowers/specs/2026-05-20-figma-workflow-suite/validation-findings.md`

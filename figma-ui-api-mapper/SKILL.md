@@ -291,5 +291,3 @@ skill 在产物落盘后,应输出以下自查信息供 orchestrator 的 review 
 ## 参考
 
 - 节点分类细节:[references/classification-and-mapping.md](references/classification-and-mapping.md)
-- Spec:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/04a-ui-api-mapper.md`
-- Suite README:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/README.md`

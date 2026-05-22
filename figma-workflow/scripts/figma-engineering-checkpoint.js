@@ -1,6 +1,11 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
+const SKIP_AUDIT_TAGS = [
+  "figma-workflow@v4-checkpoint",
+  "figma-workflow@engineering-checkpoint",
+];
+
 function exists(filePath) {
   return fs.existsSync(filePath);
 }
@@ -39,7 +44,7 @@ function hasSkipAudit(featureDir, checkpoint, skill) {
 
   return audit
     .split(/^## /m)
-    .some((block) => block.includes("figma-workflow@engineering-checkpoint") &&
+    .some((block) => SKIP_AUDIT_TAGS.some((tag) => block.includes(tag)) &&
       block.includes(`- checkpoint: ${checkpoint}`) &&
       block.includes(`- skill: ${skill}`));
 }
@@ -134,7 +139,7 @@ function appendSkipAudit(featureDir, options) {
   const continueField = options.continueField || "continue_to_handoff";
   const lines = [
     "",
-    `## ${now} — figma-workflow@engineering-checkpoint`,
+    `## ${now} — figma-workflow@v4-checkpoint`,
     "",
     `- checkpoint: ${options.checkpoint}`,
     `- phase_context: ${options.phaseContext}`,

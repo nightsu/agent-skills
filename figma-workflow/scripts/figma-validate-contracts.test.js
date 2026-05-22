@@ -1,16 +1,16 @@
-import assert from "node:assert/strict";
-import fs from "node:fs";
-import os from "node:os";
-import path from "node:path";
-import test from "node:test";
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const os = require("node:os");
+const path = require("node:path");
+const test = require("node:test");
 
-import {
+const {
   checkBoundary,
   checkFixtureContracts,
   checkMarkdownContracts,
   hasSections,
   renderValidationReport,
-} from "./figma-validate-contracts.js";
+} = require("./figma-validate-contracts.js");
 
 function write(filePath, content) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -30,6 +30,23 @@ test("hasSections treats longer headings as matching contract keywords", () => {
   assert.equal(hasSections(markdown, ["Asset", "Open Questions"]), true);
 });
 
+test("hasSections does not satisfy Scope with Out of Scope", () => {
+  const markdown = [
+    "# Requirement",
+    "",
+    "## Goal",
+    "",
+    "## Out of Scope",
+    "",
+    "## User States",
+    "",
+    "## Open Questions",
+    "",
+  ].join("\n");
+
+  assert.equal(hasSections(markdown, ["Goal", "Scope", "User States", "Open Questions"]), false);
+});
+
 test("checkMarkdownContracts reports missing required sections", () => {
   const featureDir = fs.mkdtempSync(path.join(os.tmpdir(), "figma-contracts-"));
   write(path.join(featureDir, "implementation-spec.md"), "# Implementation Spec\n\n## Modules\n");
@@ -43,6 +60,41 @@ test("checkMarkdownContracts reports missing required sections", () => {
   assert.match(implementation.notes, /Coding Boundary/);
   assert.equal(handoff.status, "fail");
   assert.match(handoff.notes, /Text Requirements/);
+});
+
+test("checkMarkdownContracts requires core phase A sections", () => {
+  const featureDir = fs.mkdtempSync(path.join(os.tmpdir(), "figma-phase-a-contract-"));
+  write(path.join(featureDir, "clarified-requirement.md"), "# Clarified Requirement\n\n## Open Questions\n");
+
+  const result = checkMarkdownContracts(featureDir);
+  const requirement = result.rows.find((row) => row.file === "clarified-requirement.md");
+
+  assert.equal(requirement.status, "fail");
+  assert.match(requirement.notes, /Goal/);
+  assert.match(requirement.notes, /Scope/);
+  assert.match(requirement.notes, /User States/);
+});
+
+test("fallback ui-understanding template satisfies required contract headings", () => {
+  const templatePath = path.join(process.cwd(), "figma-workflow/templates/ui-understanding.md");
+  const template = fs.readFileSync(templatePath, "utf8");
+
+  assert.equal(hasSections(template, ["Page Structure", "Repeated Patterns", "Open Questions"]), true);
+});
+
+test("fixtures and skill templates do not use checkbox None as an open question", () => {
+  const files = [
+    "figma-design-token/SKILL.md",
+    "figma-design-token/tests/fixtures/referral-home/expected/design-token-patch.md",
+    "figma-emit-spec/tests/fixtures/referral-home/inputs/api-mapping.md",
+    "figma-emit-spec/tests/fixtures/referral-home/inputs/design-token-patch.md",
+  ];
+
+  for (const file of files) {
+    const content = fs.readFileSync(path.join(process.cwd(), file), "utf8");
+    assert.doesNotMatch(content, /- \[ \]\s+None\b/, file);
+    assert.doesNotMatch(content, /- \[ \]\s+.*没有则写 `None`/, file);
+  }
 });
 
 test("checkFixtureContracts reports fixture directories missing expected files", () => {
