@@ -10,6 +10,8 @@
 | fixture contract | pass | README and expected outputs exist |
 | boundary check | pass | No business code changes detected |
 | asset manifest | warn | `chart-empty` is deferred |
+| visual baselines | pass | Required baseline `default` is registered |
+| spec snapshot consistency | pass | `implementation-spec.md` lists required baselines |
 | optional llm judge | skipped | LLM-as-judge skipped |
 
 ## Markdown Contract Check
@@ -40,6 +42,23 @@
 |---|---|---|
 | blocking asset destination | pass | `icon-filter` has destination |
 | deferred asset follow-up | warn | `chart-empty` requires confirmation |
+
+## Spec-Snapshot Consistency Check
+
+| Baseline ID | Check | Status | Notes |
+|---|---|---|---|
+| default | snapshot_exists | pass | `snapshots/default.png` and `snapshots/default.json` registered |
+| default | node_match | pass | Source node `123075:3394` matches manifest |
+| default | dimension_recorded | pass | Original dimensions are recorded in metadata |
+| default | spec_mentions_baseline | pass | Listed in `implementation-spec.md` |
+| default | structure_match | pass | Spec covers the sales metrics module used by the dashboard |
+| narrow | snapshot_exists | warn | Optional responsive reference not downloaded in fixture |
+
+## Spec-Snapshot Review Iterations
+
+| Iteration | Finding | Action | Result |
+|---:|---|---|---|
+| 0 | No required baseline mismatch | No auto-fix needed | pass |
 
 ## Optional LLM Judge
 

@@ -19,6 +19,7 @@
 ## API Usage
 ## Interaction
 ## Implementation Constraints
+## Visual Baselines
 ## Verification Checklist
 ## Open Questions
 ## Auto Corrections Metadata
@@ -77,7 +78,7 @@
 
 1. `design-token-patch.md` 真值 (D) — 优先
 2. `component-mapping.md` C2 推测 — fallback
-3. 若两边都缺,用 `<TBD>` 占位 + 写入 open-questions
+3. 若两边都缺,用 `<待确认>` 占位 + 写入 open-questions
 
 ### `## API Usage`
 - **来源:** `api-mapping.md` 的 `## Data Sources` 段
@@ -108,7 +109,23 @@
   - 业务代码只能在用户明确确认执行 coding 后开始
 - 加上 `clarified-requirement.md` 的 `## Constraints` 段(如有项目级约束)
 
-### `## Verification Checklist`(固定 5 项)
+### `## Visual Baselines`
+- **来源:** P15 `figma-assets-validate` 的 snapshot metadata 和 `assets-manifest.md`
+- **Phase E 初次生成:** 若 P15 尚未运行,保留空表和说明,由 P15 回填
+- **P15 回填格式:**
+
+````markdown
+| Baseline ID | Image Path | Figma Node | Purpose | Required |
+|---|---|---|---|---|
+| default | snapshots/default.png | 123075:3394 | implementation_visual_baseline | yes |
+````
+
+- **约束:** 不引用 raw Figma JSON;只引用 `snapshots/*.png` 和 `snapshots/*.json` handoff artifact
+
+### `## Verification Checklist`(固定 8 项)
+- [ ] 实现后逐个对比 `## Visual Baselines` 中 `Required=yes` 的 snapshot
+- [ ] 对比项至少包括模块数量、标签、主/次层级、布局、颜色、间距、字号比例
+- [ ] 若实现与 snapshot 有 intentional deviation,必须在验证记录中说明原因
 - [ ] 与 Figma 截图视觉对比(允许文本不严格一致)
 - [ ] 接口字段类型与 API 文档一致
 - [ ] 复用项目已有组件 / 框架

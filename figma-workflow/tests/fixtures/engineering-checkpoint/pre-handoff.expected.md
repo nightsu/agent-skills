@@ -15,10 +15,10 @@
   reason: unknown or open questions detected
   actions: [R] run  [V] view  [S] skip
 
-[figma-assets-validate] Assets / validation
+[figma-assets-validate] Assets / visual validation
   status: missing
   recommendation: required_prompt
-  reason: pre-handoff validation is recommended before planning
+  reason: pre-handoff assets, visual baselines, and spec-snapshot checks are recommended before planning
   actions: [R] run  [V] view  [S] skip
 
 Handle required prompts before continuing to handoff.
@@ -27,6 +27,7 @@ Handle required prompts before continuing to handoff.
 ## Expected behavior
 
 - User can run, view, or skip `figma-design-diff` / `figma-ui-handoff` / `figma-assets-validate`.
+- P15 generates or validates `assets-manifest.md`, `validation-report.md`, and required visual baselines.
 - Required prompts must be handled before handoff menu appears.
 - Skip writes `figma-workflow@engineering-checkpoint` audit to `inputs.md`.
 - No business code is written.

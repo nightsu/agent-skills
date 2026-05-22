@@ -57,7 +57,7 @@ A → B → C1 → C2 → D → E
 |---|---|---|---|
 | P13 `figma-design-diff` | `.figma-cache/snapshots/` 有 baseline/current;用户说设计改稿;refresh 后 evidence hash 变化 | snapshots 存在且 `design-diff.md` 缺失或 stale | `required_prompt` |
 | P14 `figma-ui-handoff` | 存在 unknown/open questions;用户要给设计/产品反馈 | `ui-handoff.md` 缺失且存在 unknown/open questions 或 design diff | `recommended` |
-| P15 `figma-assets-validate` | 用户明确询问资源或验证 | Phase E review gate 后始终出现 | `required_prompt` |
+| P15 `figma-assets-validate` | 用户明确询问资源、snapshot 或验证 | Phase E review gate 后始终出现,用于资源清单、visual baselines 和 spec/snapshot consistency | `required_prompt` |
 
 ## Actions
 
@@ -103,6 +103,6 @@ Skip audit 写入 `docs/design/<feature>/inputs.md`:
 - `open-questions.md` 是风险输入。
 - `design-diff.md` 是改稿影响输入。
 - `ui-handoff.md` 是设计/产品协作输入,不是 implementation spec。
-- `assets-manifest.md` 和 `validation-report.md` 是 coding 前资源/验证输入。
+- `assets-manifest.md`、`validation-report.md` 和 `snapshots/` 是 coding 前资源/验证输入,其中 `snapshots/` 是实现视觉对照基线。
 - `handoff != coding`,`planning != coding`,`OpenSpec != coding`。
 - 只有用户明确确认执行 coding 后,才能写业务代码。

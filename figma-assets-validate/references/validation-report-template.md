@@ -27,6 +27,16 @@
 | Rule | Status | Notes |
 |---|---|---|
 
+## Spec-Snapshot Consistency Check
+
+| Baseline ID | Check | Status | Notes |
+|---|---|---|---|
+
+## Spec-Snapshot Review Iterations
+
+| Iteration | Finding | Action | Result |
+|---:|---|---|---|
+
 ## Optional LLM Judge
 
 | Target | Status | Notes |

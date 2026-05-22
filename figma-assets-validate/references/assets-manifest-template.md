@@ -8,10 +8,17 @@
 | Type | Count | Download Required | Deferred |
 |---|---:|---:|---:|
 
+Summary rows may include `visual-baseline`; visual baselines are verification artifacts and must stay separate from production asset references.
+
 ## Asset References
 
 | Asset ID | Type | Source | Figma Node | Recommended Format | Required | Destination | Status | Notes |
 |---|---|---|---|---|---|---|---|---|
+
+## Visual Baselines
+
+| Baseline ID | Figma Node | Image Path | Metadata Path | Required | Purpose | Status | Notes |
+|---|---|---|---|---|---|---|---|
 
 ## Download Plan
 

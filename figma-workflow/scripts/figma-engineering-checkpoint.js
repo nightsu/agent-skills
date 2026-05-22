@@ -81,7 +81,7 @@ function inferEngineeringCheckpoint(featureDir, options = {}) {
   });
 
   items.push({
-    label: "Assets / validation",
+    label: "Assets / visual validation",
     skill: "figma-assets-validate",
     product: "assets-manifest.md, validation-report.md",
     status: checkpoint === "pre-handoff"
@@ -89,9 +89,9 @@ function inferEngineeringCheckpoint(featureDir, options = {}) {
       : "not_applicable",
     recommendation: checkpoint === "pre-handoff" ? "required_prompt" : "available",
     reason: checkpoint === "pre-handoff"
-      ? "pre-handoff validation is recommended before planning"
-      : "available when the user asks about assets or validation",
-    risk: "assets and boundary checks not reviewed before handoff",
+      ? "pre-handoff assets, visual baselines, and spec-snapshot checks are recommended before planning"
+      : "available when the user asks about assets, snapshots, or validation",
+    risk: "assets, visual baselines, and spec-snapshot consistency not reviewed before handoff",
   });
 
   return { checkpoint, featureDir, items: applyAuditedSkips(featureDir, checkpoint, items) };
