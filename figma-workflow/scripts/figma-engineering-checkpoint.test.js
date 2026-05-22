@@ -39,12 +39,12 @@ test("renders checkpoint and allows continue after required prompts are handled"
         reason: "cache snapshots detected",
       },
       {
-        label: "Assets / validation",
+        label: "Assets / visual validation",
         skill: "figma-assets-validate",
         product: "assets-manifest.md, validation-report.md",
         status: "skipped",
         recommendation: "required_prompt",
-        reason: "pre-handoff validation is recommended before planning",
+        reason: "pre-handoff assets, visual baselines, and spec-snapshot checks are recommended before planning",
       },
     ],
   };
@@ -54,6 +54,7 @@ test("renders checkpoint and allows continue after required prompts are handled"
   assert.match(rendered, /交接前工程化检查/);
   assert.doesNotMatch(rendered, /\bv4\b/i);
   assert.match(rendered, /figma-design-diff/);
+  assert.match(rendered, /Assets \/ visual validation/);
   assert.match(rendered, /\[C\] Continue to handoff menu/);
 });
 
@@ -73,8 +74,8 @@ test("appends skip audit without changing products", () => {
     skill: "figma-assets-validate",
     product: "assets-manifest.md, validation-report.md",
     recommendation: "required_prompt",
-    reason: "pre-handoff validation recommended",
-    risk: "assets and boundary checks not reviewed before handoff",
+    reason: "pre-handoff assets, visual baselines, and spec-snapshot checks are recommended before planning",
+    risk: "assets, visual baselines, and spec-snapshot consistency not reviewed before handoff",
   };
 
   checkpoint.appendSkipAudit(featureDir, {

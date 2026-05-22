@@ -124,13 +124,14 @@ UI handoff 是面向设计/产品的上游交接文档,不是 Phase E implementa
 Assets / validation:
   [ ] assets-manifest.md (not generated)
   [ ] validation-report.md (not generated)
+  [ ] snapshots/ (not generated)
 
 Actions:
-  [A] Generate assets manifest
-  [Q] Run validation checks
+  [A] Generate assets manifest and visual baselines
+  [Q] Run validation and spec-snapshot checks
 ```
 
-Assets / validation action 不标记任何 Phase 完成,不替代人工 review gate,不默认下载所有资源,不授权 coding。
+Assets / validation action 不标记任何 Phase 完成,不替代人工 review gate,不默认下载所有生产资源,不授权 coding。
 
 ## 工程化检查点
 
@@ -140,7 +141,7 @@ Assets / validation action 不标记任何 Phase 完成,不替代人工 review g
 交接前工程化检查:
   [P13] design-diff.md
   [P14] ui-handoff.md
-  [P15] assets-manifest.md / validation-report.md
+  [P15] assets-manifest.md / validation-report.md / snapshots/
 ```
 
 推荐等级:
@@ -151,7 +152,7 @@ Assets / validation action 不标记任何 Phase 完成,不替代人工 review g
 | `recommended` | 条件满足时推荐,用户可 skip。 |
 | `available` | 可用但不主动打断。 |
 
-`figma-assets-validate` 在 Phase E review gate 之后始终是 `required_prompt`。
+`figma-assets-validate` 在 Phase E review gate 之后始终是 `required_prompt`,用于生成资源清单、visual baselines,并验证 implementation spec 与 required snapshot 是否一致。
 
 ## Phase A/B skill 菜单
 
