@@ -1,9 +1,9 @@
-import fs from "node:fs";
-import path from "node:path";
-import { execFileSync } from "node:child_process";
+const fs = require("node:fs");
+const path = require("node:path");
+const { execFileSync } = require("node:child_process");
 
 const markdownContracts = {
-  "clarified-requirement.md": ["Open Questions"],
+  "clarified-requirement.md": ["Goal", "Scope", "User States", "Open Questions"],
   "ui-understanding.md": ["Page Structure", "Repeated Patterns", "Open Questions"],
   "api-mapping.md": ["Data Sources", "Field Mapping", "State Mapping", "Open Questions"],
   "component-mapping.md": ["Open Questions"],
@@ -13,23 +13,29 @@ const markdownContracts = {
   "design-diff.md": ["Recommended Rerun Phases"],
 };
 
+const sectionAliases = {
+  Asset: ["Asset", "Assets", "Asset References"],
+};
+
 function exists(filePath) {
   return fs.existsSync(filePath);
 }
 
-export function readText(filePath) {
+function readText(filePath) {
   return exists(filePath) ? fs.readFileSync(filePath, "utf8") : "";
 }
 
-export function hasSections(markdown, sections) {
-  return sections.every((section) => {
-    const pattern = new RegExp(`^#{1,6}\\s+.*${escapeRegExp(section)}.*$`, "im");
-    return pattern.test(markdown);
-  });
-}
+function hasSections(markdown, sections) {
+  const headings = markdown
+    .split(/\r?\n/)
+    .map((line) => line.match(/^#{1,6}\s+(.+)$/))
+    .filter(Boolean)
+    .map((match) => match[1].trim());
 
-function escapeRegExp(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return sections.every((section) => {
+    const accepted = sectionAliases[section] || [section];
+    return headings.some((heading) => accepted.includes(heading));
+  });
 }
 
 function aggregateStatus(rows) {
@@ -38,7 +44,7 @@ function aggregateStatus(rows) {
   return "pass";
 }
 
-export function checkMarkdownContracts(featureDir) {
+function checkMarkdownContracts(featureDir) {
   const rows = [];
 
   for (const [fileName, sections] of Object.entries(markdownContracts)) {
@@ -79,7 +85,7 @@ function walkDirs(rootDir) {
   return result;
 }
 
-export function checkFixtureContracts(repoRoot) {
+function checkFixtureContracts(repoRoot) {
   const rows = [];
   const fixtureDirs = walkDirs(repoRoot).filter((dir) => {
     const normalized = dir.split(path.sep).join("/");
@@ -117,7 +123,7 @@ function gitChangedFiles(repoRoot, baseRef) {
   }
 }
 
-export function checkBoundary(repoRoot, baseRef, options = {}) {
+function checkBoundary(repoRoot, baseRef, options = {}) {
   const changedFiles = options.changedFiles || gitChangedFiles(repoRoot, baseRef);
   const rows = [];
   const businessPaths = changedFiles.filter((fileName) => /^(src|app|components|pages)\//.test(fileName));
@@ -163,7 +169,7 @@ function defaultAssetManifestCheck() {
   };
 }
 
-export function renderValidationReport(result) {
+function renderValidationReport(result) {
   const feature = result.feature || "unknown-feature";
   const lines = [
     `# Validation Report — ${feature}`,
@@ -249,6 +255,15 @@ function runCli(argv) {
   return 0;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+module.exports = {
+  checkBoundary,
+  checkFixtureContracts,
+  checkMarkdownContracts,
+  hasSections,
+  readText,
+  renderValidationReport,
+};
+
+if (require.main === module) {
   process.exitCode = runCli(process.argv.slice(2));
 }

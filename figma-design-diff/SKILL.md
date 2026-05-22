@@ -138,5 +138,4 @@ figma-design-diff feature=<feature-name> fileKey=<file-key> nodeId=<node-id>
 
 ## 参考
 
-- Spec:`docs/superpowers/specs/2026-05-21-figma-design-diff/README.md`
 - Cache layer:[../figma-workflow/references/cache-layer.md](../figma-workflow/references/cache-layer.md)

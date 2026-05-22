@@ -54,5 +54,8 @@
 | entry_icon | 200:122 | OperationEntryGrid (template) | svg |
 | banner_image | 200:141 | BannerCarousel | png |
 
+## Open Questions
+(无)
+
 ## Ignored
 - StatusBar / HomeIndicator(已在 component-mapping 阶段过滤)

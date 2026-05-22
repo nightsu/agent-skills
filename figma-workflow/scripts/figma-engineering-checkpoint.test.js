@@ -87,8 +87,8 @@ test("appends skip audit without changing products", () => {
   });
 
   const audit = fs.readFileSync(path.join(featureDir, "inputs.md"), "utf8");
-  assert.match(audit, /figma-workflow@engineering-checkpoint/);
-  assert.doesNotMatch(audit, /v4-checkpoint/);
+  assert.match(audit, /figma-workflow@v4-checkpoint/);
+  assert.doesNotMatch(audit, /engineering-checkpoint/);
   assert.match(audit, /skill: figma-assets-validate/);
   assert.match(audit, /continue_to_handoff: true/);
   assert.equal(fs.existsSync(path.join(featureDir, "assets-manifest.md")), false);
@@ -115,4 +115,28 @@ test("treats audited skips as handled on later inference", () => {
   assert.equal(nextState.items.find((item) => item.skill === "figma-design-diff").status, "skipped");
   assert.equal(nextState.items.find((item) => item.skill === "figma-assets-validate").status, "skipped");
   assert.equal(checkpoint.canContinueToHandoff(nextState), true);
+});
+
+test("recognizes legacy engineering-checkpoint skip audits", () => {
+  const featureDir = fs.mkdtempSync(path.join(os.tmpdir(), "engineering-legacy-skip-"));
+  write(path.join(featureDir, ".figma-cache/snapshots/baseline/metadata.file.1-2.json"), "{}\n");
+  write(path.join(featureDir, ".figma-cache/snapshots/current/metadata.file.1-2.json"), "{}\n");
+  write(path.join(featureDir, "inputs.md"), [
+    "## 2026-05-21T12:00:00+08:00 — figma-workflow@engineering-checkpoint",
+    "",
+    "- checkpoint: pre-handoff",
+    "- phase_context: after_phase_e_review",
+    "- action: skip",
+    "- skipped:",
+    "  - skill: figma-design-diff",
+    "    product: design-diff.md",
+    "    recommendation: required_prompt",
+    "    reason: cache snapshots detected",
+    "    risk: design changes not reviewed before handoff",
+    "",
+  ].join("\n"));
+
+  const state = checkpoint.inferEngineeringCheckpoint(featureDir, { checkpoint: "pre-handoff" });
+
+  assert.equal(state.items.find((item) => item.skill === "figma-design-diff").status, "skipped");
 });

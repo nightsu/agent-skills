@@ -52,5 +52,8 @@
 | icon_diamond | 123:790 | DiamondPreviewCard | svg |
 | icon_arrow | 123:791 | DiamondPreviewCard | svg |
 
+## Open Questions
+(无)
+
 ## Ignored
 - StatusBar / HomeIndicator / 装饰背景

@@ -309,6 +309,3 @@ Phase E handoff 是 OpenSpec / planning / task breakdown 等准备阶段的入�
 
 - 路由细节:[references/progress-routing.md](references/progress-routing.md)
 - Workflow 编排:[references/workflow-orchestration.md](references/workflow-orchestration.md)
-- Orchestrator spec:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/03-orchestrator.md`
-- File layout:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/02-file-layout.md`
-- Review gate & handoff:`docs/superpowers/specs/2026-05-20-figma-workflow-suite/05-review-gate-and-handoff.md`

@@ -83,7 +83,7 @@ A → B → C1 → C2 → D → E
 Skip audit 写入 `docs/design/<feature>/inputs.md`:
 
 ```markdown
-## <ISO8601> — figma-workflow@engineering-checkpoint
+## <ISO8601> — figma-workflow@v4-checkpoint
 
 - checkpoint: pre-handoff
 - phase_context: after_phase_e_review

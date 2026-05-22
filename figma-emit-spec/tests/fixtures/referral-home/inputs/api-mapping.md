@@ -24,3 +24,6 @@
 | loading | request pending | 骨架屏 |
 | empty | list.length === 0 | 空状态 |
 | error | request failed | 错误 toast |
+
+## Open Questions
+(无)
