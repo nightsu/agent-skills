@@ -1,4 +1,0 @@
-interface:
-  display_name: "Figma Design Token"
-  short_description: "从 Figma node 抽取视觉 token,输出 design-token-patch.md"
-  default_prompt: "使用 $figma-design-token 读取 docs/design/<feature>/component-mapping.md,对每个 module 从 Figma node 抽取视觉 token(尺寸 / 字体 / 字重 / 色值 / 间距 / 圆角 / 资源引用),关联 Figma variables,输出 docs/design/<feature>/design-token-patch.md 并在 inputs.md 追加一条记录。"

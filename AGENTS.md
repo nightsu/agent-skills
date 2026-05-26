@@ -4,26 +4,19 @@
 
 ## 仓库定位
 
-- 这是面向 Codex 和 Claude Code 的共享技能仓库。
+- 这是面向 Codex 和 Claude Code 的共享通用技能仓库。
 - 每个技能以独立目录维护，目录内保持统一结构。
 - 仓库面向 Codex 提供 standalone skills，面向 Claude Code 提供 plugin 分发。
+- Figma workflow skills 已拆分到独立仓库 `ora-figma-skills`。
 
 ## 当前技能
 
 - `document-analysis`：理解、摘要并审阅文档。
 - `project-interview-analyzer`：把项目整理成面试材料。
 - `git-commit`：安全审查改动并生成提交。
-- `figma-clarify-requirement`:把用户自然语言需求整理为 clarified-requirement.md(figma-workflow-suite 的 phase A)。
-- `figma-ui-understand`:从指定 Figma node 提取页面结构、重复模式、疑似组件和 UI 语义,输出 ui-understanding.md(figma-workflow-suite 的 phase B)。
-- `figma-api-first`:把接口结构整理为 api-mapping.md(figma-workflow-suite 的 phase C1)。
-- `figma-ui-api-mapper`:清理 Figma 节点,合并 api-mapping.md,输出 component-mapping.md(figma-workflow-suite 的 phase C2,renamed from `figma-api-mapper`)。
-- `figma-design-token`:从 Figma node 抽取视觉 token,输出 design-token-patch.md(figma-workflow-suite 的 phase D)。
-- `figma-emit-spec`:合并 5 份上游 .md 产物 → implementation-spec.md + open-questions.md,提供 handoff 出口(figma-workflow-suite 的 phase E)。
-- `figma-workflow`:按 docs/design/<feature>/ 产物状态驱动 figma-workflow-suite C→D→E 阶段,展示 review gate 与 handoff 出口。
-- `figma-design-diff`:基于 `.figma-cache/` before/current evidence 生成 `design-diff.md`,提示 Figma 改稿影响和建议重跑阶段(P13)。
-- `figma-ui-handoff`:读取已有 figma-workflow 产物,生成 `ui-handoff.md`,帮助设计/产品补齐上游交接信息(P14)。
-- `figma-assets-validate`:读取已有 figma-workflow 产物,生成 `assets-manifest.md` 与 `validation-report.md`,收口资源交付和自动化验证(P15)。
+- `markitdown-export`：将 PDF、Word、Excel 等文件转换为同目录 Markdown。
 - `markdown-lint`：清理并规范 Markdown 文件格式。
+- `kabu-story`：为 3 到 4 岁儿童生成低认知负担、高情绪共鸣的故事。
 
 ## 统一结构
 
@@ -62,4 +55,3 @@
 - 参考文件保持单层引用，不要层层嵌套。
 - 长参考文件需要尽量结构化，便于快速预览。
 - 只有跨仓库通用的规则放在这里，OpenSpec change 级别的默认约束不要重复写在此处。
-- `.figma-cache/` 是 feature 级 Figma evidence 缓存,不属于用户手写产物;不要把 raw Figma JSON 复制进 Phase A-E 的 `.md` 输出。

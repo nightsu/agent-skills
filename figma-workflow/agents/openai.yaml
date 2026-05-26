@@ -1,4 +1,0 @@
-interface:
-  display_name: "Figma Workflow"
-  short_description: "按 docs/design/<feature>/ 产物驱动 C→D→E 流程"
-  default_prompt: "使用 $figma-workflow feature=<feature-name> 按 docs/design/<feature>/ 下的产物状态推断进度,展示阶段面板,优先路由 A/B/C1/C2/D/E 对应 skill,不可用时对 A/B/C1 提供模板 fallback;每阶段完成后展示 review gate,phase E review gate 后先展示交接前工程化检查,再进入 handoff 出口。"

@@ -4,27 +4,17 @@
     "name": "Ethan"
   },
   "metadata": {
-    "description": "Shared skills for Codex and Claude Code",
+    "description": "Shared general-purpose skills for Codex and Claude Code",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "ethan-skills",
-      "description": "Shared skills for Codex and Claude Code",
+      "description": "Shared general-purpose skills for Codex and Claude Code",
       "source": "./",
       "strict": true,
       "skills": [
         "./document-analysis",
-        "./figma-clarify-requirement",
-        "./figma-ui-understand",
-        "./figma-api-first",
-        "./figma-ui-api-mapper",
-        "./figma-design-token",
-        "./figma-emit-spec",
-        "./figma-workflow",
-        "./figma-design-diff",
-        "./figma-ui-handoff",
-        "./figma-assets-validate",
         "./project-interview-analyzer",
         "./git-commit",
         "./markitdown-export",

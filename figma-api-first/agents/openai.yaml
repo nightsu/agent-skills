@@ -1,4 +1,0 @@
-name: figma-api-first
-version: 0.1.0
-description: "Generate api-mapping.md from pasted API structures for figma-workflow-suite Phase C1."
-default_prompt: "使用 $figma-api-first feature=<feature-name> 读取 docs/design/<feature>/ 下的 clarified-requirement.md 和 ui-understanding.md,根据用户粘贴的接口结构整理 api-mapping.md,并在 inputs.md 追加 audit 记录。"

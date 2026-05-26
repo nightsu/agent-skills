@@ -1,4 +1,0 @@
-interface:
-  display_name: "Figma Clarify Requirement"
-  short_description: "把用户需求整理成 clarified-requirement.md"
-  default_prompt: "使用 $figma-clarify-requirement feature=<feature-name> 把用户自然语言需求、业务背景、约束和待确认项整理为 docs/design/<feature>/clarified-requirement.md,并在 inputs.md 追加一条记录。需求很模糊时可建议先用 superpowers:brainstorming 辅助澄清,但不要强依赖。不要写业务代码,不要调用 Figma 深度分析。"

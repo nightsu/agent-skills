@@ -1,4 +1,0 @@
-interface:
-  display_name: "Figma UI-API 映射器"
-  short_description: "清理 Figma 噪音,合并 api-mapping.md,输出 component-mapping.md"
-  default_prompt: "使用 $figma-ui-api-mapper 读取 docs/design/<feature>/ 下的 clarified-requirement.md、ui-understanding.md、api-mapping.md,清理 Figma 节点,区分 api_bound、ui_static、ui_copy 和 unknown,合并接口字段,输出 docs/design/<feature>/component-mapping.md 并在 inputs.md 追加一条记录。"
