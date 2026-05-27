@@ -11,7 +11,11 @@
 
 1. 重新对齐上游说明
    - 先查看上游 README 的安装、可选依赖和用法部分
-   - 重点关注 `docx`、`pdf`、`xlsx`、`pptx`、`outlook`、`audio-transcription`、`youtube-transcription`
+   - 检查 `packages/markitdown/src/markitdown/_markitdown.py` 的内建 converter 注册列表
+   - 检查 `packages/markitdown/src/markitdown/converters/__init__.py` 的 converter 导出列表
+   - 重点关注本地格式：`docx`、`pdf`、`xlsx`、`xls`、`pptx`、`outlook`、`epub`、`ipynb`、`zip`、`image`、`audio-transcription`
+   - 关注本地 CLI 参数：`--use-plugins`、`--keep-data-uris`、`--extension`、`--mime-type`、`--charset`
+   - Azure Content Understanding、Azure Document Intelligence、YouTube URL、HTTP/HTTPS URL 是上游能力，但不是本技能默认本地转换流程
 2. 检查本地版本
    - 运行：
      - `python3 scripts/check_markitdown.py`
@@ -32,7 +36,13 @@
      - 一个 `.docx`
      - 一个 `.pdf`
      - 一个 `.xlsx`
+     - 一个 `.html` 或 `.csv`
+     - 一个 `.zip`
+   - 可选覆盖：
+     - 一个 `.jpg` 或 `.png`，检查元数据提取行为
+     - 一个 `.mp3` 或 `.wav`，只在确认外部转写依赖可接受时测试转写
    - 检查输出是否仍然在源文件同目录
+   - 检查 `--use-plugins`、`--keep-data-uris`、`--extension`、`--mime-type`、`--charset` 不会绕过覆盖确认
 5. 技能同步
    - 如果上游新增/删除支持格式，更新 `SKILL.md`
    - 如果默认行为变了，更新 `scripts/convert.py`
@@ -40,7 +50,7 @@
 
 ## 回归判定
 
-- `quick_validate.py` 必须通过
+- `python3 -m unittest discover -s markitdown-export/tests` 必须通过
 - 同目录输出必须成立
 - 同名文件必须先询问覆盖
 - 真实文件转换必须成功，不应只靠 mock
