@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
+from dataclasses import dataclass
 from pathlib import Path
 from shutil import which
 
@@ -22,10 +23,39 @@ def ask_overwrite(path: Path) -> bool:
         print("Please answer y or n.")
 
 
-def run_markitdown(source: Path, output: Path) -> int:
+@dataclass(frozen=True)
+class MarkitdownOptions:
+    use_plugins: bool = False
+    keep_data_uris: bool = False
+    extension: str | None = None
+    mime_type: str | None = None
+    charset: str | None = None
+
+
+def build_markitdown_args(
+    source: Path,
+    output: Path,
+    options: MarkitdownOptions,
+) -> list[str]:
+    args = [str(source), "-o", str(output)]
+    if options.use_plugins:
+        args.append("--use-plugins")
+    if options.keep_data_uris:
+        args.append("--keep-data-uris")
+    if options.extension:
+        args.extend(["--extension", options.extension])
+    if options.mime_type:
+        args.extend(["--mime-type", options.mime_type])
+    if options.charset:
+        args.extend(["--charset", options.charset])
+    return args
+
+
+def run_markitdown(source: Path, output: Path, options: MarkitdownOptions) -> int:
+    markitdown_args = build_markitdown_args(source, output, options)
     binary = which("markitdown")
     if binary:
-        command = [binary, str(source), "-o", str(output)]
+        command = [binary, *markitdown_args]
         completed = subprocess.run(command, check=False)
         if completed.returncode == 0:
             print(output)
@@ -51,7 +81,7 @@ def run_markitdown(source: Path, output: Path) -> int:
 
     last_returncode = 1
     for python in candidates:
-        command = [python, "-m", "markitdown", str(source), "-o", str(output)]
+        command = [python, "-m", "markitdown", *markitdown_args]
         completed = subprocess.run(command, check=False)
         last_returncode = completed.returncode
         if last_returncode == 0:
@@ -75,6 +105,28 @@ def main() -> int:
         "--overwrite",
         action="store_true",
         help="Overwrite an existing output file without prompting.",
+    )
+    parser.add_argument(
+        "--use-plugins",
+        action="store_true",
+        help="Enable installed MarkItDown plugins for this conversion.",
+    )
+    parser.add_argument(
+        "--keep-data-uris",
+        action="store_true",
+        help="Keep data URIs in Markdown output instead of truncating them.",
+    )
+    parser.add_argument(
+        "--extension",
+        help="Optional file extension hint for MarkItDown, such as pdf or .pdf.",
+    )
+    parser.add_argument(
+        "--mime-type",
+        help="Optional MIME type hint for MarkItDown, such as application/pdf.",
+    )
+    parser.add_argument(
+        "--charset",
+        help="Optional charset hint for MarkItDown, such as utf-8.",
     )
     args = parser.parse_args()
 
@@ -100,7 +152,15 @@ def main() -> int:
             print("Aborted.", file=sys.stderr)
             return 2
 
-    return run_markitdown(source, output)
+    options = MarkitdownOptions(
+        use_plugins=args.use_plugins,
+        keep_data_uris=args.keep_data_uris,
+        extension=args.extension,
+        mime_type=args.mime_type,
+        charset=args.charset,
+    )
+
+    return run_markitdown(source, output, options)
 
 
 if __name__ == "__main__":
