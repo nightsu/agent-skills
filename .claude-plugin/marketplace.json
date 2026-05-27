@@ -18,6 +18,7 @@
         "./project-interview-analyzer",
         "./git-commit",
         "./markitdown-export",
+        "./manga-ebook-conversion",
         "./markdown-lint",
         "./kabu-story"
       ]

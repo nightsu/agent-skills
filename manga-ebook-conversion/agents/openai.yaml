@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manga Ebook Conversion"
+  short_description: "批量转换漫画 MOBI/EPUB，使用 kcc-oasis/Calibre 并校验 Kindle 输出"
+  default_prompt: "Use $manga-ebook-conversion to batch convert manga ebooks with Calibre and kcc-oasis, naming outputs *_oasis.epub and verifying resolution, reading mode, and EPUB integrity."
