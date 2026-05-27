@@ -15,6 +15,7 @@
 - `project-interview-analyzer`：把项目整理成面试材料。
 - `git-commit`：安全审查改动并生成提交。
 - `markitdown-export`：将 PDF、Word、Excel 等文件转换为同目录 Markdown。
+- `manga-ebook-conversion`：批量转换漫画 MOBI/EPUB，并用 kcc-oasis 生成 Kindle 友好输出。
 - `markdown-lint`：清理并规范 Markdown 文件格式。
 - `kabu-story`：为 3 到 4 岁儿童生成低认知负担、高情绪共鸣的故事。
 
