@@ -1,4 +1,4 @@
 interface:
   display_name: "Project Interview Analyzer"
-  short_description: "把项目整理成面试材料，并补充演进路线"
+  short_description: "Use when preparing project materials for technical interviews, resume building, or portfolio storytelling. Analyzes project directories and produces Chinese technical/business overviews plus interview story documents, including ideal redesign and incremental optimization directions."
   default_prompt: "Use $project-interview-analyzer to analyze my project directories and produce Chinese technical/business overviews plus interview story documents, including ideal redesign and incremental optimization directions when the project is complex."
